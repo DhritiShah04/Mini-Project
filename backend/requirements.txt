@@ -1,0 +1,5 @@
+python-dotenv
+google-generativeai
+tabulate
+flask
+flask-cors

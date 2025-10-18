@@ -1,0 +1,75 @@
+#prod {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap; 
+    gap: 20px;
+}
+
+.recommendation-card {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    padding: 1%;
+    margin-top: 4%;
+    height: max-content;
+    margin-bottom: 4%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.468);
+}
+
+.recommendation-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.766);
+}
+
+#prod-img {
+    background-color: #d9d9d9;
+    border-radius: 15px;
+    border: 4px solid #b9b7b7;
+    width: 80%;
+    min-height: 50%;
+}
+
+#prod-deets {
+    text-align: center;
+    color: #3b3b3b;
+}
+
+.more-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.more-info button {
+    margin: 2%;
+    padding: 3%;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.more-info #info {
+    background-color: #b9b7b7;
+    color: #3b3b3b;
+}
+
+.more-info #wish {
+    background-color: #d9d9d9;
+}
+
+.more-info #info:hover {
+    background-color: #969191;
+}
+
+.more-info #heart {
+    /* color: #bd4040; */
+    color: #b9b7b7;
+}
