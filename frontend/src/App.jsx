@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import ProductInfo from "./components/ProductInfo";
 import ProductCards from "./components/productPage";
+import CompareLaptops from "./components/CompareLaptops";
+
 
 function App() {
   const navigate = useNavigate();
@@ -107,7 +109,14 @@ function App() {
         <Route path="/products/:id" element={
           <ProductInfo laptops={laptops} />
         } />
+
+        <Route path="/compareLaptops" element={
+          <CompareLaptops laptops={laptops}/>
+        }/>
+
         </Routes>
+
+        
       </div>
     </div>
   );

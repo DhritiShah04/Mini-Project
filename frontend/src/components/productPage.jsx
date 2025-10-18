@@ -1,6 +1,8 @@
 import React from 'react'
 import './productPage.css' 
 import ProductCard from './productCard';
+import { Link } from 'react-router-dom';
+
 
 // Accept laptops data, plus state and handlers for the query bar
 function ProductCards({ laptops, query, setQuery, onUpdateQuery, onReset }) {
@@ -12,7 +14,7 @@ function ProductCards({ laptops, query, setQuery, onUpdateQuery, onReset }) {
         {/* Topbar when no laptops are found */}
         <div id="topbar" className="query-section">
           <p>No laptops found based on current criteria. Try refining your search:</p>
-          <input
+          <input id='refine-input-topbar'
             type="text"
             placeholder="Type something like 'increase budget' or 'gaming laptop'"
             value={query}
@@ -32,18 +34,18 @@ function ProductCards({ laptops, query, setQuery, onUpdateQuery, onReset }) {
     <div className='product-cards-container'>
       {/* Refinement Bar at the top */}
       <div id="topbar" className="query-section">
-        <input
+        <input id='topbar-ip'
           type="text"
           placeholder="Refine your query..."
           value={query} // Use the passed-down query state
           onChange={(e) => setQuery(e.target.value)} // Use the passed-down setQuery function
         />
         {/* Button to trigger the update */}
-        <button onClick={onUpdateQuery}>
-          <i class="fa-solid fa-magnifying-glass"></i> Refine
+        <button id='search' onClick={onUpdateQuery}>
+          <i  class="fa-solid fa-magnifying-glass"></i>
         </button> 
         {/* Button to trigger the reset */}
-        <button className="reset-btn" onClick={onReset}>Start Over</button>
+        {/* <button className="reset-btn" onClick={onReset}>Start Over</button> */}
       </div>
 
       <div id="main-cont">
@@ -56,9 +58,11 @@ function ProductCards({ laptops, query, setQuery, onUpdateQuery, onReset }) {
           ))}
         </div>
         <div id="go-to-compare">
-          <button>
-            Compare
-          </button>
+          <Link to="/compareLaptops"> 
+            <button>
+              Compare
+            </button>
+          </Link>
         </div>
       </div>
     </div>

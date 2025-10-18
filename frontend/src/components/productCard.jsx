@@ -24,10 +24,10 @@ function ProductCard({ item }) {
 
         </div>
         <div id="prod-deets">
-          <h3 className="product-model">{item.model || "Unknown Model"}
+          <h3 className="product-model">{item.model || "Unknown Model"} <br /> ₨ {item.price_inr}/-
           </h3>
 
-          <h4 className='prod-price'>₨ {item.price_inr}/-</h4>
+          {/* <h4 className='prod-price'>₨ {item.price_inr}/-</h4> */}
           <p id="prod-why">{item.why}</p>
         </div>
 
