@@ -7,28 +7,82 @@
     /* justify-content:center; */
 }
 
+#link-part
+{
+    text-decoration: none;
+}
+
+.heading-comp {
+    width: 90%;
+    margin: 1%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left; /* This is key for left/center/right alignment */
+    /* margin-bottom: 20px; */
+}
+
+/* --- Back Button Group (LEFT ALIGNMENT) --- */
+.go-back-comp {
+    color: #3b3b3b;
+    /* padding: 10px 0; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s;
+    /* Keep width tight so it doesn't push the center item */
+    width: auto; 
+    background-color: #45454500;
+    border: 0px;
+    font-size: 1em;
+}
+
+.go-back-comp:hover {
+    color: #007bff; /* Highlight on hover */
+}
+
+.go-back-comp i {
+    padding-right: 10px;
+    font-size: 1.2em;
+}
+
+.go-back-comp h4 {
+    margin: 0;
+    font-weight: 600;
+}
+
 .recom {
-    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
 }
 
 .titles-comp {
     background-color: #d9d9d9;
     border: 6px solid #3b3b3b;
     border-radius: 15px;
-    width: 90%;
-    height: 5%;
-    padding: 1%;
+    width: 91%;
+    height: 7%;
+    padding: 0.5%;
     margin-top: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5%;
+    font-size: 1em;
 }
 
-.titles-comp h3 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.titles-comp .inner-cont-comp h3 {
+    margin: 1%;
+}
+
+.titles-comp .inner-cont-comp-left h3 {
+    margin: 1%;
+}
+
+.titles-comp .inner-cont-comp-right h3 {
+    margin: 1%;
 }
 
 .cont-comp {
@@ -36,9 +90,9 @@
     border: 6px solid #3b3b3b;
     border-radius: 15px;
     width: 90%;
-    height: 65%;
+    height: 82%;
     padding: 1%;
-    margin-top: 2%;
+    margin-top: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +105,7 @@
     height: 100%;
     width: 70%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #d9d9d9;
     box-shadow: 0 2px 8px #3b3b3bbd;
     border-radius: 9px 0 0 9px;
@@ -60,13 +114,12 @@
 .inner-cont-comp {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
     background-color: #d9d9d9;
     box-shadow: 0 2px 8px #3b3b3bbd;
-    /* border-radius: 9px; */
 }
 
 .inner-cont-comp-right {
@@ -75,7 +128,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #d9d9d9;
     box-shadow: 0 2px 8px #3b3b3bbd;
     border-radius: 0 9px 9px 0;
@@ -88,8 +141,18 @@
     text-align: center;
     color: #3b3b3b;
     margin: 2%;
+    font-size: 1.1em;
 }
 
 .inner-cont-comp-left .features-comp {
     font-weight: 900;
+}
+
+.actual-comp-table {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
