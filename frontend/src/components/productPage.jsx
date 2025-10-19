@@ -48,7 +48,7 @@ function ProductCards({ laptops, query, setQuery, onUpdateQuery, onReset }) {
         {/* <button className="reset-btn" onClick={onReset}>Start Over</button> */}
       </div>
 
-      <div id="main-cont">
+      <div class="main-cont">
         <div id="prod">
           {laptops.map((item, idx) => (
             <ProductCard 

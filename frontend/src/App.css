@@ -28,7 +28,7 @@ h1 {
   padding: 2rem;
   border-radius: 30px;
   box-shadow: 0 7px 10px rgba(0, 0, 0, 0.3);
-}
+} 
 
 h2,
 h3 {
@@ -92,7 +92,7 @@ button:hover {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 } */
 
-/* 🗣️ Query Section */
+🗣️ Query Section
 .query-section {
   display: flex;
   align-items: center;
