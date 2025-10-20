@@ -24,15 +24,18 @@ function ProductCard({ item }) {
 
         </div>
         <div id="prod-deets">
-          <h3 className="product-model">{item.model || "Unknown Model"} <br /> ₨ {item.price_inr}/-
-          </h3>
-
+          <div className="prod-model-comp">
+            <h3 className="product-model">{item.model || "Unknown Model"} <br /> ₨ {item.price_inr}/-
+            </h3>
+          </div>
           {/* <h4 className='prod-price'>₨ {item.price_inr}/-</h4> */}
-          <p id="prod-why">{item.why}</p>
+          <div className="prod-why-comp">
+            <p id="prod-why">{item.why}</p>
+          </div>
         </div>
 
         <div className="more-info">
-          <Link to={`/products/${productId}`}> 
+          <Link id='more-info-link' to={`/products/${productId}`}> 
             <button id='info'>
               More Info
             </button>

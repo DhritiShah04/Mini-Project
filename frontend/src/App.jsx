@@ -88,7 +88,9 @@ function App() {
           <>
             {results ? ( 
               results.processing ? (
-                  <div className="loading">Loading recommendations...</div>
+                <div className="loading">
+                  <div className="loader"></div>
+                </div>
               ) : (
                   <ProductCards
                       laptops={laptops}

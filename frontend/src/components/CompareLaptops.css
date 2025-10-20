@@ -13,23 +13,20 @@
 }
 
 .go-back-comp-ka-comp {
-    
+    margin-right: auto;
 }
 
 .heading-comp {
     width: 90%;
-    margin: 1%;
+    margin: 1% auto;
     max-width: 100%;
     display: flex;
     /* flex-direction: column; */
     align-items: center;
-    justify-content: left; 
+    justify-content: center; 
     /* margin-bottom: 20px; */
 }
 
-
-
-/* --- Back Button Group (LEFT ALIGNMENT) --- */
 .go-back-comp {
     color: #3b3b3b;
     /* padding: 10px 0; */
@@ -38,14 +35,21 @@
     cursor: pointer;
     transition: color 0.2s;
     /* Keep width tight so it doesn't push the center item */
-    width: auto; 
-    background-color: #45454500;
-    border: 0px;
+    /* width: auto;  */
+    background-color: #29426374;
+    border: 3px solid #46587e8b;
+    padding: 5%;
+    padding-left: 10%;
+    border-radius: 20px;
+    /* border: 0px; */
     font-size: 1em;
+    /* padding-bottom: 20%; */
 }
 
 .go-back-comp:hover {
-    color: #007bff; /* Highlight on hover */
+    color: #314e62; /* Highlight on hover */
+    background-color: #3f3f3f5e;
+    border: 4px solid #46587e;
 }
 
 .go-back-comp i {
@@ -61,7 +65,9 @@
 .recom {
     padding: 0;
     margin: 0;
-    font-size: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 2.2em;
 }
 
 .titles-comp {
@@ -161,4 +167,5 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 2%;
 }

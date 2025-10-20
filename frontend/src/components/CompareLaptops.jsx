@@ -1,9 +1,8 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react'; // 👈 Reworked this line for clarity and robustness
+import { useParams, Link } from 'react-router-dom';
 import "./CompareLaptops.css";
 
-// Define the keys we want to display and format them
+// Define the keys we want to display and format them (keeping this as-is)
 const DISPLAY_KEYS = [
     "_id",
     "model",
@@ -18,20 +17,34 @@ const DISPLAY_KEYS = [
 ];
 
 function CompareLaptops({ laptops }) {
+  // 1. Declare the ref inside the function component
+  const targetDivRef = useRef(null);
+  
+  // 2. Define the scroll logic inside useEffect to run once on mount
+  useEffect(() => {
+    if (targetDivRef.current) {
+      targetDivRef.current.scrollIntoView({
+        behavior: 'smooth', 
+        block: 'center',    
+        inline: 'nearest'   
+      });
+    }
+  }, []); 
+
   return (
-    <div class='main-cont-coompare'>
+    // 3. Attach the ref to the div you want to center
+    // Note: It's better practice to use 'className' instead of 'class' in JSX/React
+    <div ref={targetDivRef} className='main-cont-coompare'>
       <div className='heading-comp'>
-          {/* <div className="go-back-comp"> */}
-            <Link to='/recommendations' id='link-part'> 
+          <Link to='/recommendations' id='link-part'> 
             <span className='go-back-comp-ka-comp'>
-              <button class= "go-back-comp">
-                  <i class="fa-solid fa-arrow-left-long"></i>
+              <button className="go-back-comp">
+                  <i className="fa-solid fa-arrow-left-long"></i>
                   <h4>Back to Laptops</h4>
               </button>
             </span>
-            </Link>
-          {/* </div> */}
-          <h2 class='recom'>Compare our Recommendations</h2> 
+          </Link>
+          <h2 className='recom'>Compare our Recommendations</h2> 
       </div>
       
 
@@ -61,37 +74,33 @@ function CompareLaptops({ laptops }) {
               <p className='features-comp'>RAM</p>
               <p className='features-comp'>CPU</p>
               <p className='features-comp'>GPU</p>
-              {/* <p className='features-comp'>Why?</p> */}
           </div>
           {laptops.map((laptop, index) => {
             const isLast = index === laptops.length - 1;
             const className = isLast? "inner-cont-comp-right" : "inner-cont-comp";
             return (
-              <div className={className}>
-                <div key={laptop.price_inr} className = {`$ features-comp`}>
+              <div key={laptop._id + "-data"} className={className}> 
+                <div className="features-comp">
                   <p>Rs {laptop.price_inr}/-</p>
                 </div>
-                <div key={laptop.price_inr} className = {`$ features-comp`}>
+                <div className="features-comp">
                   <p>{laptop.battery}</p>
                 </div>
-                <div key={laptop.price_inr} className = {`$ features-comp`}>
+                <div className="features-comp">
                   <p>{laptop.display}</p>
                 </div>
-                <div key={laptop.price_inr} className = {`$ features-comp`}>
+                <div className="features-comp">
                   <p>{laptop.storage}</p>
                 </div>
-                <div key={laptop.price_inr} className = {`$ features-comp`}>
+                <div className="features-comp">
                   <p>{laptop.ram}</p>
                 </div>
-                <div key={laptop.price_inr} className = {`$ features-comp`}>
+                <div className="features-comp">
                   <p>{laptop.cpu}</p>
                 </div>
-                <div key={laptop.price_inr} className = {`$ features-comp`}>
+                <div className="features-comp">
                   <p>{laptop.gpu}</p>
                 </div>
-                {/* <div key={laptop.price_inr} className = {`$features-comp`}>
-                  <p>{laptop.why}</p>
-                </div> */}
               </div>
             )
           })}
