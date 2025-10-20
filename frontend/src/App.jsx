@@ -114,9 +114,7 @@ function App() {
           <CompareLaptops laptops={laptops}/>
         }/>
 
-        </Routes>
-
-        
+        </Routes>  
       </div>
     </div>
   );

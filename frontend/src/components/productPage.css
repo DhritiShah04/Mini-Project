@@ -36,12 +36,13 @@
 .main-cont
 {
     margin: 2%;
-    width: 90%;
+    width: 88%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-self: center;
+    
     background-color: #3b3b3b;
     border-radius: 30px;
 }

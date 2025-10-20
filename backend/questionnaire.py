@@ -3,120 +3,103 @@ QUESTIONNAIRE = {
   "questions": [
     {
       "id": "use_case",
-      "question": "What will you mainly use the laptop for?",
+      "question": "What do you mainly need the laptop for?",
       "type": "single-choice",
       "options": [
-        "Internet, movies, and office work",
-        "College or school work, coding, and studying",
-        "Gaming or watching high-quality videos",
-        "Designing, video editing, or creative work",
+        "For everyday tasks (browsing, movies, office work)",
+        "For studies or programming",
+        "For gaming or watching high-quality videos",
+        "For design, video editing, or creative work",
         "Other"
       ]
     },
     {
       "id": "budget",
-      "question": "How much do you want to spend?",
+      "question": "What is your budget range?",
       "type": "single-choice",
       "options": [
-        "Low (₹35K–50K)",
-        "Medium (₹55K–75K)",
-        "High (₹80K–1.2L)",
-        "Premium (₹1.3L+)",
-        "Not sure"
+        "₹35,000 – ₹50,000 (Basic use)",
+        "₹55,000 – ₹75,000 (Good performance)",
+        "₹80,000 – ₹1,20,000 (High-end use)",
+        "Above ₹1,30,000 (Premium laptops)",
+        "Not sure yet"
       ]
     },
     {
       "id": "processor",
-      "question": "Processor / Speed preference",
+      "question": "What type of processor do you prefer?",
       "type": "single-choice",
       "options": [
-        "Basic (Intel i3 / Ryzen 3)",
-        "Balanced (Intel i5 / Ryzen 5)",
-        "Fast (Intel i7 / Ryzen 7)"
+        "Basic – for light use (Intel i3 / Ryzen 3)",
+        "Medium – for smooth multitasking (Intel i5 / Ryzen 5)",
+        "Powerful – for heavy work or gaming (Intel i7 / Ryzen 7 or above)"
       ]
     },
     {
       "id": "ram",
-      "question": "RAM / Memory preference",
+      "question": "How much memory (RAM) do you prefer?",
       "type": "single-choice",
-      "options": ["8GB", "16GB", "32GB+"]
-    },
-    {
-      "id": "storage",
-      "question": "Storage preference",
-      "type": "single-choice",
-      "options": ["SSD", "SSD + Extra HDD"]
-    },
-    {
-      "id": "gpu",
-      "question": "Graphics preference",
-      "type": "single-choice",
-      "options": ["Normal", "Dedicated"]
-    },
-    {
-      "id": "screen_size",
-      "question": "Screen size preference",
-      "type": "single-choice",
-      "options": ["Small (14\")", "Medium (15–16\")", "Other"]
-    },
-    {
-      "id": "screen_quality",
-      "question": "Screen quality / resolution",
-      "type": "single-choice",
-      "options": ["Normal (Full HD)", "High quality (2K / 4K)"]
-    },
-    {
-      "id": "weight",
-      "question": "Laptop weight preference",
-      "type": "single-choice",
-      "options": ["Light (<1.6 kg)", "Medium (1.6–2.5 kg)", "Heavy (>2.5 kg)"]
-    },
-    {
-      "id": "battery",
-      "question": "Battery life preference",
-      "type": "single-choice",
-      "options": ["5–6 hours minimum", "6–10 hours preferred", "Not important"]
-    },
-    {
-      "id": "aesthetics",
-      "question": "Do you care about how it looks?",
-      "type": "single-choice",
-      "options": ["Yes, stylish laptop", "Doesn’t matter"]
-    },
-    {
-      "id": "ports",
-      "question": "Ports & connectivity (USB, HDMI, headphones, etc.)",
-      "type": "single-choice",
-      "options": ["Need many ports", "A few ports are enough", "Don’t care"]
-    },
-    {
-      "id": "security",
-      "question": "Security features",
-      "type": "multi-choice",
-      "options": ["Webcam 1080p", "Fingerprint or face login", "Don’t care"]
-    },
-    {
-      "id": "priorities",
-      "question": "What matters most to you?",
-      "type": "multi-choice",
       "options": [
-        "Speed / Performance",
-        "Portability / Light weight",
-        "Battery life",
-        "Screen quality",
-        "Keyboard comfort / typing",
-        "Price / Value for money"
+        "8GB (Good for normal use)",
+        "16GB (Best for multitasking and coding)",
+        "32GB or more (For professional or creative work)"
       ]
     },
     {
-      "id": "brand",
-      "question": "Do you have any brand preference?",
+      "id": "gpu",
+      "question": "Do you need a graphics card?",
+      "type": "single-choice",
+      "options": [
+        "No, normal use is fine",
+        "Yes, for gaming, video editing, or graphics-heavy work"
+      ]
+    },
+    {
+      "id": "screen_size",
+      "question": "What screen size do you prefer?",
+      "type": "single-choice",
+      "options": [
+        "Compact (13–14 inches, easy to carry)",
+        "Standard (15–16 inches, balanced size)",
+        "Large (17 inches or more, for bigger display)"
+      ]
+    },
+    {
+      "id": "battery",
+      "question": "How important is battery life to you?",
+      "type": "single-choice",
+      "options": [
+        "Needs to last long (8–10 hours)",
+        "Average battery is fine (5–7 hours)",
+        "Mostly use plugged in (not important)"
+      ]
+    },
+    {
+      "id": "weight",
+      "question": "Do you prefer a lightweight or heavy laptop?",
+      "type": "single-choice",
+      "options": [
+        "Lightweight (easy to carry, below 1.6 kg)",
+        "Medium (1.6–2.5 kg, balanced)",
+        "Doesn’t matter to me"
+      ]
+    },
+    {
+      "id": "priorities",
+      "question": "What matters most to you while choosing a laptop?",
       "type": "multi-choice",
-      "options": ["Dell", "HP", "Lenovo", "ASUS", "Acer", "Apple", "No preference"]
+      "options": [
+        "Fast performance",
+        "Long battery life",
+        "Lightweight and portable",
+        "Good display quality",
+        "Comfortable keyboard",
+        "Affordable price"
+      ]
     },
     {
       "id": "other_requirements",
-      "question": "Anything else you want? (Touchscreen, stylus, foldable, color, etc.)",
+      "question": "Any other preferences? (Example: touchscreen, color, 2-in-1, stylus support, etc.)",
       "type": "text"
     }
   ]

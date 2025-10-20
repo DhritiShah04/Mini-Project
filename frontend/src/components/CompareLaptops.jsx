@@ -23,14 +23,17 @@ function CompareLaptops({ laptops }) {
       <div className='heading-comp'>
           {/* <div className="go-back-comp"> */}
             <Link to='/recommendations' id='link-part'> 
-            <button class= "go-back-comp">
-                <i class="fa-solid fa-arrow-left-long"></i>
-                <h4>Back to Laptops</h4>
+            <span className='go-back-comp-ka-comp'>
+              <button class= "go-back-comp">
+                  <i class="fa-solid fa-arrow-left-long"></i>
+                  <h4>Back to Laptops</h4>
               </button>
+            </span>
             </Link>
           {/* </div> */}
+          <h2 class='recom'>Compare our Recommendations</h2> 
       </div>
-      <h2 class='recom'>Compare our Recommendations</h2>  
+      
 
       <div className='actual-comp-table'>
         <div className="titles-comp">

@@ -1,6 +1,6 @@
 .main-cont-coompare {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,16 +12,22 @@
     text-decoration: none;
 }
 
+.go-back-comp-ka-comp {
+    
+}
+
 .heading-comp {
     width: 90%;
     margin: 1%;
     max-width: 100%;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: column; */
     align-items: center;
-    justify-content: left; /* This is key for left/center/right alignment */
+    justify-content: left; 
     /* margin-bottom: 20px; */
 }
+
+
 
 /* --- Back Button Group (LEFT ALIGNMENT) --- */
 .go-back-comp {
@@ -92,7 +98,7 @@
     width: 90%;
     height: 82%;
     padding: 1%;
-    margin-top: 1%;
+    margin-top: 0.3%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,7 +155,7 @@
 }
 
 .actual-comp-table {
-    height: 80%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: flex-start;

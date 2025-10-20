@@ -1,4 +1,5 @@
 import os
+import sys
 import re
 import json
 from dotenv import load_dotenv
@@ -7,6 +8,7 @@ from tabulate import tabulate
 from questionnaire import QUESTIONNAIRE, ask_questionnaire
 
 
+# Always load keys.env from the same directory as this script
 dotenv_path = os.path.join(os.path.dirname(__file__), "keys.env")
 load_dotenv(dotenv_path)
 
@@ -18,8 +20,7 @@ if not API_KEY:
 # Configure Gemini
 genai.configure(api_key=API_KEY)
 # Fast & cheap
-# model = genai.GenerativeModel("gemini-1.5-flash")
-model = genai.GenerativeModel("gemini-flash-latest")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 # OR, more powerful
 # model = genai.GenerativeModel("gemini-2.5-pro")
@@ -56,16 +57,9 @@ Return ONLY valid JSON (no prose, no markdown fences). Schema:
 Rules:
 - If budget/location is mentioned, filter accordingly (assume India if unspecified).
 - If unsure about a spec or price, write "Unknown".
-- List all relevant laptops.
+- List atleast 5 relevant laptops.
 - Model name strictly should be the first to be mentioned.
 """
-
-# "cpu": string,
-# "ram": string,
-# "storage": string,
-# "gpu": string,
-# "display": string,
-# "battery": string,
 
 def build_prompt(user_query: str) -> str:
     return PROMPT + f'\nUser Query: "{user_query}"\nJSON:'
@@ -144,6 +138,27 @@ def run_query(q: str, return_json=False):
     print("\nLaptop Recommendations:")
     print(json.dumps(data, indent=2))
 
+
+# if __name__ == "__main__":
+#     if len(sys.argv) > 1:
+#         run_query(" ".join(sys.argv[1:]))
+#     else:
+#         print("Laptop Bot ready. Type your query (or 'q' to quit).")
+#         while True:
+#             try:
+#                 q = input("> ").strip()
+#             except EOFError:
+#                 break
+#             if not q or q.lower() in {"q", "Q", "quit", "Quit", "exit", "Exit"}:
+#                 break
+#             run_query(q)
+
+# if __name__ == "__main__":
+#     print("Laptop Bot using Questionnaire\n")
+#     user_answers = ask_questionnaire(QUESTIONNAIRE["questions"])
+#     query_str = answers_to_query(user_answers)
+#     print("\nThanks! Searching for the best laptops based on your preferences...\n")
+#     run_query(query_str)
 
 if __name__ == "__main__":
     print("Laptop Bot using Questionnaire\n")

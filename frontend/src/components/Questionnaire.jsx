@@ -64,122 +64,125 @@ export default function Questionnaire({ questions, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit} className="questionnaire-form">
-      <div className="question-card">
-        <label className="question-label"><b>{q.question}</b></label>
-        <br/>
+      <div className="App">
+        <div className="question-card">
+          <label className="question-label"><b>{q.question}</b></label>
+          <br/>
 
-        {/* ✅ Single Choice */}
-        {q.type === "single-choice" &&
-          q.options.map((opt, i) => (
-            <React.Fragment key={i}>
-              <div
-                className={`option-box ${
-                  answers[q.id] === opt ? "selected" : ""
-                }`}
-                onClick={() => handleChange(q.id, opt)}
-              >
-                {opt}
-              </div>
-              {/* Show input below the "Other" option if selected */}
-              {opt === "Other" && answers[q.id] === "Other" && (
-                <input
-                  type="text"
-                  placeholder="Please specify..."
-                  value={customInputs[q.id] || ""}
-                  onChange={(e) => handleCustomInput(q.id, e.target.value)}
-                  className="custom-input"
-                  style={{ marginLeft: 0, marginTop: 5, width: "calc(80%)" }}
-                />
-              )}
-            </React.Fragment>
-          ))}
-
-        {/* ✅ Multi Choice */}
-        {q.type === "multi-choice" &&
-          q.options.map((opt, i) => {
-            const selected = answers[q.id]?.includes(opt) || false;
-            return (
+          {/* ✅ Single Choice */}
+          {q.type === "single-choice" &&
+            q.options.map((opt, i) => (
               <React.Fragment key={i}>
                 <div
-                  className={`option-box ${selected ? "selected" : ""}`}
-                  onClick={() => {
-                    const prev = answers[q.id] || [];
-                    if (selected) {
-                      handleChange(q.id, prev.filter((x) => x !== opt));
-                    } else {
-                      handleChange(q.id, [...prev, opt]);
-                    }
-                  }}
+                  className={`option-box ${
+                    answers[q.id] === opt ? "selected" : ""
+                  }`}
+                  onClick={() => handleChange(q.id, opt)}
                 >
                   {opt}
                 </div>
                 {/* Show input below the "Other" option if selected */}
-                {opt === "Other" && answers[q.id]?.includes("Other") && (
+                {opt === "Other" && answers[q.id] === "Other" && (
                   <input
                     type="text"
                     placeholder="Please specify..."
                     value={customInputs[q.id] || ""}
                     onChange={(e) => handleCustomInput(q.id, e.target.value)}
                     className="custom-input"
-                    style={{ marginLeft: 24, marginTop: 4, marginBottom: 8, width: "calc(80% - 24px)" }}
+                    style={{ marginLeft: 0, marginTop: 5, width: "calc(80%)" }}
                   />
                 )}
               </React.Fragment>
+            ))}
+
+          {/* ✅ Multi Choice */}
+          {q.type === "multi-choice" &&
+            q.options.map((opt, i) => {
+              const selected = answers[q.id]?.includes(opt) || false;
+              return (
+                <React.Fragment key={i}>
+                  <div
+                    className={`option-box ${selected ? "selected" : ""}`}
+                    onClick={() => {
+                      const prev = answers[q.id] || [];
+                      if (selected) {
+                        handleChange(q.id, prev.filter((x) => x !== opt));
+                      } else {
+                        handleChange(q.id, [...prev, opt]);
+                      }
+                    }}
+                  >
+                    {opt}
+                  </div>
+                  {/* Show input below the "Other" option if selected */}
+                  {opt === "Other" && answers[q.id]?.includes("Other") && (
+                    <input
+                      type="text"
+                      placeholder="Please specify..."
+                      value={customInputs[q.id] || ""}
+                      onChange={(e) => handleCustomInput(q.id, e.target.value)}
+                      className="custom-input"
+                      style={{ marginLeft: 24, marginTop: 4, marginBottom: 8, width: "calc(80% - 24px)" }}
+                    />
+                  )}
+                </React.Fragment>
+              );
+            })}
+
+          {/* ✅ Text Input */}
+          {q.type === "text" && (
+            <input
+              type="text"
+              value={answers[q.id] || ""}
+              onChange={(e) => handleChange(q.id, e.target.value)}
+              className="text-input"
+            />
+          )}
+        </div>
+      
+
+        <div className="progress-circles">
+          {questions.map((qItem, idx) => {
+            const answered = answers[qItem.id] && answers[qItem.id].length !== 0;
+            return (
+              <div
+                key={idx}
+                className={`circle ${answered ? "filled" : ""} ${
+                  idx === currentIndex ? "current" : ""
+                }`}
+              />
             );
           })}
+        </div>
 
-        {/* ✅ Text Input */}
-        {q.type === "text" && (
-          <input
-            type="text"
-            value={answers[q.id] || ""}
-            onChange={(e) => handleChange(q.id, e.target.value)}
-            className="text-input"
-          />
-        )}
-      </div>
-
-      <div className="progress-circles">
-        {questions.map((qItem, idx) => {
-          const answered = answers[qItem.id] && answers[qItem.id].length !== 0;
-          return (
-            <div
-              key={idx}
-              className={`circle ${answered ? "filled" : ""} ${
-                idx === currentIndex ? "current" : ""
-              }`}
-            />
-          );
-        })}
-      </div>
-
-      <div className="navigation-buttons">
-        <button
-          type="button"
-          onClick={prevQuestion}
-          disabled={currentIndex === 0}
-          className="nav-button"
-        >
-          Previous
-        </button>
-
-        {currentIndex < questions.length - 1 ? (
+        <div className="navigation-buttons">
           <button
             type="button"
-            onClick={nextQuestion}
-            className="nav-button next"
+            onClick={prevQuestion}
+            disabled={currentIndex === 0}
+            className="nav-button"
           >
-            Next
+            Previous
           </button>
-        ) : (
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
-        )}
 
-        <button type="button" onClick={handleReset} className="reset-button">
-          Reset
-        </button>
+          {currentIndex < questions.length - 1 ? (
+            <button
+              type="button"
+              onClick={nextQuestion}
+              className="nav-button next"
+            >
+              Next
+            </button>
+          ) : (
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          )}
+
+          <button type="button" onClick={handleReset} className="reset-button">
+            Reset
+          </button>
+        </div>
       </div>
 
     </form>
