@@ -93,7 +93,6 @@ QUESTIONNAIRE = {
         "Long battery life",
         "Lightweight and portable",
         "Good display quality",
-        "Comfortable keyboard",
         "Affordable price"
       ]
     },
