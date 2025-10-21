@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 // Accept laptops data, plus state and handlers for the query bar
-function ProductCards({ laptops, query, setQuery, onUpdateQuery, onReset }) {
+function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset }) {
   // 1. ✅ CORRECT LOCATION: Declare the ref inside the component that uses it
   const targetDivRef = useRef(null);
 
@@ -51,39 +51,54 @@ function ProductCards({ laptops, query, setQuery, onUpdateQuery, onReset }) {
   }
 
   return (
-    <div className='product-cards-container'>
-      {/* Refinement Bar at the top */}
-      <div id="topbar" className="query-section">
-        <input id='topbar-ip'
-          type="text"
-          placeholder="Refine your query..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button id='search' onClick={onUpdateQuery}>
-          <i  class="fa-solid fa-magnifying-glass"></i>
-        </button> 
-      </div>
-
-      {/* 3. ✅ USAGE: The ref is attached here and now works! */}
-      <div ref={targetDivRef} class="main-cont">
-        <div id="prod">
-          {laptops.map((item, idx) => (
-            <ProductCard 
-              key={item._id || idx} 
-              item={item}
+    <>
+      {user ? (
+        <div className='product-cards-container'>
+          {/* Refinement Bar at the top */}
+          <div id="topbar" className="query-section">
+            <input id='topbar-ip'
+              type="text"
+              placeholder="Refine your query..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
-          ))}
+            <button id='search' onClick={onUpdateQuery}>
+              <i  class="fa-solid fa-magnifying-glass"></i>
+            </button> 
+          </div>
+
+          {/* 3. ✅ USAGE: The ref is attached here and now works! */}
+          <div ref={targetDivRef} class="main-cont">
+            <div id="prod">
+              {laptops.map((item, idx) => (
+                <ProductCard user={user} 
+                  key={item._id || idx} 
+                  item={item}
+                />
+              ))}
+            </div>
+            <div id="go-to-compare">
+              <Link to="/compareLaptops"> 
+                <button>
+                  Compare
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div id="go-to-compare">
-          <Link to="/compareLaptops"> 
-            <button>
-              Compare
-            </button>
+      ):(
+        <div id="not-signed-in">
+          <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
+          </h2>
+        
+          <Link id='not-signed-in-link' to={'/login'}>
+              <button className='not-signed-in-btn'>
+                  Log In
+              </button>
           </Link>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }
 

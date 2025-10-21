@@ -7,7 +7,7 @@ import QUESTIONS_JSON from "./questions.json";
 import Navbar from "./components/Navbar"; 
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import ProductInfo from "./components/ProductInfo";
-import ProductCards from "./components/productPage";
+import ProductPage from "./components/productPage";
 import CompareLaptops from "./components/CompareLaptops";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -120,15 +120,15 @@ function App() {
               <h2>Welcome to Smart Select: Tech Chosen Right</h2>
               Get Started     
               <p>Your journey to finding the perfect laptop starts here.</p>
-              {/* <button onClick={() => window.location.href = "/questionnaire"}>
+              <button onClick={() => window.location.href = "/recommendations"}>
                 Get Started
-              </button> */}
-              <button onClick={() => window.location.href = "/login"}>
+              </button>
+              {/* <button onClick={() => window.location.href = "/login"}>
                 Login
               </button>
               <button onClick={() => window.location.href = "/signup"}>
                 SignUp
-              </button>
+              </button> */}
             </div>
           } />  
           <Route path="/login" element={
@@ -141,7 +141,7 @@ function App() {
             
           
           <Route path="/questionnaire" element={
-            <Questionnaire questions={QUESTIONS_JSON.questions} onSubmit={handleSubmit} />
+            <Questionnaire user={user} questions={QUESTIONS_JSON.questions} onSubmit={handleSubmit} />
           } />
 
           <Route path="/recommendations" element={
@@ -152,7 +152,7 @@ function App() {
                   <div className="loader"></div>
                 </div>
               ) : (
-                  <ProductCards
+                  <ProductPage user={user} 
                       laptops={laptops}
                       query={query}
                       setQuery={setQuery}
@@ -169,11 +169,11 @@ function App() {
           </>
         } />
         <Route path="/products/:id" element={
-          <ProductInfo laptops={laptops} />
+          <ProductInfo user={user} laptops={laptops} />
         } />
 
         <Route path="/compareLaptops" element={
-          <CompareLaptops laptops={laptops}/>
+          <CompareLaptops user={user} laptops={laptops}/>
         }/>
 
         </Routes>  

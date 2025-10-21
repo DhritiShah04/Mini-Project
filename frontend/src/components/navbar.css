@@ -33,3 +33,42 @@
     color: #d9d9d9;
 }
 
+.user-dropdown-menu {
+   background-color: #e6e6e6d8;
+   position: fixed;
+   margin-right: 15%;
+   width: 10%;
+   padding: 2%;
+   border-radius: 20px;
+   top: 10%;
+}
+
+.menu-item {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #4b4b4b;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    border-top: 1px solid #eee;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
+    color: #4e5297;
+}
+
+/* Style for the logout item */
+.logout-item {
+    padding: 10px 15px;
+    color: firebrick; /* Red text for Logout */
+    font-weight: bold;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.logout-item:hover {
+    color: rgb(220, 0, 0);
+    background-color: #ffe8e8; /* Light red hover */
+}

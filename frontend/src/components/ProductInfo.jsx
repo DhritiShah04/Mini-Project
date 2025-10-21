@@ -1,5 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 // import './ProductInfo.css';
 
 // Define the keys that might be considered "More Info" (excluding the ones already shown in the card body if desired)
@@ -15,7 +17,7 @@ const DETAIL_KEYS = [
     "why",
 ];
 
-function ProductInfo({ laptops }) {
+function ProductInfo({ user, laptops }) {
 
   const { id } = useParams();
 
@@ -41,22 +43,38 @@ function ProductInfo({ laptops }) {
   }
 
   return (
-    <div className="product-info-details">
-      <h1>{item.model}</h1> {/* Display model name as the title */}
-      <h3>Full Specifications</h3>
-      
-      {DETAIL_KEYS.map((key) => (
-        <div key={key} className="spec-item">
-          <strong className="spec-label">{key.replace('_inr', ' (INR)').toUpperCase()}:</strong>
-          <span className="spec-value">{item[key] || "N/A"}</span>
-        </div>
-      ))}
-      
-      <p className="why-text">
-        **Recommendation Rationale:** {item.why || "Rationale unavailable."}
-      </p>
+    <>
+      {user ? (
+        <div className="product-info-details">
+        <h1>{item.model}</h1> {/* Display model name as the title */}
+        <h3>Full Specifications</h3>
+        
+        {DETAIL_KEYS.map((key) => (
+          <div key={key} className="spec-item">
+            <strong className="spec-label">{key.replace('_inr', ' (INR)').toUpperCase()}:</strong>
+            <span className="spec-value">{item[key] || "N/A"}</span>
+          </div>
+        ))}
+        
+          <p className="why-text">
+            **Recommendation Rationale:** {item.why || "Rationale unavailable."}
+          </p>
 
-    </div>
+        </div>
+      ):(
+        <div id="not-signed-in">
+          <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
+          </h2>
+        
+          <Link id='not-signed-in-link' to={'/login'}>
+              <button className='not-signed-in-btn'>
+                  Log In
+              </button>
+          </Link>
+        </div>
+      )}
+    </>
+    
 
     
   );
