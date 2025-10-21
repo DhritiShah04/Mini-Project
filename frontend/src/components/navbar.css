@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-bottom: 0.2%; */
+    margin-bottom: 1%;
 }
 
 .navbar h1 {
@@ -13,7 +13,6 @@
     text-align: left;
     padding-left: 5%;
     font-weight: bolder;
-
 }
 
 .comps-nav {
@@ -29,6 +28,7 @@
 }
 
 #nav-link {
+    width: 100%;
     text-decoration: none;
     color: #d9d9d9;
 }
