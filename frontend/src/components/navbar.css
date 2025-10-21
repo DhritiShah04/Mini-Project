@@ -1,15 +1,19 @@
 .navbar {
     background-color: #3d3d3d;
-    padding: 0.5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1%;
+    padding: 1%;
+}
+
+#brand {
+    width: 40%;
 }
 
 .navbar h1 {
     color: #d9d9d9;
-    font-size: 1.3em;
+    font-size: 1.7em;
     text-align: left;
     padding-left: 5%;
     font-weight: bolder;
@@ -28,15 +32,13 @@
 }
 
 #nav-link {
-    width: 100%;
     text-decoration: none;
     color: #d9d9d9;
 }
 
 .user-dropdown-menu {
    background-color: #e6e6e6d8;
-   position: fixed;
-   margin-right: 15%;
+   position: absolute;
    width: 10%;
    padding: 2%;
    border-radius: 20px;

@@ -37,9 +37,11 @@ export default function Navbar({user, onLogOut}) {
   return (
     <div>
         <div className="navbar">
-          <Link id="nav-link" to="/">
-            <h1 id='brand'>Smart Select: Tech Chosen Right</h1>
-          </Link>
+          <div id='brand'>
+            <Link id="nav-link" to="/">
+              <h1>Smart Select: Tech Chosen Right</h1>
+            </Link>
+          </div>
             <div className="comps-nav">
                 {user ? 
                 (
