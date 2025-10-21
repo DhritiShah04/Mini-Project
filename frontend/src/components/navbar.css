@@ -17,13 +17,19 @@
 }
 
 .comps-nav {
+    /* width: 15%; */
     padding-right: 5%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 15%;
     font-size: 1.2em;
     color: #d9d9d9;
     font-weight: bolder;
+}
+
+#nav-link {
+    text-decoration: none;
+    color: #d9d9d9;
 }
 

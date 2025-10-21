@@ -3,6 +3,7 @@ from bson.objectid import ObjectId
 from datetime import datetime
 import os
 from dotenv import load_dotenv
+from passlib.context import CryptContext
 
 load_dotenv()
 
@@ -21,9 +22,34 @@ client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 requests_collection = db["requests"]
 laptops_collection = db["laptops"] # This collection stores the laptops associated with requests
+users_collection = db["users"]
+
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto") 
+
+def hash_password(password):
+    return pwd_context.hash(password)
+
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+def create_user(username, password):
+    if users_collection.find_one({"username": username}):
+        return False, "Username already exists"
+    
+    hashed_pass = hash_password(password)
+    user_data = {
+        "username": username,
+        "password": hashed_pass,
+        "created_at": datetime.now()
+    }
+    result = users_collection.insert_one(user_data)
+    return True, str(result.inserted_id)
+
+def get_user_by_username(username):
+    user = users_collection.find_one({"username": username})
+    return user
 
 def store_initial_request(ip, keyword):
-    """Stores the initial request and returns the new document's ID."""
     request_data = { 
         "ip_address": ip,
         "keyword": keyword,
@@ -43,7 +69,6 @@ def store_bot_response(request_id_str, bot_result):
     )
 
 def get_analytics_for_frontend(keyword):
-    """Calculates simple analytics based on stored data."""
     
     # 1. Total Count
     total_requests = requests_collection.count_documents({})

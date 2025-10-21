@@ -3,3 +3,5 @@ google-generativeai
 tabulate
 flask
 flask-cors
+passlib
+PyJWT
