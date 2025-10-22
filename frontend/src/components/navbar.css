@@ -39,6 +39,7 @@
 .user-dropdown-menu {
    background-color: #e6e6e6d8;
    position: absolute;
+   margin-top: 1%;
    width: 10%;
    padding: 2%;
    border-radius: 20px;

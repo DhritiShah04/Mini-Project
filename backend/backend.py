@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import jwt
 import os
 from Laptop_Bot import run_query, answers_to_query, QUESTIONNAIRE, ask_questionnaire
+from functools import wraps 
 
 # ----------------------------------------------------------------------
 # NEW: JWT Configuration
@@ -21,11 +22,70 @@ from db_mongo import (
     get_latest_laptop_recommendations, # <-- NEW IMPORT
     create_user, 
     get_user_by_username, 
-    verify_password 
+    verify_password,
+    update_user_wishlist,
+    get_wishlisted_laptops
 )
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type", "Authorization"]}})
+
+def auth_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth_header = request.headers.get('Authorization')
+        if not auth_header or not auth_header.startswith('Bearer '):
+            return jsonify({"message": "Authorization token is missing or invalid"}), 401
+
+        token = auth_header.split(' ')[1]
+
+        try:
+            # 2. Decode the token
+            data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+            # Pass the user_id (or entire payload) to the wrapped function
+            request.user_id = data.get('user_id')
+            
+        except jwt.ExpiredSignatureError:
+            return jsonify({"message": "Token has expired"}), 401
+        except jwt.InvalidTokenError:
+            return jsonify({"message": "Invalid token"}), 401
+        
+        return f(*args, **kwargs)
+    return decorated 
+
+@app.route("/wishlist/<action>", methods=["POST"])
+@auth_required
+def toggle_wishlist(action):
+    user_id = request.user_id
+    data = request.json
+    model = data.get('model')
+
+    if not model:
+        return jsonify({"message": "Missing laptop model identifier"}), 400
+        
+    if action not in ['add', 'remove']:
+        return jsonify({"message": "Invalid wishlist action specified"}), 400
+
+    success, message = update_user_wishlist(user_id, model, action)
+    
+    if success:
+        return jsonify({"message": f"Laptop {model} {action}ed to wishlist."}), 200
+    else:
+        return jsonify({"message": f"Failed to update wishlist: {message}"}), 400
+    
+@app.route("/wishlist/<action>", methods=["OPTIONS"])
+def wishlist_options_handler(action):
+    return '', 200
+    
+@app.route("/wishlist", methods=["GET"])
+@auth_required
+def get_user_wishlist():
+    user_id = request.user_id 
+    
+    wishlist_laptops = get_wishlisted_laptops(user_id)
+    
+    # Return the full list of laptop objects
+    return jsonify(wishlist_laptops), 200
 
 @app.route("/query", methods=["POST"])
 def query():

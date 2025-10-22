@@ -104,14 +104,14 @@
     background-color: #969191;
 }
 
-.more-info #heart {
-    /* color: #bd4040; */
-    color: #b9b7b7;
-}
+/* .more-info #heart {
+     color: #bd4040; 
+     color: #b9b7b7; 
+} */
 
 .more-info #heart:hover {
     font-size: 1.4rem;
     transform: translateY(-2px);
-    color: #bdacac;
+    /* color: #bdacac; */
     /* box-shadow: 0 3px 12px rgba(0, 0, 0, 0.766); */
 }

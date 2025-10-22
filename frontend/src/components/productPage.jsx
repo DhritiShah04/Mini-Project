@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 // Accept laptops data, plus state and handlers for the query bar
-function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset }) {
+function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset, wishlist, onWishlistUpdate }) {
   // 1. ✅ CORRECT LOCATION: Declare the ref inside the component that uses it
   const targetDivRef = useRef(null);
 
@@ -74,6 +74,8 @@ function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset })
                 <ProductCard user={user} 
                   key={item._id || idx} 
                   item={item}
+                  initialWishlist={wishlist.some(w => w.model === item.model)}
+                  onWishlistUpdate={onWishlistUpdate}
                 />
               ))}
             </div>

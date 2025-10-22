@@ -57,9 +57,11 @@ export default function Navbar({user, onLogOut}) {
                       Redo
                     </div>
                     </Link> */}
-                    <div className="wishlist-nav">
-                      <i class="fa-solid fa-heart"></i>
-                    </div>
+                      <Link to="/wishlist" id="nav-link">
+                      <div className="wishlist-nav">
+                        <i class="fa-solid fa-heart"></i>
+                      </div>
+                    </Link>
 
                     {/* 3. The Dropdown/Popup menu, conditionally rendered */}
                     {isMenuOpen && (
@@ -67,7 +69,7 @@ export default function Navbar({user, onLogOut}) {
                           <Link to="/questionnaire" className="menu-item, nav-link, menu-item" onClick={toggleMenu}>
                               Redo Quiz
                           </Link>
-                          <Link to="/questionnaire" className="menu-item, nav-link, menu-item" onClick={toggleMenu}>
+                          <Link to="/wishlist" className="menu-item, nav-link, menu-item" onClick={toggleMenu}>
                               Wish List
                           </Link>
                           <div className="menu-item, logout-item " onClick={() => {

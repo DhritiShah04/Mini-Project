@@ -137,5 +137,55 @@ def get_latest_laptop_recommendations():
     
     return recommended_laptops
 
+def update_user_wishlist (user_id, model, action):
+    try:
+        user_oid = ObjectId(user_id)
+
+        if(action == 'add') :
+            users_collection.update_one(
+                {"_id": user_oid},
+                {"$addToSet": {"wishlist":model}},
+            )
+            return True, "Item in wishlist" 
+            
+        elif action == "remove" :
+            update_res = users_collection.update_one(
+                {"_id": user_oid},
+                {"$pull": {"wishlist": model}},
+            )
+            return update_res.modified_count > 0, "Wishlist updated"
+            
+        else :
+            return False, "Invalid Action"
+    
+    except Exception as e:
+        print(f"Error updating wishlist: {e}")
+        return False, str(e)
+    
+def get_wishlisted_laptops(user_id) :
+    try: 
+        user_oid = ObjectId(user_id)
+        user_doc = users_collection.find_one(
+            {"_id": user_oid},
+            {"wishlist":1},
+        )
+
+        if not user_doc or "wishlist" not in user_doc:
+            return []
+
+        wishlist_models = user_doc.get('wishlist', [])
+        wishlist_laptops = list(laptops_collection.find({
+            "model": {"$in": wishlist_models}
+        }))
+
+        for laptop in wishlist_laptops:
+            if '_id' in laptop:
+                laptop['_id'] = str(laptop['_id'])
+
+        return wishlist_laptops
+    
+    except Exception as e:
+        print(f"Error fetching wishlist: {e}")
+        return []
 
 print("MongoDB connection initialized.")

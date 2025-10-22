@@ -11,7 +11,9 @@ import ProductPage from "./components/productPage";
 import CompareLaptops from "./components/CompareLaptops";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Wishlist from "./components/Wishlist";
 
+const API_BASE_URL = "http://127.0.0.1:5000";
 
 
 function App() {
@@ -28,6 +30,22 @@ function App() {
 
   const [query, setQuery] = useState("");
   const [laptops, setLaptops] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+
+  const handleWishlistUpdate = (model, action) => {
+    if (action === 'add') {
+      // Find the full laptop object from the main 'laptops' list
+      const laptopToAdd = laptops.find(l => l.model === model);
+      if (laptopToAdd && !wishlist.some(l => l.model === model)) {
+        setWishlist(prev => [...prev, laptopToAdd]);
+      } else {
+        // If not found, force a full fetch (fallback)
+        fetchWishlist();
+      }
+    } else if (action === 'remove') {
+      setWishlist(prev => prev.filter(l => l.model !== model));
+    }
+  };
 
   // Whenever results change, save to localStorage
   useEffect(() => {
@@ -47,6 +65,37 @@ function App() {
         .catch((err) => console.error(err));
     }
   }, [results]);
+
+   const fetchWishlist = async () => {
+    const currentToken = localStorage.getItem('token');
+    // Only proceed if the user is authenticated
+    if (!currentToken || !user) {
+        setWishlist([]);
+        return;
+    }
+
+    try {
+        console.log("Fetching wishlist for user:", user.username);
+        const res = await axios.get(`${API_BASE_URL}/wishlist`, {
+            headers: {
+                // Critical: Authorization header for protected route
+                Authorization: `Bearer ${currentToken}`,
+            },
+        });
+        // Assuming the backend returns the list of laptop objects
+        setWishlist(res.data); 
+    } catch (error) {
+        console.error("Error fetching wishlist:", error);
+        // If fetching fails, especially 401, clear the list
+        setWishlist([]); 
+        // We do not call handleLogout here, as the token check is done on the token state change.
+    }
+  };
+  
+  useEffect(() => {
+    fetchWishlist();
+  // DEPENDENCY FIX: Now runs whenever 'user' changes (login/logout)
+  }, [user]); 
 
   // 2. NEW: Function to decode token (simplistic) and set user info
   const decodeToken = (jwtToken) => {
@@ -158,6 +207,8 @@ function App() {
                       setQuery={setQuery}
                       onUpdateQuery={handleUpdateQuery}
                       onReset={handleReset}
+                      wishlist={wishlist}
+                      onWishlistUpdate={handleWishlistUpdate}
                   />
               )
             ) : (
@@ -174,6 +225,10 @@ function App() {
 
         <Route path="/compareLaptops" element={
           <CompareLaptops user={user} laptops={laptops}/>
+        }/>
+
+        <Route path="/wishlist" element={
+          <Wishlist user={user} wishlist = {wishlist} onWishlistUpdate={handleWishlistUpdate}/>
         }/>
 
         </Routes>  
