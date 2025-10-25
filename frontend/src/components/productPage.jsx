@@ -11,10 +11,10 @@ import { Link } from 'react-router-dom';
 
 // Accept laptops data, plus state and handlers for the query bar
 function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset, wishlist, onWishlistUpdate }) {
-  // 1. ✅ CORRECT LOCATION: Declare the ref inside the component that uses it
+  // 1. CORRECT LOCATION: Declare the ref inside the component that uses it
   const targetDivRef = useRef(null);
 
-  // 2. ✅ CORRECT LOCATION: Define the scroll logic here
+  // 2. CORRECT LOCATION: Define the scroll logic here
   useEffect(() => {
     // Check if the ref has been attached to the element
     if (targetDivRef.current) {
@@ -67,7 +67,7 @@ function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset, w
             </button> 
           </div>
 
-          {/* 3. ✅ USAGE: The ref is attached here and now works! */}
+          {/* 3.USAGE: The ref is attached here and now works! */}
           <div ref={targetDivRef} class="main-cont">
             <div id="prod">
               {laptops.map((item, idx) => (

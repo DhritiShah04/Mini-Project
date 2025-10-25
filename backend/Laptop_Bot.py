@@ -36,15 +36,15 @@ Return ONLY valid JSON (no prose, no markdown fences). Schema:
   "currency": "INR",
   "items": [
     {
-      "model": string,
-      "cpu": string,
-      "ram": string,
-      "storage": string,
-      "gpu": string,
-      "display": string,
-      "battery": string,
-      "price_inr": string,
-      "why": string
+        "model": string,
+        "price_inr": string,
+        "cpu": string,
+        "ram": string,
+        "storage": string,
+        "gpu": string,
+        "display": string,
+        "battery": string,
+        "why": string
     }
   ],
   "summary": {
@@ -56,8 +56,11 @@ Return ONLY valid JSON (no prose, no markdown fences). Schema:
 Rules:
 - If budget/location is mentioned, filter accordingly (assume India if unspecified).
 - If unsure about a spec or price, write "Unknown".
-- List all relevant laptops.
+- List top 5 relevant laptops.
 - Model name strictly should be the first to be mentioned.
+- In "price_inr", give approximate price in INR.
+- In "why", briefly explain why this laptop matches the query in the simplest terms.
+- In "why", the range of the words should be between 20 to 25 words.
 """
 
 # "cpu": string,
