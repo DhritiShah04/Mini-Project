@@ -1,0 +1,167 @@
+{
+  "sentiment_by_user": {
+    "Gamers": {
+      "positive": 70,
+      "neutral": 4,
+      "negative": 8,
+      "total_reviews": 82,
+      "sentiment_score": 0.756,
+      "avg_compound": 0.608
+    },
+    "Students": {
+      "positive": 41,
+      "neutral": 2,
+      "negative": 3,
+      "total_reviews": 46,
+      "sentiment_score": 0.826,
+      "avg_compound": 0.665
+    },
+    "Content Creators": {
+      "positive": 37,
+      "neutral": 6,
+      "negative": 2,
+      "total_reviews": 45,
+      "sentiment_score": 0.778,
+      "avg_compound": 0.67
+    },
+    "Casual Users": {
+      "positive": 38,
+      "neutral": 1,
+      "negative": 4,
+      "total_reviews": 43,
+      "sentiment_score": 0.791,
+      "avg_compound": 0.671
+    },
+    "Programmers / Engineers": {
+      "positive": 49,
+      "neutral": 4,
+      "negative": 3,
+      "total_reviews": 56,
+      "sentiment_score": 0.821,
+      "avg_compound": 0.633
+    }
+  },
+  "keywords_by_user": {
+    "Gamers": [
+      "p1403cvas60939ws light laptop",
+      "sd elite laptop",
+      "10001164 appreciated laptop",
+      "mx350 great laptop",
+      "premium laptop",
+      "geforce mx250integrated intel",
+      "bluetooth 50 battery",
+      "premium laptop right",
+      "nvidia geforce mx250integrated",
+      "price best laptop"
+    ],
+    "Students": [
+      "50k budget laptop",
+      "budget laptop best",
+      "600 laptops better",
+      "p1403cvas60939ws light laptop",
+      "laptop studentfriendly budget",
+      "reinstall cheap laptops",
+      "1500 dollar laptop",
+      "poor battery life",
+      "college needs laptop",
+      "student 50k budget"
+    ],
+    "Content Creators": [
+      "50k budget laptop",
+      "mx350 great laptop",
+      "budget laptop best",
+      "geforce mx350 gpu",
+      "geforce mx250integrated intel",
+      "gpu benchmarks laptop",
+      "recently ordered laptop",
+      "basic 5gbps usb",
+      "laptop best coding",
+      "terrible watching youtube"
+    ],
+    "Casual Users": [
+      "mx350 great laptop",
+      "geforce mx350 gpu",
+      "geforce mx250integrated intel",
+      "50wh lithiumion battery",
+      "bluetooth 50 battery",
+      "reinstall cheap laptops",
+      "1500 dollar laptop",
+      "reliable replacement laptop",
+      "recently ordered laptop",
+      "laptops order cheap"
+    ],
+    "Programmers / Engineers": [
+      "power 7735hs better",
+      "15 better multicore",
+      "tested better battery",
+      "600 laptops better",
+      "battery better battery",
+      "5600h intel better",
+      "software better battery",
+      "better multicore performance",
+      "performance 7735u better",
+      "laptops better value"
+    ]
+  },
+  "summaries_by_user": {
+    "Gamers": " Lenovo ThinkBook 16 7735HS 16GB DDR5 512GB SSD Battery 711Hrs PassMark 23209 ThinkBook16 21MW008WIN Lenovo Thinkbook 56831 Gaming Whats Included 1 Year Onsite warranty MS Office Home 2024 Lenovo 396cms 156 Value Plus Backpack at",
+    "Students": "Lenovo Ideapad Slim 3i Core i713620H has a 45Wh battery capacity. The ThinkPad 55870 has a 16GB RAM and a 512GB SSD.",
+    "Content Creators": "The ThinkPad 55870 has a 45Wh battery capacity. The i7 version has a Core i713620H processor. It has 16GB of RAM and a 512GB of storage.",
+    "Casual Users": "Lenovo ThinkPad 55870 has a 70Whr battery 100 SRGB display and its 15 inch version. I promise you when I first saw this laptop model 5 months ago Its have very good battery and overall quality. After 2 months I am seeing build quality is not good and",
+    "Programmers / Engineers": "7735HS is 15 better in multicore performance than 7735U HS is 15better in performance than U 7735 U has better performance per watt meaning slightly higher battery power than HS. 7735HS has better efficency than HS maybe like 10mins more depending on the usage."
+  },
+  "example_snippets_by_user": {
+    "Gamers": {
+      "positive": [
+        "Yes yes OP Its really a good laptop and your choice Battery Life of Ideapad 811Hrs as per various sources thats an average Some even got 12hrs with single charge If you dont mind me saying this I have the same brand and processor in my notepad list and its only 56K from direct Lenovo site However its a ThinkBook and not IdeaPad 16 7735HS 16GB DDR5 512GB SSD Battery 711Hrs PassMark 23209 ThinkBook 16 21MW008WIN Lenovo ThinkBook 56831 Gaming Whats Included 1 Year Onsite Warranty MS Office Home 2024 Lenovo 396cms 156 Value Plus Backpack at 1",
+        "I promise you when I first saw this laptop model 5 months ago Its have very good battery and overall quality Then after 2 months I am seeing build quality is not good and its between Ideapad ThinkPad quality But seeing its battery capacity as 45Wh no wonder it has low battery backup I feel bad now for sharing that shit piece For that 54k price you can get the ThinkPad though with a bit less performance processor and good build quality as most of them knowns that ThinkPads are build like tanks 16 7535HS 16GB DDR5 512GB 2242 SSD 45NTSC 300 nits 60 Hz PassMark 17929 ThinkPad E14 21M3S0FJ00 Lenovo ThinkPad 55870 Gaming Test I hope atleast this one will have a good battery life I checked the battery reviews from couple of websites and some mentioned it has good battery life and only a couple of people reported defective batteries",
+        "if theyre light games then yes it is all good"
+      ],
+      "negative": [
+        "I was also thinking of buying this laptop but is it really that loud I think Ill do some typing works only and I have to do some research too so I will be opening multiple tabs in browser might also do some light gaming What do you think should I buy it",
+        "500 laptop for school I need to buy a new laptop for school My budget is only 500 absolutely no higher I dont need to be able to game on it I already have a gaming PC and Lenovo Legion Go lol However Im a Mechanical Engineering major so Ill need to be able to run some heavier software like CAD MATLAB other simulation tools etc Portability is also a factor because Ill be taking it back and forth to work with me every day to do coursework in my downtime The only options I can find near me are the ASUS Vivobook with Intel Core 5 120U and the Lenovo IdeaPad Slim 3 with the AMD Ryzen 7 5825U Based on reviews online and especially on a Reddit Im scared to pull the trigger on either one now Is there a better option that I havent found yet"
+      ]
+    },
+    "Students": {
+      "positive": [
+        "I promise you when I first saw this laptop model 5 months ago Its have very good battery and overall quality Then after 2 months I am seeing build quality is not good and its between Ideapad ThinkPad quality But seeing its battery capacity as 45Wh no wonder it has low battery backup I feel bad now for sharing that shit piece For that 54k price you can get the ThinkPad though with a bit less performance processor and good build quality as most of them knowns that ThinkPads are build like tanks 16 7535HS 16GB DDR5 512GB 2242 SSD 45NTSC 300 nits 60 Hz PassMark 17929 ThinkPad E14 21M3S0FJ00 Lenovo ThinkPad 55870 Gaming Test I hope atleast this one will have a good battery life I checked the battery reviews from couple of websites and some mentioned it has good battery life and only a couple of people reported defective batteries",
+        "Lenovo Ideapad Slim 3i Core i713620H I didnt see much reviews of itespecially the i7 versionso thought Ill just a leave a reviewIve been using it for 14 days I got the 16512 variant for around 2500 SAR 670 USDaround 56000 INR although it was at 6365 when I checked Flipkart although might be a different price in some other country Build Quality A sturdy plastic buildbut I felt kinda unimpressed with it probably cause I came from a Huawei Matebookwhich had a all metal buildbut nevertheless for this price Im not complaining much Screen The anti glare coating is really helpfuland it does remove a lot of the glare on screenand what else its your regular IPS 1080p LCD panel Pretty average60 Hzbut it gets the work done Keyboard It comes with a full size keyboard with a number padand for mekeys felt a bit congestedI was just constantly pressing the wrong key or I might have just big hands lolbut once you get around that the keyboard feels really solid Performance Fantastic performance for office works notes school or college stuffI wrote some exams in this too integrated graphics so not much gaming possible but I did get around 180 fps in valorant although I mostly limit it to 65 fps to be easy on the CPU and so it doesnt overheat You should be able to do some light gaming with no problems Battery I mostly have my charger around so I dont have much concern about the battery For an H series CPU Im not complaining about battery When I do just basic tasks I always set it to battery saver and it does last me around 665 hrs Some Nice to haves This one came with a fingerprint reader feels pretty snappy",
+        "Thanks I finally saw a review So how is it now Are there any issues Im planning to buy it tomorrow itll be my first laptop Ill use it for my school programming lots of multitasking and light gaming Roblox only I honestly dont know much about laptops but the fan shouldnt be too loud right I saw a comment saying the fan runs louddo you think its really noisy or only when gaming The model btw is slim 3i 15irh8 tho there is another model which is slim 3 15irh8 with same specs but higher price which idk what the difference is"
+      ],
+      "negative": [
+        "I was also thinking of buying this laptop but is it really that loud I think Ill do some typing works only and I have to do some research too so I will be opening multiple tabs in browser might also do some light gaming What do you think should I buy it",
+        "500 laptop for school I need to buy a new laptop for school My budget is only 500 absolutely no higher I dont need to be able to game on it I already have a gaming PC and Lenovo Legion Go lol However Im a Mechanical Engineering major so Ill need to be able to run some heavier software like CAD MATLAB other simulation tools etc Portability is also a factor because Ill be taking it back and forth to work with me every day to do coursework in my downtime The only options I can find near me are the ASUS Vivobook with Intel Core 5 120U and the Lenovo IdeaPad Slim 3 with the AMD Ryzen 7 5825U Based on reviews online and especially on a Reddit Im scared to pull the trigger on either one now Is there a better option that I havent found yet"
+      ]
+    },
+    "Content Creators": {
+      "positive": [
+        "I promise you when I first saw this laptop model 5 months ago Its have very good battery and overall quality Then after 2 months I am seeing build quality is not good and its between Ideapad ThinkPad quality But seeing its battery capacity as 45Wh no wonder it has low battery backup I feel bad now for sharing that shit piece For that 54k price you can get the ThinkPad though with a bit less performance processor and good build quality as most of them knowns that ThinkPads are build like tanks 16 7535HS 16GB DDR5 512GB 2242 SSD 45NTSC 300 nits 60 Hz PassMark 17929 ThinkPad E14 21M3S0FJ00 Lenovo ThinkPad 55870 Gaming Test I hope atleast this one will have a good battery life I checked the battery reviews from couple of websites and some mentioned it has good battery life and only a couple of people reported defective batteries",
+        "Lenovo Ideapad Slim 3i Core i713620H I didnt see much reviews of itespecially the i7 versionso thought Ill just a leave a reviewIve been using it for 14 days I got the 16512 variant for around 2500 SAR 670 USDaround 56000 INR although it was at 6365 when I checked Flipkart although might be a different price in some other country Build Quality A sturdy plastic buildbut I felt kinda unimpressed with it probably cause I came from a Huawei Matebookwhich had a all metal buildbut nevertheless for this price Im not complaining much Screen The anti glare coating is really helpfuland it does remove a lot of the glare on screenand what else its your regular IPS 1080p LCD panel Pretty average60 Hzbut it gets the work done Keyboard It comes with a full size keyboard with a number padand for mekeys felt a bit congestedI was just constantly pressing the wrong key or I might have just big hands lolbut once you get around that the keyboard feels really solid Performance Fantastic performance for office works notes school or college stuffI wrote some exams in this too integrated graphics so not much gaming possible but I did get around 180 fps in valorant although I mostly limit it to 65 fps to be easy on the CPU and so it doesnt overheat You should be able to do some light gaming with no problems Battery I mostly have my charger around so I dont have much concern about the battery For an H series CPU Im not complaining about battery When I do just basic tasks I always set it to battery saver and it does last me around 665 hrs Some Nice to haves This one came with a fingerprint reader feels pretty snappy",
+        "Can we do editing on it and play gta 5 bro Pls test gta 5 once"
+      ],
+      "negative": [
+        "Lenovo Ideapad Slim 3i 156in touchscreen intel core 5 120u 1080p What do you think of this laptop for someone who wants storage and speed Ill be using it mostly for office type work 16gb memory and 10tb ssd"
+      ]
+    },
+    "Casual Users": {
+      "positive": [
+        "I promise you when I first saw this laptop model 5 months ago Its have very good battery and overall quality Then after 2 months I am seeing build quality is not good and its between Ideapad ThinkPad quality But seeing its battery capacity as 45Wh no wonder it has low battery backup I feel bad now for sharing that shit piece For that 54k price you can get the ThinkPad though with a bit less performance processor and good build quality as most of them knowns that ThinkPads are build like tanks 16 7535HS 16GB DDR5 512GB 2242 SSD 45NTSC 300 nits 60 Hz PassMark 17929 ThinkPad E14 21M3S0FJ00 Lenovo ThinkPad 55870 Gaming Test I hope atleast this one will have a good battery life I checked the battery reviews from couple of websites and some mentioned it has good battery life and only a couple of people reported defective batteries",
+        "hi its still going pretty solid for me battery lasts for like 56 hrsYouTube and getting some studies done performance is still goodthe fan sometimes starts spinning even if Im not doing much intensive tasks prolly cause I set it to intelligent cooling mode",
+        "For watching content yeah it should be fine For graphics and coding I dont know cause I never used it for those"
+      ],
+      "negative": [
+        "I really wouldnt as long as you stick to the midtier business line or higher The consumer and budget business lines of all 3 are all not good Looking at that particular listing it actually looks darn good assuming its not lying and the pictures are accurate Some highlights Has room for a second SSD which may be very handy in the future USBC charging which may be handy going forward Webcam is only 1MP unfortunately No Windows Hello face or fingerprint unfortunately Battery may be on the small side or may be on the large side there are 2 options and cant tell which from listing Screen looks surprisingly bright either its an effect of the picture or this is actually a really good FHD screen color accurate and bright Is a tad on the heavy side 3lb even but still darn good for this price range"
+      ]
+    },
+    "Programmers / Engineers": {
+      "positive": [
+        "FIrst and foremost doubt Why is the title and description says 7735HS and the options below says 7735U Both of them are good performers If we go to specifics both have same cores and threads 95 details are same between those twooo The only difference is 7735HS is 15 better in multicore performance than 7735U HS is 15 better in performance than U 7735U has better performance per watt meaning slightly higher battery power than 7735HS U has better efficency than HS maybe like 10mins more depending on the usage Make sure you are getting the model that you are looking for The seller might have done the incorrect information but just to make sure you are getting the same contact with them and confirm once Just a precautionary Disclaimer These are rough calculations",
+        "Thanks I finally saw a review So how is it now Are there any issues Im planning to buy it tomorrow itll be my first laptop Ill use it for my school programming lots of multitasking and light gaming Roblox only I honestly dont know much about laptops but the fan shouldnt be too loud right I saw a comment saying the fan runs louddo you think its really noisy or only when gaming The model btw is slim 3i 15irh8 tho there is another model which is slim 3 15irh8 with same specs but higher price which idk what the difference is",
+        "Hellothe laptop is still holding up well for merunning like the same it was from day onelost a bit of battery 95 percent battery health when I checked in the lenovo vantage softwarebesides that still very smooth and fast"
+      ],
+      "negative": [
+        "500 laptop for school I need to buy a new laptop for school My budget is only 500 absolutely no higher I dont need to be able to game on it I already have a gaming PC and Lenovo Legion Go lol However Im a Mechanical Engineering major so Ill need to be able to run some heavier software like CAD MATLAB other simulation tools etc Portability is also a factor because Ill be taking it back and forth to work with me every day to do coursework in my downtime The only options I can find near me are the ASUS Vivobook with Intel Core 5 120U and the Lenovo IdeaPad Slim 3 with the AMD Ryzen 7 5825U Based on reviews online and especially on a Reddit Im scared to pull the trigger on either one now Is there a better option that I havent found yet"
+      ]
+    }
+  }
+}

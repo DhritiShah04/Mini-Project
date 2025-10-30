@@ -6,3 +6,12 @@ flask-cors
 passlib
 PyJWT
 pymongo
+praw
+nltk
+keybert
+sentence-transformers
+"httpx==0.24.1" 
+"youtube-search-python==1.6.6"
+youtube-comment-downloader
+youtube-transcript-api
+transformers
