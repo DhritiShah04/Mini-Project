@@ -19,7 +19,7 @@ function Wishlist({ user, wishlist, onWishlistUpdate}) {
                 </Link>
             </div>
             ):(
-                <div className='main-cont'>
+                <div className='main-cont-wish'>
                     <div className="pr" id = "prod">
                         {wishlist.map((item, idx) => (
                         <ProductCard 

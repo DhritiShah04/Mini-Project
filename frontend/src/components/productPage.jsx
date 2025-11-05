@@ -68,7 +68,7 @@ function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset, w
           </div>
 
           {/* 3.USAGE: The ref is attached here and now works! */}
-          <div ref={targetDivRef} class="main-cont">
+          <div class="main-cont" ref={targetDivRef} >
             <div id="prod">
               {laptops.map((item, idx) => (
                 <ProductCard user={user} 

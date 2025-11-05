@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #3d3d3d;
+    background-color: #1A597E;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,7 +12,7 @@
 }
 
 .navbar h1 {
-    color: #d9d9d9;
+    color: #ffffff;
     font-size: 1.7em;
     text-align: left;
     padding-left: 5%;
@@ -27,13 +27,13 @@
     justify-content: space-between;
     gap: 15%;
     font-size: 1.2em;
-    color: #d9d9d9;
+    color: #ffffff;
     font-weight: bolder;
 }
 
 #nav-link {
     text-decoration: none;
-    color: #d9d9d9;
+    color: #ffffff;
 }
 
 .user-dropdown-menu {

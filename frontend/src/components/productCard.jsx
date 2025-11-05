@@ -15,6 +15,7 @@ const DISPLAY_KEYS = [
     "battery",
     "price_inr",
     "why",
+    "images",
 ];
 
 const API_BASE_URL = "http://127.0.0.1:5000";
@@ -69,7 +70,11 @@ function ProductCard({initialWishlist, user, item, onWishlistUpdate }) {
       {user ? (
         <div className="recommendation-card">
           <div id="prod-img">
-
+            <img
+              src={item.images?.[0]}
+              alt={item.model}
+              style={{ width: "100%", borderRadius: "8px" }}
+            />
           </div>
           <div id="prod-deets">
             <div className="prod-model-comp">
