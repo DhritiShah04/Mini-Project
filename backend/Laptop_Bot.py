@@ -10,7 +10,6 @@ dotenv_path = os.path.join(os.path.dirname(__file__), "keys.env")
 load_dotenv(dotenv_path)
 
 # --- First Gemini Bot ---
-# --- First Gemini Bot ---
 API_KEY = os.getenv("API_KEY_FIRST")
 if not API_KEY:
     raise ValueError("API_KEY_FIRST not found in keys.env")
@@ -49,7 +48,7 @@ Return ONLY valid JSON (no prose, no markdown fences). Schema:
 Compulsory Rules:
 - Keep the search limited to lenovo laptops only and as for model, give me the series name only.
 - If budget is mentioned, filter accordingly assuming that India is the location.
-- If unsure about a spec or price, give us the predicted value for the model.
+- If unsure about a spec or price, give us the predicted value for the model (donot include lenovo in model name).
 - List top 5 relevant laptops.
 - Model name strictly should be the first to be mentioned.
 - In "price_inr", give approximate price in INR.

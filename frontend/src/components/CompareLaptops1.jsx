@@ -37,21 +37,21 @@ function CompareLaptops({ user, laptops }) {
         // 3. Attach the ref to the div you want to center
         // Note: It's better practice to use 'className' instead of 'class' in JSX/React
         <div ref={targetDivRef} className='main-cont-coompare'>
-          <Link to='/recommendations' id='link-part'> 
+          <div className='heading-comp'>
+              <Link to='/recommendations' id='link-part'> 
                 <span className='go-back-comp-ka-comp'>
                   <button className="go-back-comp">
                       <i className="fa-solid fa-arrow-left-long"></i>
-                      <h4>Go Back</h4>
+                      <h4>Back to Laptops</h4>
                   </button>
                 </span>
-          </Link>
-          <div className='heading-comp'>
+              </Link>
               <h2 className='recom'>Compare our Recommendations</h2> 
           </div>
           
 
-          {/* <div className='actual-comp-table'> */}
-            {/* <div className="titles-comp">
+          <div className='actual-comp-table'>
+            <div className="titles-comp">
               <div className="inner-cont-comp-left">
                 <h3>Features</h3>
               </div>
@@ -106,74 +106,8 @@ function CompareLaptops({ user, laptops }) {
                   </div>
                 )
               })}
-            </div> */}
-          
-
-          {/* Trying Table */}
-          <table className="compare-table">
-            <thead>
-              <tr>
-                <th>Features</th>
-
-                {laptops.map((laptop) => (
-                  <th key={laptop._id || laptop.model}>
-                    {laptop.model || "Unknown Model"}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>Price</td>
-                {laptops.map((laptop) => (
-                  <td key={laptop._id + "-price"}>Rs {laptop.price_inr}/-</td>
-                ))}
-              </tr>
-
-              <tr>
-                <td>Battery</td>
-                {laptops.map((laptop) => (
-                  <td key={laptop._id + "-battery"}>{laptop.battery}</td>
-                ))}
-              </tr>
-
-              <tr>
-                <td>Display</td>
-                {laptops.map((laptop) => (
-                  <td key={laptop._id + "-display"}>{laptop.display}</td>
-                ))}
-              </tr>
-
-              <tr>
-                <td>Storage</td>
-                {laptops.map((laptop) => (
-                  <td key={laptop._id + "-storage"}>{laptop.storage}</td>
-                ))}
-              </tr>
-
-              <tr>
-                <td>RAM</td>
-                {laptops.map((laptop) => (
-                  <td key={laptop._id + "-ram"}>{laptop.ram}</td>
-                ))}
-              </tr>
-
-              <tr>
-                <td>CPU</td>
-                {laptops.map((laptop) => (
-                  <td key={laptop._id + "-cpu"}>{laptop.cpu}</td>
-                ))}
-              </tr>
-
-              <tr>
-                <td>GPU</td>
-                {laptops.map((laptop) => (
-                  <td key={laptop._id + "-gpu"}>{laptop.gpu}</td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+            </div>
+          </div>
         </div>
       ):(
         <div id="not-signed-in">

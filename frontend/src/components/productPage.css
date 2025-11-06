@@ -16,7 +16,7 @@
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     border-radius: 15px 0 0 15px;
     border: 0px;
-    font-size: medium;
+    font-size: 0.8em;
     width: 70%;
 }
 
@@ -24,13 +24,13 @@
 {
     height: 100%;
     background-color: #ffffff;
-    color: #d9d9d9;
+    color: #898989;
     margin: 0%;
     padding: 1%;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     border-radius: 0 15px 15px 0;
     border: 0px;
-    font-size: medium;  
+    font-size: 0.8em;  
 }
 
 .main-cont
@@ -65,9 +65,9 @@
     padding: 20% 50% 20% 50%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     border: none;
-    border-radius: 20px;
+    border-radius: 17px;
     font-weight: bolder;
-    font-size: 1.2em;
+    font-size: 0.9em;
     transition: all 0.2s ease-in-out;
 }
 

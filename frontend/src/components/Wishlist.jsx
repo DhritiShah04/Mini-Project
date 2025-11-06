@@ -9,7 +9,7 @@ function Wishlist({ user, wishlist, onWishlistUpdate}) {
         {user ? (
             wishlist.length == 0 ? (
                 <div id="not-signed-in">
-                <h2 id='heading-not-signed-in'>No items in the wishlist <br /> It looks like you haven't found what you're looking for yet...
+                <h2 id='heading-not-signed-in'>No Items In The Wishlist <br /> It Looks Like You Haven't Found What You're Looking For Yet :(
                 </h2>
                 
                 <Link id='not-signed-in-link' to={'/recommendations'}>
@@ -44,7 +44,7 @@ function Wishlist({ user, wishlist, onWishlistUpdate}) {
                 <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
                 </h2>
                 
-                <Link id='not-signed-in-link' to={'/login'}>
+                <Link id='not-signed-in-link' to={'/auth'}>
                     <button className='not-signed-in-btn'>
                         Log In
                     </button>

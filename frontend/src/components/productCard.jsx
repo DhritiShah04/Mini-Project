@@ -110,7 +110,7 @@ function ProductCard({initialWishlist, user, item, onWishlistUpdate }) {
           <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
           </h2>
         
-          <Link id='not-signed-in-link' to={'/login'}>
+          <Link id='not-signed-in-link' to={'/auth'}>
               <button className='not-signed-in-btn'>
                   Log In
               </button>

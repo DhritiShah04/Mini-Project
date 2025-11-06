@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import './navbar.css'
 
 export default function Navbar({user, onLogOut}) {
 
   const menuRef = useRef(null);
+
+  const location = useLocation();
 
   // State to manage the visibility of the dropdown menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,7 +69,7 @@ export default function Navbar({user, onLogOut}) {
                     {isMenuOpen && (
                       <div className="user-dropdown-menu" ref={menuRef}>
                           <Link to="/questionnaire" className="menu-item, nav-link, menu-item" onClick={toggleMenu}>
-                              Redo Quiz
+                              Go to Quiz
                           </Link>
                           <Link to="/wishlist" className="menu-item, nav-link, menu-item" onClick={toggleMenu}>
                               Wish List
@@ -81,12 +83,14 @@ export default function Navbar({user, onLogOut}) {
                       </div>
                     )}
                   </>
-                ): (
-                  <Link id="nav-link" className='not-logged-in' to="/login">
-                  <div className="register-nav">
-                      Login
+                ):  location.pathname === "/auth" ? (
+                  <div className="register-nav not-logged-in">
+                    Helloo!
                   </div>
-                </Link>
+                ) : (
+                  <Link id="nav-link" className="not-logged-in" to="/auth">
+                    <div className="register-nav">Login</div>
+                  </Link>
                 )}
               </div>
             </div>

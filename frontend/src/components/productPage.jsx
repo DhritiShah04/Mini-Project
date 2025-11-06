@@ -93,7 +93,7 @@ function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset, w
           <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
           </h2>
         
-          <Link id='not-signed-in-link' to={'/login'}>
+          <Link id='not-signed-in-link' to={'/auth'}>
               <button className='not-signed-in-btn'>
                   Log In
               </button>
