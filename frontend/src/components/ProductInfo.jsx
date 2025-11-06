@@ -55,7 +55,7 @@ function ProductInfo({ user, laptops }) {
                 <ImageCarousel images={item.images}/>
               </div>
               <div className="prod-gen-deets">
-                <h2>{item.model} <br /> ₹{item.price_inr} </h2> 
+                <h2>{item.model} <br /> {item.price_inr} </h2> 
                 <hr />
                 <p>{item.why}</p>
               </div>
