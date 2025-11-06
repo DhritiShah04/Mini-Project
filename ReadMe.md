@@ -1,9 +1,3 @@
-in frontend:
-npm start
-
-in backend:
-python backend.py
-
 #### Create a venv and activate it as:
 - `python3 -m venv venv`
 - `source venv/bin/activate`
@@ -20,4 +14,3 @@ In a new terminal:
 - `cd frontend`          
 - `npm install`
 - `npm start`
-
