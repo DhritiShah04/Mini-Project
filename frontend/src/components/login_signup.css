@@ -247,4 +247,6 @@
 #already-signed-in{
   text-align: center;
   font-size: 1em;
+  display: "flex";
+  justify-content: "center";
 }
