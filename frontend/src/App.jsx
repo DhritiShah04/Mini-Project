@@ -167,18 +167,14 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div className="home-page">
-              <h2>Welcome to Smart Select: Tech Chosen Right</h2>
+              {/* <h2>Welcome to Smart Select: Tech Chosen Right</h2>
               Get Started     
               <p>Your journey to finding the perfect laptop starts here.</p>
               <button onClick={() => window.location.href = "/recommendations"}>
                 Get Started
-              </button>
-              {/* <button onClick={() => window.location.href = "/login"}>
-                Login
-              </button>
-              <button onClick={() => window.location.href = "/signup"}>
-                SignUp
               </button> */}
+              {/* Add homepage */}
+              
             </div>
           } />  
           <Route path="/login" element={

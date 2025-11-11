@@ -1,0 +1,62 @@
+def summarize_overall(reviews, summarizer):
+    text = " ".join(reviews)[:1000]  # truncate large input
+    try:
+        return summarizer(text, max_length=100, min_length=30, do_sample=False)[0]['summary_text']
+    except:
+        return "Summary unavailable"
+
+def analyze_user_group_reviews(user_reviews, sia, kw_model, summarizer):
+    sentiment = analyze_sentiment(user_reviews, sia)
+    keywords = []
+    summary = ""
+    examples = {"positive": [], "negative": []}
+    if user_reviews:
+        full_text = " ".join(user_reviews)
+        keywords = [k[0] for k in kw_model.extract_keywords(full_text, top_n=10, stop_words="english", keyphrase_ngram_range=(1,3))]
+        try:
+            summary = summarizer(full_text[:1000], max_length=60, min_length=25, do_sample=False)[0]['summary_text']
+        except:
+            summary = "Summary unavailable"
+        pos_snips, neg_snips = [], []
+        for review in user_reviews:
+            score = sia.polarity_scores(review)['compound']
+            if score >= 0.4 and len(pos_snips) < 3:
+                pos_snips.append(review)
+            elif score <= -0.4 and len(neg_snips) < 3:
+                neg_snips.append(review)
+            if len(pos_snips) >= 3 and len(neg_snips) >= 3:
+                break
+        examples = {"positive": pos_snips, "negative": neg_snips}
+    return sentiment, keywords, summary, examples
+
+def process_model(model_name):
+    reddit_reviews = scrape_reddit_reviews(model_name)
+    youtube_reviews = scrape_youtube_reviews(model_name)
+
+    # Overall summaries per platform
+    reddit_summary = summarize_overall(reddit_reviews, summarizer)
+    youtube_summary = summarize_overall(youtube_reviews, summarizer)
+
+    # Categorize by user groups independently
+    reddit_by_user = classify_reviews_by_user(reddit_reviews, user_keywords)
+    youtube_by_user = classify_reviews_by_user(youtube_reviews, user_keywords)
+
+    combined_user_summary = {}
+    for user in user_keywords.keys():
+        combined_reviews = reddit_by_user.get(user, []) + youtube_by_user.get(user, [])
+        sentiment, keywords, summary, examples = analyze_user_group_reviews(combined_reviews, sia, kw_model, summarizer)
+        combined_user_summary[user] = {
+            "sentiment": sentiment,
+            "keywords": keywords,
+            "summary": summary,
+            "examples": examples
+        }
+
+    return {
+        "model_name": model_name,
+        "overall": {
+            "reddit": reddit_summary,
+            "youtube": youtube_summary
+        },
+        "user_group_analysis": combined_user_summary
+    }

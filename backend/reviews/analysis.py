@@ -7,7 +7,6 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from keybert import KeyBERT
 from transformers import pipeline
 
-
 from reddit import scrape_reddit_reviews
 from youtube import scrape_youtube_reviews
 

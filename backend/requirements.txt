@@ -10,8 +10,8 @@ praw
 nltk
 keybert
 sentence-transformers
-"httpx==0.24.1" 
-"youtube-search-python==1.6.6"
+httpx==0.24.1 
+youtube-search-python==1.6.6
 youtube-comment-downloader
 youtube-transcript-api
 transformers
