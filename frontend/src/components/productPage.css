@@ -9,71 +9,72 @@
 
 #topbar-ip {
     height: 100%;
-    background-color: #3b3b3b;
+    background-color: #ffffff;
     color: #d9d9d9;
     margin: 0%;
     padding: 1%;
-    box-shadow: 0 2px 8px rgba(46, 46, 46, 0.714);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     border-radius: 15px 0 0 15px;
     border: 0px;
-    font-size: medium;
-    width: 80%;
+    font-size: 0.8em;
+    width: 70%;
 }
 
 #search
 {
     height: 100%;
-    background-color: #3b3b3b;
-    color: #d9d9d9;
+    background-color: #ffffff;
+    color: #898989;
     margin: 0%;
     padding: 1%;
-    box-shadow: 0 2px 8px rgba(46, 46, 46, 0.714);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     border-radius: 0 15px 15px 0;
     border: 0px;
-    font-size: medium;  
+    font-size: 0.8em;  
 }
 
 .main-cont
 {
     margin: 1%;
-    width: 88%;
-    height: 100%;
+    width: 75%;
+    max-height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-self: center;
     scroll-behavior: smooth;
-    background-color: #3b3b3b;
+    background-color: #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 30px;
 }
 
-
-
 #go-to-compare
 {
-    width: 80%;
-    margin-right: 10%;
-    /* margin: 2%; */
+    width: 100%;
+    margin-right: 5%;
+    margin-bottom: 3%;
     display: flex;
     justify-content: center;    
 }
 
 * #go-to-compare button
 {   
-    background-color: #d9d9d9;
+    background-color: #f0f0f0;
     color: #3b3b3b;
-    margin: 50%;
-    padding: 25% 60% 25% 60%;
+    /* margin: 50%; */
+    padding: 20% 50% 20% 50%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 25px;
+    border: none;
+    border-radius: 17px;
     font-weight: bolder;
-    font-size: 1.2em;
-    
+    font-size: 0.9em;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 #go-to-compare button:hover
 {
-    background-color: #969191;
+    background-color: #1A597E;
     color: white;
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px);

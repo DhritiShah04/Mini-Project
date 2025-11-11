@@ -1,169 +1,252 @@
-    /* Body / container */
-    .body {
-        width: 100%;
-        min-height: 80vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        /* background-color: blueviolet; */
-        padding: 20px;
-        box-sizing: border-box;
-    }
+.auth-container {
+  width: 100%;
+  /* height: 100vh; */
+  margin-top: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
 
-    /* Main card container */
-    .main-cont-reg {
-        width: 900px;
-        /* max-width: 900px; */
-        height: 530px;
-        background-color: #d9d9d9;
-        /* background-color: #d33b3b; */
-        border-radius: 20px;
-        border: 5px solid #3b3b3b;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0% 2% 1% 2%;
-        /* display: flex; flex-direction: column; align-items: center; justify-content: center; */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
+.auth-box {
+  background-color: #ffffff;
+  border: 5px solid #ffffff;
+  border-radius: 20px;
+  width: 900px;
+  max-width: 100%;
+  min-height: 530px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  transition: all 0.6s ease-in-out;
+}
 
-    /* Heading */
-    .heading-reg {
-        text-align: center;
-        font-size: 2em;
-        margin-bottom: 20px;
-        color: #404040;
-    }
+/* ---------- FORM CONTAINERS ---------- */
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 90%;
+  width: 22%;
+  margin-left: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s ease-in-out;
+  background-color: #ffffff;
+}
 
-    /* Already registered / button */
-    .alr-reg-btn {
-        background-color: #d9d9d9;
-        font-size: 1.2em;
-        margin: 1%;
-        margin-top: 2%;
-        padding: 1.5% 3% 1.5% 3%;
-        border-radius: 10px;
-        font-weight: bold;
-        color: #3b3b3b;
-        border: 0;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(46, 46, 46, 0.714);
-        transition: 0.3s;
-    }
+.sign-in-container {
+  left: 0;
+  z-index: 2;
+}
 
-    .alr-reg-btn:hover {
-        background-color: #bbb;
-        color: #000;
-    }
+.sign-up-container {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
 
-    /* Link container */
-    .link-reg {
-        text-align: center;
-        width: 100%;
-    }
+/* Slide effect when active */
+.auth-box.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+  opacity: 0;
+}
 
-    /* Form container */
-    .form-reg {
-        width: 80%;
-        padding: 3%;
-        background-color: #3b3b3b;
-        /* background-color: #66ac38; */
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        /* gap: 15px; */
-    }
+.auth-box.right-panel-active .sign-up-container {
+  transform: translateX(230%);
+  opacity: 1;
+  z-index: 5;
+}
 
-    /* Form labels */
-    .form-reg label {
-        color: #d9d9d9;
-        margin-top: 1%;
-        font-size: 1.2em;
-    }
+/* ---------- FORM STYLES ---------- */
+.form-reg {
+  width: 200%;
+  /* padding: 3%; */
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: 0 5px 15px rgba(0,0,0,0.3); */
+}
 
-    /* Form inputs */
-    .form-reg input {
-        background-color: #d9d9d9;
-        width: 90%;
-        height: 20px;
-        padding: 5px;
-        border-radius: 8px;
-        margin: 1%;
-        font-size: 1em;
-        /* box-sizing: border-box; */
-    }
+.form-reg h2 {
+  color: #3b3b3b;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
 
-    /* Form buttons */
-    .form-reg button {
-        background-color: #d9d9d9;
-        font-size: 1.2em;
-        margin: 1%;
-        margin-top: 2%;
-        padding: 1.5% 3% 1.5% 3%;
-        border-radius: 10px;
-        font-weight: bold;
-        color: #3b3b3b;
-        border: 0;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(46, 46, 46, 0.714);
-        transition: 0.3s;
-    }
+.heading-reg {
+  font-size: 2em;
+  margin-bottom: 10%;
+  margin-left: 20%;
+  color: #3b3b3b;
+}
 
-    .form-reg button:hover {
-        color: #d9d9d9;
-        background-color: #827979;
-    }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
 
-    /* Switch between login/signup */
-    .switch-reg {
-        color: #3b3b3b;
-        font-weight: 500;
-        font-size: 1.1em;
-    }
+.form-group label {
+  color: #3b3b3b;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
 
-    /* Error / success messages */
-    .auth-error {
-        color: #ffcccc;
-        font-weight: bold;
-        text-align: center;
-    }
+.form-group input {
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1em;
+}
 
-    .auth-success {
-        color: #ccffcc;
-        font-weight: bold;
-        text-align: center;
-    }
+.form-reg input {
+  background-color: #e2e2e2;
+  width: 90%;
+  height: 30px;
+  padding: 5px;
+  padding-left: 15px;
+  border-radius: 20px;
+  margin: 1%;
+  font-size: 1em;
+  /* box-shadow: 0 2px 5px rgba(46, 46, 46, 0.3); */
+}
 
-    /* Row container for labels + inputs side by side */
-    .form-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 20px; /* spacing between two fields */
-    margin-bottom: 15px;
-    }
+.form-reg button {
+  background-color: #1A597E;
+  font-size: 1.05em;
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+  /* box-shadow: 0 2px 8px rgba(46, 46, 46, 0.714); */
+  /* transition: 0.3s; */
+  transition: all 0.4s ease-in-out;
+}
 
-    /* Individual input + label group */
-    .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 48%; /* roughly half of the row */
-    }
+.form-reg button:hover {
+  /* color: #d9d9d9;
+  background-color: #ffffff; */
+  transform: scale(1.05);
+}
 
-    /* Label and input styles remain the same */
-    .form-group label {
-    color: #d9d9d9;
-    margin-bottom: 5px;
-    font-size: 1.1em;
-    }
+.switch-reg {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.1em;
+  margin-top: 10px;
+}
 
-    .form-group input {
-    background-color: #d9d9d9;
-    padding: 8px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1em;
-    }
+.auth-error {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.auth-success {
+  color: #3b3b3b;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ---------- OVERLAY PANEL ---------- */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.overlay {
+  /* background: linear-gradient(to right, #1A597E 10%, #64a7ce 100%); */
+  background: linear-gradient(to right, #6fa9ce 60%, #1A597E 100%);
+  /* background-color: #1A597E; */
+  display: flex;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel h2,
+.overlay-panel p {
+  color: #fff; /* makes both heading and paragraph white */
+}
+
+.overlay-left,
+.overlay-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 40px;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Left half gradient */
+.overlay-left {
+  background: linear-gradient(135deg, #1A597E 20%, #6fa9ce 100%);
+}
+
+/* Right half gradient (mirrored) */
+.overlay-right {
+  background: linear-gradient(225deg, #1A597E 20%, #6fa9ce 100%);
+}
+
+.auth-box.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.auth-box.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.auth-box.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.auth-box.right-panel-active .overlay-right {
+  transform: translateX(0);
+}
+
+/* ---------- BUTTONS IN OVERLAY ---------- */
+.ghost-btn {
+  margin-top: 15px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ghost-btn:hover {
+  background-color: #fff;
+  color: #3b3b3b;
+}
+#already-signed-in{
+  text-align: center;
+  font-size: 1em;
+  display: "flex";
+  justify-content: "center";
+}

@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #8BCFFF;
+  background-color: #FFFFFF;
   margin: 0;
   padding: 0;
 }
@@ -259,7 +259,7 @@ button:hover {
 }
 
 .not-signed-in-btn {
-     background-color: #d9d9d9;
+    background-color: #d9d9d9;
     font-size: 1.2em;
     margin: 1%;
     margin-top: 2%;
@@ -269,6 +269,8 @@ button:hover {
     color: #3b3b3b;
     border: 0;
     box-shadow: 0 2px 8px rgba(46, 46, 46, 0.714);
+    cursor: pointer;
+
 }
 
 #not-signed-in-link {

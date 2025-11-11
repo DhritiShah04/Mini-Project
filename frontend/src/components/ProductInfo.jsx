@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import "./ProductInfo.css"
+import ImageCarousel from "./ImageCarousel.jsx"
 
 // import './ProductInfo.css';
 
@@ -15,6 +17,7 @@ const DETAIL_KEYS = [
     "battery",
     "price_inr",
     "why",
+    "images",
 ];
 
 function ProductInfo({ user, laptops }) {
@@ -45,28 +48,122 @@ function ProductInfo({ user, laptops }) {
   return (
     <>
       {user ? (
-        <div className="product-info-details">
-        <h1>{item.model}</h1> {/* Display model name as the title */}
-        <h3>Full Specifications</h3>
-        
-        {DETAIL_KEYS.map((key) => (
-          <div key={key} className="spec-item">
-            <strong className="spec-label">{key.replace('_inr', ' (INR)').toUpperCase()}:</strong>
-            <span className="spec-value">{item[key] || "N/A"}</span>
-          </div>
-        ))}
-        
-          <p className="why-text">
-            **Recommendation Rationale:** {item.why || "Rationale unavailable."}
-          </p>
+        <div className="cont-info">
+          <div className="product-info-main-cont">
+            <div className="general-info">
+              <div className="prod-img">
+                <ImageCarousel images={item.images}/>
+              </div>
+              <div className="prod-gen-deets">
+                <h2>{item.model} <br /> {item.price_inr} </h2> 
+                <hr />
+                <p>{item.why}</p>
+              </div>
+            </div>
 
+            <div className="prod-specs">
+              
+              <div className="tech-specs">
+                <h2>Specifications</h2>
+                <div className="jargon-wala-specs">
+                  <div className="model-specs">
+                    <h3>What the model offers</h3>
+                    <div className="specs-wrapper">
+                      <div className="specs">
+                        <table className="prod-spec-table">
+                          <tbody>
+                            <tr>
+                              <td><strong>Model</strong></td>
+                              <td>{item.model}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>CPU</strong></td>
+                              <td>{item.cpu}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>RAM</strong></td>
+                              <td>{item.ram}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Storage</strong></td>
+                              <td>{item.storage}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>GPU</strong></td>
+                              <td>{item.gpu}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Display</strong></td>
+                              <td>{item.display}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Battery</strong></td>
+                              <td>{item.battery}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="your-specs">
+                    <h3>What you need</h3>
+                    <div className="specs-wrapper">
+                      <div className="specs">
+                        <div>
+                          <strong>Need to add from db, this is dummy</strong>
+                        </div>
+                        <table className="prod-spec-table">
+                          <tbody>
+                            <tr>
+                              <td><strong>Model</strong></td>
+                              <td>{item.model}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>CPU</strong></td>
+                              <td>{item.cpu}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>RAM</strong></td>
+                              <td>{item.ram}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Storage</strong></td>
+                              <td>{item.storage}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>GPU</strong></td>
+                              <td>{item.gpu}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Display</strong></td>
+                              <td>{item.display}</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Battery</strong></td>
+                              <td>{item.battery}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="wo_jargon_specs"></div>
+                  <h3>What it means</h3>
+                  <div className="specs">
+                    blah
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>
       ):(
         <div id="not-signed-in">
           <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
           </h2>
         
-          <Link id='not-signed-in-link' to={'/login'}>
+          <Link id='not-signed-in-link' to={'/auth'}>
               <button className='not-signed-in-btn'>
                   Log In
               </button>
@@ -74,9 +171,6 @@ function ProductInfo({ user, laptops }) {
         </div>
       )}
     </>
-    
-
-    
   );
 }
 

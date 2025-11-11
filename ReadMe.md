@@ -15,4 +15,3 @@ In a new terminal:
 - `cd frontend`          
 - `npm install`
 - `npm start`
-

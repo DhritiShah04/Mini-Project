@@ -5,13 +5,13 @@ import axios from "axios";
 import "./App.css";
 import QUESTIONS_JSON from "./questions.json";
 import Navbar from "./components/Navbar"; 
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Link } from 'react-router-dom';
 import ProductInfo from "./components/ProductInfo";
 import ProductPage from "./components/productPage";
 import CompareLaptops from "./components/CompareLaptops";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
 import Wishlist from "./components/Wishlist";
+import AuthPage from "./components/AuthPage";
+import HomePage from "./components/HomePage";
 
 
 const API_BASE_URL = "http://127.0.0.1:5000";
@@ -165,6 +165,7 @@ function App() {
       <Navbar user={user} onLogOut={handleLogout} />
       <div className="main-content">
         <Routes>
+<<<<<<< HEAD
           <Route path="/" element={
             <div className="home-page">
               {/* <h2>Welcome to Smart Select: Tech Chosen Right</h2>
@@ -180,11 +181,11 @@ function App() {
           <Route path="/login" element={
             <Login user={user} onAuthSuccess={handleAuthSuccess}/>
           }/>
+=======
+          <Route path="/" element={<HomePage />} />
+>>>>>>> 804e6f3a2d78c1da11d45a16bd1c6d20a9897406
 
-          <Route path="/signup" element={
-            <SignUp user={user} onAuthSuccess={handleAuthSuccess}/>
-          }/>
-            
+          <Route path="/auth" element={<AuthPage user={user} onAuthSuccess={handleAuthSuccess} />} />
           
           <Route path="/questionnaire" element={
             <Questionnaire user={user} questions={QUESTIONS_JSON.questions} onSubmit={handleSubmit} />
@@ -209,9 +210,15 @@ function App() {
                   />
               )
             ) : (
-              // User landed here without submitting, redirect them to the questionnaire
-              <div className="no-results-message">
-                  No recommendations found. Please <a href="/questionnaire">complete the questionnaire</a>.
+              <div id="not-signed-in">
+                <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
+                </h2>
+              
+                <Link id='not-signed-in-link' to={'/auth'}>
+                    <button className='not-signed-in-btn'>
+                        Log In
+                    </button>
+                </Link>
               </div>
             )}
           </>

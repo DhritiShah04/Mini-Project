@@ -1,9 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from datetime import datetime, timedelta
 import jwt
 import os
-from Laptop_Bot import run_query, answers_to_query, QUESTIONNAIRE, ask_questionnaire
+from Laptop_Bot import run_query, answers_to_query, QUESTIONNAIRE, ask_questionnaire, fetch_laptop_details
 from functools import wraps 
 
 # ----------------------------------------------------------------------
@@ -18,7 +18,6 @@ if SECRET_KEY == "your_fallback_super_secret_key":
 from db_mongo import (
     store_initial_request, 
     store_bot_response, 
-    get_analytics_for_frontend,
     get_latest_laptop_recommendations, # <-- NEW IMPORT
     create_user, 
     get_user_by_username, 
@@ -27,8 +26,14 @@ from db_mongo import (
     get_wishlisted_laptops
 )
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
+
 CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type", "Authorization"]}})
+
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(app.static_folder, filename)
 
 def auth_required(f):
     @wraps(f)
@@ -118,9 +123,7 @@ def query():
     # Return the full bot response to the frontend (it contains the summary/messages)
     return jsonify(resp_json)
 
-# ----------------------------------------------------------------------
-# FIX IS HERE: This route now fetches only the 5 recommended laptops
-# ----------------------------------------------------------------------
+
 @app.route("/laptops", methods=["GET"])
 def get_laptops():
     # Use the new function to retrieve ONLY the 5 recommended laptops

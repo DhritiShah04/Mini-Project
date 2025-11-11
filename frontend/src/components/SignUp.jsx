@@ -65,13 +65,14 @@ function Signup({user}) {
     <div className="body">
       {user ? (
         <>
-          <h2 className='heading-reg'>{user.username}, you have already signed in</h2>
-          
-          <Link className='link-reg' to={'/recommendations'}>
-              <button className='alr-reg-btn'>
-                  Go to Recommendations
-              </button>
-          </Link>
+          <div id="already-signed-in">
+            <h2 className='heading-not-signed-in'>{user.username}, you have already signed in</h2>
+            <Link className='link-reg' to={'/recommendations'}>
+                <button className='not-signed-in-btn'>
+                    Go to Recommendations
+                </button>
+            </Link>
+          </div>
       </>
       ) : (
         <>
@@ -80,19 +81,6 @@ function Signup({user}) {
             <form onSubmit={handleSubmit} className="form-reg">
               {error && <p className="auth-error">{error}</p>}
               {message && <p className="auth-success">{message}</p>}
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="fullName">Full Name</label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    value={fullName}
-                    onChange={(e) => setfullName(e.target.value)}
-                    required
-                    disabled={loading}
-                  />
-                </div>
 
                 <div className="form-group">
                   <label htmlFor="username">Username</label>
@@ -104,11 +92,7 @@ function Signup({user}) {
                     required
                     disabled={loading}
                   />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
+                  
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
@@ -118,23 +102,7 @@ function Signup({user}) {
                     required
                     disabled={loading}
                   />
-                </div>
-                    
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <input
-                    type="text"
-                    id="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                    disabled={loading}
-                  />
-                </div>
-              </div>
-                    
-              <div className="form-row">
-                <div className="form-group">
+
                   <label htmlFor="password">Password</label>
                   <input
                     type="password"
@@ -144,9 +112,7 @@ function Signup({user}) {
                     required
                     disabled={loading}
                   />
-                </div>
-                    
-                <div className="form-group">
+
                   <label htmlFor="confirmPassword">Confirm Password</label>
                   <input
                     type="password"
@@ -157,15 +123,11 @@ function Signup({user}) {
                     disabled={loading}
                   />
                 </div>
-              </div>
 
               <button type="submit" disabled={loading} className="auth-button">
                 {loading ? 'Signing up...' : 'Sign Up'}
               </button>
             </form>
-            <p className="switch-reg">
-              Already have an account? <Link to="/login">Login</Link>
-            </p>
           </div>
         </>
       )}

@@ -42,25 +42,24 @@ function Login({ user, onAuthSuccess }) {
     <div className="body">
         {user ? (
             <>
-                <h2 className='heading-reg'>{user.username}, you are already logged in</h2>
-                
-                <Link className='link-reg' to={'/recommendations'}>
-                    <button className='alr-reg-btn'>
+              <div id="already-signed-in">
+                <h2 className='heading-not-signed-in'>{user.username}, you are already logged in</h2>
+                <Link className='not-signed-in-link' to={'/recommendations'}>
+                    <button className='not-signed-in-btn'>
                         Go to Recommendations
                     </button>
                 </Link>
+              </div>
             </>
         ):(
             <>
-                <div className="main-cont-reg">
-                    {/* <div className="auth-card"> */}
-                    <h2 className='heading-reg'>Login</h2>
-                    
-                    
-                    {/* <div className="form-reg"> */}
-                    <form onSubmit={handleSubmit} className="form-reg">
-                        {error && <p className="auth-error">{error}</p>}
-
+              <div className="main-cont-reg">
+                  {/* <div className="auth-card"> */}
+                  <h2 className='heading-reg'>Login</h2>
+                  {/* <div className="form-reg"> */}
+                  <form onSubmit={handleSubmit} className="form-reg">
+                      {error && <p className="auth-error">{error}</p>}
+                      <div className="form-group">
                         <label htmlFor="username">Username</label>
                         <input
                         type="text"
@@ -70,7 +69,6 @@ function Login({ user, onAuthSuccess }) {
                         required
                         disabled={loading}
                         />
-
                         <label htmlFor="password">Password</label>
                         <input
                         type="password"
@@ -80,18 +78,12 @@ function Login({ user, onAuthSuccess }) {
                         required
                         disabled={loading}
                         />
-
-                        <button type="submit" disabled={loading} className="auth-button">
-                        {loading ? 'Logging in...' : 'Login'}
-                        </button>
-                    </form>
-                    {/* </div> */}
-
-                    
-                    <p className="switch-reg">
-                    Don't have an account? <Link to="/signup">Sign Up</Link>
-                    </p>
-                </div>
+                      </div>
+                      <button type="submit" disabled={loading} className="auth-button">
+                      {loading ? 'Logging in...' : 'Login'}
+                      </button>
+                  </form>
+              </div>
             </>
         )}
         
