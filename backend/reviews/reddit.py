@@ -2,15 +2,17 @@
 import praw
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv('reviews.env')
 
 # Ensure json_files folder exists
 os.makedirs("json_files", exist_ok=True)
 
 # Reddit API setup
 reddit = praw.Reddit(
-    client_id="QiLBallOcmbSbuBmfuL1vw",
-    client_secret="kixpJgWxxDtOvvOtEbbksy5M9GvfFg",
-    user_agent="United_Rate8208"
+    client_id=os.getenv('REDDIT_CLIENT_ID'),
+    client_secret=os.getenv('REDDIT_CLIENT_SECRET'),
+    user_agent=os.getenv('REDDIT_USER_AGENT')
 )
 
 def scrape_reddit_reviews(model_name, subreddit="laptops", limit=50):
