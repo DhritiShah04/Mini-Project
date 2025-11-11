@@ -165,25 +165,7 @@ function App() {
       <Navbar user={user} onLogOut={handleLogout} />
       <div className="main-content">
         <Routes>
-<<<<<<< HEAD
-          <Route path="/" element={
-            <div className="home-page">
-              {/* <h2>Welcome to Smart Select: Tech Chosen Right</h2>
-              Get Started     
-              <p>Your journey to finding the perfect laptop starts here.</p>
-              <button onClick={() => window.location.href = "/recommendations"}>
-                Get Started
-              </button> */}
-              {/* Add homepage */}
-              
-            </div>
-          } />  
-          <Route path="/login" element={
-            <Login user={user} onAuthSuccess={handleAuthSuccess}/>
-          }/>
-=======
           <Route path="/" element={<HomePage />} />
->>>>>>> 804e6f3a2d78c1da11d45a16bd1c6d20a9897406
 
           <Route path="/auth" element={<AuthPage user={user} onAuthSuccess={handleAuthSuccess} />} />
           

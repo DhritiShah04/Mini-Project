@@ -3,10 +3,14 @@ import praw
 import json
 import os
 from dotenv import load_dotenv
-load_dotenv('reviews.env')
+dotenv_path = os.path.join(os.path.dirname(__file__), 'reviews.env')
+load_dotenv(dotenv_path)
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 # Ensure json_files folder exists
-os.makedirs("json_files", exist_ok=True)
+os.makedirs(os.path.join(BASE_DIR, "reviews", "json_files"), exist_ok=True)
+
 
 # Reddit API setup
 reddit = praw.Reddit(
@@ -18,7 +22,7 @@ reddit = praw.Reddit(
 def scrape_reddit_reviews(model_name, subreddit="laptops", limit=50):
     if "review" not in model_name.lower():
         model_name += " review"
-    cache_dir = "json_files/reddit/raw_reviews"
+    cache_dir = os.path.join(BASE_DIR, "reviews", "json_files", "reddit", "raw_reviews")
     os.makedirs(cache_dir, exist_ok=True)
     cache_path = os.path.join(cache_dir, f"{model_name.replace(' ', '_')}.json")
 

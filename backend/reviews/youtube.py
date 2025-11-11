@@ -8,9 +8,13 @@ from youtubesearchpython import VideosSearch
 
 MODEL_NAME = "IdeaPad Slim 3"
 NUM_VIDEOS = 3
+import os
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 # Ensure cache folder for all model reviews exists
-cache_dir = "json_files/youtube/raw_reviews"
+cache_dir = os.path.join(BASE_DIR, "reviews", "json_files", "youtube", "raw_reviews")
+
 os.makedirs(cache_dir, exist_ok=True)
 
 def clean_text(text):
@@ -95,7 +99,9 @@ def scrape_youtube_reviews(model_name, num_videos=3):
     # Save combined reviews into one JSON per model
     with open(cache_filepath, "w", encoding="utf-8") as f:
         json.dump(all_reviews, f, ensure_ascii=False, indent=2)
-    print(f"💾 Saved combined reviews for {model_name} to {cache_filepath}")
+    # print(f"💾 Saved combined reviews for {model_name} to {cache_filepath}")
+    print(f"💾 Saved combined reviews for {model_name}")
+
 
     return all_reviews
 

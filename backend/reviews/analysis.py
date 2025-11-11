@@ -6,12 +6,12 @@ import re
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from keybert import KeyBERT
 from transformers import pipeline
+from .reddit import scrape_reddit_reviews
+# from .youtube import scrape_youtube_reviews
 
-from reddit import scrape_reddit_reviews
-from youtube import scrape_youtube_reviews
-
-os.makedirs("json_files/reddit/analysis", exist_ok=True)
-os.makedirs("json_files/youtube/analysis", exist_ok=True)
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+os.makedirs(os.path.join(BASE_DIR, "reviews" ,"json_files", "reddit", "analysis"), exist_ok=True)
+os.makedirs(os.path.join(BASE_DIR, "reviews", "json_files", "youtube", "analysis"), exist_ok=True)
 
 
 def clean_text(text):
@@ -80,9 +80,11 @@ kw_model = KeyBERT('distilbert-base-nli-mean-tokens')
 
 def load_analysis_cache(model_name, source):
     filename = f"{model_name.replace(' ', '_')}_analysis.json"
-    filepath = os.path.join("json_files", source, "analysis", filename)
+    filepath = os.path.join(BASE_DIR, "reviews", "json_files", source, "analysis", filename)
     if os.path.exists(filepath):
-        print(f"♻️ Analysis cache exists for {model_name} [{source}], loading...")
+        # print(f"♻️ Analysis cache exists for {model_name} [{source}], loading...")
+        print(f"♻️ Analysis cache exists for {model_name}, loading...")
+
         with open(filepath, "r", encoding="utf-8") as f:
             return json.load(f)
     return None
@@ -90,11 +92,13 @@ def load_analysis_cache(model_name, source):
 
 def save_analysis_cache(model_name, source, analysis_data):
     filename = f"{model_name.replace(' ', '_')}_analysis.json"
-    filepath = os.path.join("json_files", source, "analysis", filename)
+    filepath = os.path.join(BASE_DIR, "reviews", "json_files", source, "analysis", filename)
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(analysis_data, f, ensure_ascii=False, indent=2)
-    print(f"💾 Saved combined analysis cache for {model_name} [{source}]")
+    # print(f"💾 Saved combined analysis cache for {model_name} [{source}] at {filepath}")
+    print(f"💾 Saved combined analysis cache for {model_name}")
+
 
 
 # Initialize summarizer (load once outside the function)
@@ -179,36 +183,33 @@ def process_model(model_name):
     print(f"🔹 Processing model: {model_name}")
     start_model = time.time()
 
-    os.makedirs("json_files/reddit", exist_ok=True)
-    os.makedirs("json_files/youtube", exist_ok=True)
-
     start_fetch = time.time()
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         reddit_future = executor.submit(scrape_reddit_reviews, model_name)
-        youtube_future = executor.submit(scrape_youtube_reviews, model_name)
+        # youtube_future = executor.submit(scrape_youtube_reviews, model_name)
         reddit_reviews = reddit_future.result()
-        youtube_reviews = youtube_future.result()
+        # youtube_reviews = youtube_future.result()
     end_fetch = time.time()
 
     # Parallel analyze_reviews for Reddit and YouTube
     start_analysis = time.time()
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         reddit_analysis_future = executor.submit(analyze_reviews, reddit_reviews, sia, kw_model, user_keywords, model_name, "reddit")
-        youtube_analysis_future = executor.submit(analyze_reviews, youtube_reviews, sia, kw_model, user_keywords, model_name, "youtube")
+        # youtube_analysis_future = executor.submit(analyze_reviews, youtube_reviews, sia, kw_model, user_keywords, model_name, "youtube")
         reddit_analysis = reddit_analysis_future.result()
-        youtube_analysis = youtube_analysis_future.result()
+        # youtube_analysis = youtube_analysis_future.result()
     end_analysis = time.time()
 
     output = {
         "model_name": model_name,
         "total_reviews_reddit": len(reddit_analysis["clean_reviews"]),
-        "total_reviews_youtube": len(youtube_analysis["clean_reviews"]),
+        # "total_reviews_youtube": len(youtube_analysis["clean_reviews"]),
         "reviews_by_user_reddit": reddit_analysis["reviews_by_user"],
-        "reviews_by_user_youtube": youtube_analysis["reviews_by_user"],
+        # "reviews_by_user_youtube": youtube_analysis["reviews_by_user"],
         "sentiment_reddit_by_user": reddit_analysis["sentiment_by_user"],
-        "sentiment_youtube_by_user": youtube_analysis["sentiment_by_user"],
+        # "sentiment_youtube_by_user": youtube_analysis["sentiment_by_user"],
         "keywords_reddit_by_user": reddit_analysis["keywords_by_user"],
-        "keywords_youtube_by_user": youtube_analysis["keywords_by_user"],
+        # "keywords_youtube_by_user": youtube_analysis["keywords_by_user"],
         "timings": {
             "fetch_time_sec": round(end_fetch - start_fetch, 2),
             "analysis_time_sec": round(end_analysis - start_analysis, 2),
@@ -240,10 +241,10 @@ def process_models(models_list):
 # Example run
 if __name__ == "__main__":
     model_names = [
-        "IdeaPad Slim 3",
-        "IdeaPad Slim 5",
-        "ThinkBook 14",
-        "IdeaPad Flex 5",
-        "ThinkPad E14"
+        # "IdeaPad Slim 3",
+        "IdeaPad Slim 5 Pro",
+        # "ThinkBook 14",
+        # "IdeaPad Flex 5",
+        # "ThinkPad E14"
     ]
     outputs = process_models(model_names)

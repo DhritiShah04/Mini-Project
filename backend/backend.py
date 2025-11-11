@@ -5,6 +5,9 @@ import jwt
 import os
 from Laptop_Bot import run_query, answers_to_query, QUESTIONNAIRE, ask_questionnaire, fetch_laptop_details
 from functools import wraps 
+from flask import send_file, abort
+from reviews.analysis import process_models
+
 
 # ----------------------------------------------------------------------
 # NEW: JWT Configuration
@@ -119,6 +122,11 @@ def query():
         from db_mongo import store_laptop_recommendations
         # This stores the 5 items recommended by the bot, associated with request_id
         store_laptop_recommendations(request_id, resp_json["items"])
+        model_names = [item.get("model") for item in resp_json["items"] if "model" in item]
+
+        print("🖥️ Model names:", model_names)
+        
+        process_models(model_names)
 
     # Return the full bot response to the frontend (it contains the summary/messages)
     return jsonify(resp_json)
@@ -184,6 +192,22 @@ def login():
         }), 200
     else:
         return jsonify({"message": "Invalid username or password"}), 401 # 401 Unauthorized
+
+@app.route('/api/reviews/reddit/analysis/<modelname>', methods=['GET'])
+def get_reddit_review_analysis(modelname):
+    base_dir = os.path.join(os.path.dirname(__file__), "reviews", "json_files", "reddit", "analysis")
+    safe_modelname = modelname.replace(" ", "_")
+    filename = f"{safe_modelname}_analysis.json"
+    file_path = os.path.join(base_dir, filename)
+    # http://localhost:5000/api/reviews/reddit/analysis/Yoga_Slim_7_Pro
+    print(f"Serving review file: {file_path}")   # <-- Debug line
+
+    if not os.path.isfile(file_path) or not file_path.startswith(base_dir):
+        print("File not found")                    # <-- Debug line
+        return abort(404, description=f"Review analysis for model {modelname} not found.")
+
+    return send_file(file_path, mimetype='application/json')
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

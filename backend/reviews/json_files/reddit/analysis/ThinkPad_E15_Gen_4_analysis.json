@@ -1,0 +1,158 @@
+{
+  "sentiment_by_user": {
+    "Gamers": {
+      "positive": 29,
+      "neutral": 2,
+      "negative": 1,
+      "total_reviews": 32,
+      "sentiment_score": 0.875,
+      "avg_compound": 0.608
+    },
+    "Students": {
+      "positive": 20,
+      "neutral": 1,
+      "negative": 0,
+      "total_reviews": 21,
+      "sentiment_score": 0.952,
+      "avg_compound": 0.769
+    },
+    "Content Creators": {
+      "positive": 11,
+      "neutral": 1,
+      "negative": 1,
+      "total_reviews": 13,
+      "sentiment_score": 0.769,
+      "avg_compound": 0.628
+    },
+    "Casual Users": {
+      "positive": 14,
+      "neutral": 2,
+      "negative": 1,
+      "total_reviews": 17,
+      "sentiment_score": 0.765,
+      "avg_compound": 0.596
+    },
+    "Programmers / Engineers": {
+      "positive": 23,
+      "neutral": 1,
+      "negative": 3,
+      "total_reviews": 27,
+      "sentiment_score": 0.741,
+      "avg_compound": 0.513
+    }
+  },
+  "keywords_by_user": {
+    "Gamers": [
+      "laptops dying years",
+      "45 years mild",
+      "bluetooth midnight kbd",
+      "500 ghz nvidia",
+      "twice paid laptop",
+      "laptop fairly minor",
+      "budget gaming laptops",
+      "gpu lower price",
+      "g16 better laptop",
+      "pro 350 processor"
+    ],
+    "Students": [
+      "smaller longer battery",
+      "g16 better laptop",
+      "cpus tend overheat",
+      "laptops considering 13002000",
+      "laptop better battery",
+      "ux3405capz163ws 1350 cpu",
+      "32 gb lpddr5x8533mts",
+      "g16 better battery",
+      "laptop sold 17k",
+      "32 gb lpddr5x"
+    ],
+    "Content Creators": [
+      "elitebook t16 intel",
+      "laptop hp probook",
+      "bluetooth 52 windows",
+      "realtek wifi rtl8852be",
+      "bluetooth 51 windows",
+      "windows 10 bluetooth",
+      "laptop zbook firefly",
+      "pro 8640hs processor",
+      "ux3405capz163ws 1350 cpu",
+      "hp probook 470"
+    ],
+    "Casual Users": [
+      "elitebook t16 intel",
+      "laptop hp probook",
+      "x2 dolby atmos",
+      "laptop zbook firefly",
+      "thunderbolt usb4 40gbps",
+      "dolby atmos audio",
+      "40gbps usb pd",
+      "2x2 usb pd",
+      "vivobook hx370 mediatek",
+      "5gbps usb 32"
+    ],
+    "Programmers / Engineers": [
+      "g16 better laptop",
+      "laptop cheaper 15h",
+      "g16 better battery",
+      "cheaper 15h battery",
+      "twice paid laptop",
+      "laptop better battery",
+      "macbooklevel insane 14hour",
+      "got discount 2560x1600",
+      "discount 2560x1600 240",
+      "macbook pro m1"
+    ]
+  },
+  "example_snippets_by_user": {
+    "Gamers": {
+      "positive": [
+        "Overheating Ryzen vs Intel i5i7 Dear all I know that it is a long standing discussion but still are Intel i5i7 CPUs tend to overheat less in general compared to Ryzen 57 ones As an example I have came across two reviews of Lenovo ThinkPad E15 Gen 2 one with i7 4 cores discrete GPU another one with Ryzen 7 8 cores integrated graphics Underside temperature for them under load reached 47 and 67 degrees Celsius respectively Given that i7 version had discrete GPU it still has much lower temperature 20 degrees difference Perhaps it is not a surprise given twice as many cores but yet Could you tell me what is your experience Thanks",
+        "Much cheaper and better guts than But the main reason Im interested in it is the improved airflow with so many vents all round He might not be using that dGPU for his work but that improved ventilation might come in handy Unfortunately that Thinkpad is a slim version so its a bit squished There are also reports of it running hot though mainly because some drivers issue",
+        "Brother in christ you already made the purchase mentally long ago You came here for emotional validation If you want cold data then my 1000 lenovo legion 5 slim that i got on discount has 2560x1600 240 hz display 15 TB of expandable ssd space 32 gb ddr5 5600mhz ram to change as i will realistically average joe doesnt need more than 20GB anyways r7 8845hs rtx 4060 140W like dgpus or not they rise the price up 80wh battery aluminum build All of these specs are better than that thinkpad you linked except maybe the chassis at best and it costs more than twice the amount I paid for my laptop And lets not forget your tasks are still opening web pages and reading emails I dont think browsing web pages will be any demanding in the future thats regarding futureproofness"
+      ],
+      "negative": [
+        "I found a 135 w Lenovo original AC for 18 from a reputable seller I also have one lying around from my workplace use Lenovo which I can test with The seller around returns within 30 days if theres any issue Use case is for my wife as her primary computer she uses Wix for design and dropshipping business Netflix streaming discord streaming Adobe Photoshop and video editing as well"
+      ]
+    },
+    "Students": {
+      "positive": [
+        "Overheating Ryzen vs Intel i5i7 Dear all I know that it is a long standing discussion but still are Intel i5i7 CPUs tend to overheat less in general compared to Ryzen 57 ones As an example I have came across two reviews of Lenovo ThinkPad E15 Gen 2 one with i7 4 cores discrete GPU another one with Ryzen 7 8 cores integrated graphics Underside temperature for them under load reached 47 and 67 degrees Celsius respectively Given that i7 version had discrete GPU it still has much lower temperature 20 degrees difference Perhaps it is not a surprise given twice as many cores but yet Could you tell me what is your experience Thanks",
+        "Much cheaper and better guts than But the main reason Im interested in it is the improved airflow with so many vents all round He might not be using that dGPU for his work but that improved ventilation might come in handy Unfortunately that Thinkpad is a slim version so its a bit squished There are also reports of it running hot though mainly because some drivers issue",
+        "Then what is in your opinion worthy a purchase for opening google tabs and email fast with a great build quality and thats going to be futureproof for another 57 years One concrete example link would be enough If you feel strong about your opinion make it two"
+      ],
+      "negative": []
+    },
+    "Content Creators": {
+      "positive": [
+        "ZBook Power G8 or Thinkpad P1 Gen 4 Im looking to buy a refurbished laptop Purpose is for programming photoshop and video editing I came across ZBook Power G8 with i711850H 32GB Upto 64GB 1TB RTX A2000 4GB Thinkpad P1 Gen 4 with i711850H 64GB Upto 64GB 1TB RTX A2000 4GB When I compared the weights of these laptops Thinkpad is good but when I include the charger weight it is too much Should I be investing in these models or should I simply ditch these models and go for a laptop with integrated graphics itself such as Thinkbook 14 Battery Portability and Build Quality are equally important for me Any advice or suggestions are welcome",
+        "Title 7 Powerful Reasons the Lenovo Legion Pro 7i Gen 10 Review Says Its a Game Changer in 2025 Hey everyone I just read this review titled 7 Powerful Reasons the Lenovo Legion Pro 7i Gen 10 Review Proves Its a Game Changer in 2025 and thought itd be worth sharingdiscussing Link included below Heres a quick breakdown my take would love to hear what you all think Key Highlights from the Review 1 Toptier graphics processing It leans on Intel latest RTX 5000 series hardware for serious gaming punch 2 Stunning OLED 240 Hz display Crisp visuals high refresh rich colors 3 Performance cooling optimized Good thermal design especially on a stand helps sustain heavy loads 4 Strong build quality premium feel Materials and finish got good praise 5 Quiet balance modes are effective You dont always have to blast full power 6 Decent audio ports For a gaming laptop it doesnt skimp too much 7 Some compromises tradeoffs Battery life is underwhelming smudgeprone surfaces and the new port layout sides vs back isnt ideal for everyone My Thoughts Questions This looks like a beast if you mostly use it plugged in for gaming video creative work But if youre mobile and need long unplugged sessions the battery life sounds weak which echoed in other reviews too The OLED 240 Hz combo is tempting but in bright environments reflections may kill the vibe Side instead of rear ports is a controversial change ergonomics over aesthetics Im curious for folks whove tried it how is it in realworld use noise heat battery wear Link to full review for reference 7 Powerful Reasons the Lenovo Legion Pro 7i Gen 10 Review Proves Its a Game Changer in 2025 mesnbotcom",
+        "Need help choosing between Lenovo ThinkPad X914 Gen 1 and ASUS Zenbook 14 OLED big price gap similar specs Hey everyone I dont have the best knowledge about laptops but Ive been doing some research and narrowed it down to two options that seem to have very similar specs on paper yet theres a huge price difference Id love your input on which one makes more sense for my needs and why Lenovo is charging so much more Also open to other suggestions in this range Main use case Heavy Excel work multitasking with WordTeamsExcel always have multiple browser tabs open light editing and long battery life Option 1 Lenovo ThinkPad X914 Gen 1 2000 CPU Intel Core Ultra 7 258V LPEcores up to 350 GHz Pcores up to 450 GHz 32 GB MOP RAM 32 GB LPDDR5X8533MTs Memory on Package Storage 1 TB SSD M2 2242 PCIe Gen4 TLC Opal OS Windows 11 Home 64 Display 14 WUXGA 19201200 OLED AntiGlare HDR 500 True Black 100 DCIP3 400 nits 60Hz Optional 150 upgrade to 28K OLED Touch 500 nits VRR 30120Hz Option 2 ASUS Zenbook 14 OLED UX3405CAPZ163WS 1350 CPU Intel Core Ultra 7 255H 20 GHz base up to 51 GHz 16 cores 16 threads Intel AI Boost NPU up to 13 RAM 32 GB LPDDR5X onboard dualchannel Storage 1 TB M2 NVMe PCIe 40 SSD OS Windows 11 Home Display 14 3K 28801800 OLED Touch 100 DCIP3 My questions 1 Which would you pick for my needs and why 2 Is the ThinkPad premium purely brand and build quality or is there something else Im missing 3 Any other laptops I should be considering in the 13002000 range with similar specs Thanks in advance for the help I really appreciate it"
+      ],
+      "negative": [
+        "I found a 135 w Lenovo original AC for 18 from a reputable seller I also have one lying around from my workplace use Lenovo which I can test with The seller around returns within 30 days if theres any issue Use case is for my wife as her primary computer she uses Wix for design and dropshipping business Netflix streaming discord streaming Adobe Photoshop and video editing as well"
+      ]
+    },
+    "Casual Users": {
+      "positive": [
+        "And That doesnt make 2300 lenovo thinkpad a worthy purchase if your only task is What Opening Google tabs and email fast Which any newer machine can do easily not just a 2000 one",
+        "Then what is in your opinion worthy a purchase for opening google tabs and email fast with a great build quality and thats going to be futureproof for another 57 years One concrete example link would be enough If you feel strong about your opinion make it two",
+        "Brother in christ you already made the purchase mentally long ago You came here for emotional validation If you want cold data then my 1000 lenovo legion 5 slim that i got on discount has 2560x1600 240 hz display 15 TB of expandable ssd space 32 gb ddr5 5600mhz ram to change as i will realistically average joe doesnt need more than 20GB anyways r7 8845hs rtx 4060 140W like dgpus or not they rise the price up 80wh battery aluminum build All of these specs are better than that thinkpad you linked except maybe the chassis at best and it costs more than twice the amount I paid for my laptop And lets not forget your tasks are still opening web pages and reading emails I dont think browsing web pages will be any demanding in the future thats regarding futureproofness"
+      ],
+      "negative": [
+        "I found a 135 w Lenovo original AC for 18 from a reputable seller I also have one lying around from my workplace use Lenovo which I can test with The seller around returns within 30 days if theres any issue Use case is for my wife as her primary computer she uses Wix for design and dropshipping business Netflix streaming discord streaming Adobe Photoshop and video editing as well"
+      ]
+    },
+    "Programmers / Engineers": {
+      "positive": [
+        "Brother in christ you already made the purchase mentally long ago You came here for emotional validation If you want cold data then my 1000 lenovo legion 5 slim that i got on discount has 2560x1600 240 hz display 15 TB of expandable ssd space 32 gb ddr5 5600mhz ram to change as i will realistically average joe doesnt need more than 20GB anyways r7 8845hs rtx 4060 140W like dgpus or not they rise the price up 80wh battery aluminum build All of these specs are better than that thinkpad you linked except maybe the chassis at best and it costs more than twice the amount I paid for my laptop And lets not forget your tasks are still opening web pages and reading emails I dont think browsing web pages will be any demanding in the future thats regarding futureproofness",
+        "is the thinkpad t14 gen 4 intel model good for cyber security Ive decided to buy a laptop for university to study cybersecurity programming on it and Ive chosen to go with a ThinkPad However Im not sure if I should get the ThinkPad T14 Gen 4 or if its better to go for the Gen 5 or even consider another model with better specs Id really appreciate any advice or recommendations",
+        "Thinkpad p16s gen 3 Would this laptop be sufficient for an electrical engineering student Im thinking about buying it as a gift for someone currently in this degree program Here are some of the specs Processor Intel Core Ultra 7 155H Processor Ecores up to 380 GHz Pcores up to 480 GHz Operating System Windows 11 Pro 64 Graphic Card NVIDIA RTX 500 Ada Generation Laptop GPU 4GB GDDR6 Memory 32 GB DDR55600MTs SODIMM2 x 16 GB Storage 1 TB SSD M2 2280 PCIe Gen4 Performance TLC Opal Thanks"
+      ],
+      "negative": [
+        "Solucin ThinkPad T14s Gen 2 no se apaga completamente LED parpadea ventilador sigue encendido se calienta en mochila Anteriormente cuando apagaba mi laptop de alguna manera no see apagaba completa y dejaba el ventilador encendido y el pequeo LED parpadeando lo que resultaba incmodo de transportar porque al estar funcionado en espacio cerrado se calentaba La solucin fue Hola a todos Comparto mi experiencia con un problema comn en la Lenovo ThinkPad T14s Gen 2 modelo 20WM Intel donde la laptop no se apagaba del todo al darle a Apagar Quedaba en un estado como de hibernacin el LED bombillo parpadeaba el ventilador segua corriendo y si la meta en la mochila se calentaba mucho Para encenderla de nuevo tena que forzar el apagado manteniendo el botn de encendido por unos segundos La garanta ya haba expirado y ni tcnicos locales ni actualizaciones estndar lo resolvan Esto parece ser un bug conocido relacionado con un driver conflictivo ELAN SMBus Driver segn boletines de Lenovo como HT513888 y foros Despus de probar varios pasos lo resolv eliminando ese driver especfico Aqu va un gua completa con todo lo que intent y la solucin final Asumo Windows 1011 si usas otro SO adapta Pasos previos que prob y no resolvieron solos pero son recomendados para diagnosticar Desactivar inicio rpido Ve a Configuracin Sistema Energa y suspensin Configuracin adicional de energa Elegir el comportamiento de los botones de encendido Cambiar configuracin actualmente no disponible Desmarca Habilitar inicio rpido Guarda y reinicia Desactivar hibernacin Abre Smbolo del sistema CMD como administrador y ejecuta powercfg h off Reinicia Reset de energa power drain Apaga o fuerza desconecta cargador y perifricos mantn presionado el botn de encendido por 3060 segundos O usa el agujero de reset en la parte inferior con un clip por 1015 seg Reconecta y enciende Actualizar todo via Lenovo Vantage Instala la app si no la tienes actualiza drivers BIOS y firmware Verifica que BIOS est en la versin ms reciente en mi caso 13638 o superior descarga manual desde supportlenovocom si Vantage no lo detecta Troubleshooters de Windows Configuracin Sistema Solucionar problemas Otros solucionadores Alimentacin Ejecutar Tambin en CMD como admin sfc scannow y DISM Online CleanupImage RestoreHealth Modo Seguro Reinicia con Shift presionado Solucionar problemas Opciones avanzadas Configuracin de inicio 4 para Modo Seguro Prueba apagar ah para ver si es software tercero Reset BIOS a defaults Enciende presionando F1 para entrar a BIOS Exit Load Optimal Defaults Save and Exit Si nada de esto resuelve pasa a la solucin principal Solucin que funcion Eliminar el driver ELAN SMBus conflictivo Este driver no nativo de Intel causa el bloqueo en el apagado Lenovo recomienda reemplazarlo por el de Intel Confirma el driver Abre Administrador de dispositivos busca en men de inicio Expande Dispositivos del sistema Busca ELAN SMBus Driver o similar Clic derecho Propiedades Detalles Nombre de INF Anota el nombre en mi caso oem62inf puede variar como oemXXXinf Desinstala el driver via CMD Abre Smbolo del sistema como administrador Navega al directorio cd windowssystem32DriverStoreFileRepository Ejecuta pnputil deletedriver oemXXXinf uninstall force reemplaza oemXXXinf con el tuyo ej oem62inf Vers un mensaje como Paquete de controladores desinstalado y El paquete de controladores se elimin correctamente Ignora la nota sobre force si aparece es normal Reinicia la laptop Despus el driver Intel debera cargarse automticamente Prueba apagar ahora toma unos segundos extra normal el LED se apaga completamente y el ventilador se detiene sin calor residual Verifica postreinicio En Administrador de dispositivos el SMBus debera decir Intel SMBus ahora Si no descarga manualmente Intel Chipset Device Software desde supportlenovocom para tu modelo y actualiza via Vantage Chequea el Visor de eventos busca en men Registros de Windows Sistema Filtra por KernelPower para ver si hay errores como cdigo 41 Despus de esto mi T14s Gen 2 se apaga y enciende perfecto No ms forzados ni calor en la mochila Si reaparece por updates de Windows repite la desinstalacin",
+        "I use debian on WSL to do programming stuff Ive tried on win but is awful and I got a lot of nonsense problems",
+        "Evaluating ThinkPad P14s Gen 5 AMD for Software Development Hi could you help me decide if this laptop configuration is worth 106000 I primarily need it for programming My budget cant exceed this amount and I want the laptop to last at least 45 years especially for programming and AI development Model ThinkPad P14s Gen 5 AMD System Specs Processor AMD Ryzen 7 PRO 8840HS Processor 330 GHz up to 510 GHzselected upgrade Operating System No Operating System Microsoft Productivity Software No Microsoft Office Memory 32 GB DDR55600MTs SODIMMselected upgrade Solid State Drive 512 GB SSD M2 2280 PCIe Gen4 TLC Opalselected upgrade Display 3556cms 14 WUXGA 1920 x 1200 IPS AntiGlare NonTouch 100sRGB 400 nits 60Hz Low Power Low Blue Lightselected upgrade Factory Color Calibration No Factory Color Calibration Graphic Card Integrated Graphics Camera 5MP RGBIR with Microphone and Privacy Shutterselected upgrade Human Presence Detection No Human Presence Detection Color Black Wireless Qualcomm WiFi 6E NFA725A 2x2 AX Bluetooth 53 Integrated Mobile Broadband No Wireless WAN Ethernet Wired Ethernet Near Field Communication No NFC Fingerprint Reader No Fingerprint Reader Touchpad Trackpad No Fingerprint No NFC No WWAN Black Keyboard Backlit Black English USselected upgrade Graphic Dongle No Graphics Dongle Second Graphic Dongle No Graphics Dongle Ethernet Dongle No Ethernet Dongle System Expansion Slots No Smart Card Reader Battery 4 Cell Rechargeable Liion 525Wh Power Cord 65W USBC Low Cost 90 PCC 3pin AC Adapter India Electronic Privacy Filter No ePrivacy Filter Warranty 3 Year Onsite"
+      ]
+    }
+  }
+}
