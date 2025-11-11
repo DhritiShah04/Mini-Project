@@ -29,4 +29,26 @@
   margin-left: 0;
 }
 
+.review-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* adjust height as needed */
+}
+ .review-loader{
+  border: 6px solid #f3f3f3; 
+  border-top: 6px solid #3498db; 
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+} 
+
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 

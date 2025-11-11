@@ -1,0 +1,168 @@
+{
+  "sentiment_by_user": {
+    "Gamers": {
+      "positive": 76,
+      "neutral": 7,
+      "negative": 11,
+      "total_reviews": 94,
+      "sentiment_score": 0.691,
+      "avg_compound": 0.538
+    },
+    "Students": {
+      "positive": 63,
+      "neutral": 5,
+      "negative": 11,
+      "total_reviews": 79,
+      "sentiment_score": 0.658,
+      "avg_compound": 0.574
+    },
+    "Content Creators": {
+      "positive": 31,
+      "neutral": 2,
+      "negative": 4,
+      "total_reviews": 37,
+      "sentiment_score": 0.73,
+      "avg_compound": 0.53
+    },
+    "Casual Users": {
+      "positive": 41,
+      "neutral": 3,
+      "negative": 8,
+      "total_reviews": 52,
+      "sentiment_score": 0.635,
+      "avg_compound": 0.508
+    },
+    "Programmers / Engineers": {
+      "positive": 40,
+      "neutral": 1,
+      "negative": 8,
+      "total_reviews": 49,
+      "sentiment_score": 0.653,
+      "avg_compound": 0.569
+    }
+  },
+  "keywords_by_user": {
+    "Gamers": [
+      "buying new laptop",
+      "yoga pro intel",
+      "best laptop 2024",
+      "new laptop budget",
+      "latest intel cpu",
+      "xbox gaming gamergirl",
+      "extra usb thunderbolt",
+      "track macbook pro",
+      "macbook pro trackpad",
+      "macbook pro keyboard"
+    ],
+    "Students": [
+      "best laptop 2024",
+      "new laptop budget",
+      "cracked macbook pro",
+      "latest intel cpu",
+      "xbox gaming gamergirl",
+      "extra usb thunderbolt",
+      "track macbook pro",
+      "kids cracked macbook",
+      "macbook pro trackpad",
+      "macbook pro screen"
+    ],
+    "Content Creators": [
+      "laptops overkill coursework",
+      "elite dragonfly chromebook",
+      "macbook pro keyboard",
+      "yoga9 4k screen",
+      "watching youtube netflix",
+      "14inch laptop 2025",
+      "lake laptops 2025",
+      "premium macbook vibes",
+      "bonus 720p webcam",
+      "youtube netflix isnt"
+    ],
+    "Casual Users": [
+      "slim gaming laptop",
+      "gaming ideal laptop",
+      "gaming laptop intel",
+      "student laptop hp",
+      "shortlist good laptops",
+      "laptops yoga slim",
+      "macbook pro keyboard",
+      "yoga slim intel",
+      "14kg lightest laptop",
+      "elite dragonfly chromebook"
+    ],
+    "Programmers / Engineers": [
+      "chromebook great keyboard",
+      "gives premium macbook",
+      "better cpu battery",
+      "premium macbook vibes",
+      "macbook pro keyboard",
+      "decent battery 256gb",
+      "4050 cheaper laptop",
+      "8gb ram cpu",
+      "premium macbook",
+      "speedometer chip twice"
+    ]
+  },
+  "example_snippets_by_user": {
+    "Gamers": {
+      "positive": [
+        "Just bought this model Lenovo Yoga 7 2in1 when I went in dead set on getting a MacBook I felt like this was more bang for my buck they also include Xbox gaming on here which I am a gamergirl so thats a plus Although upon initial startup its seeming like this laptop is kinda slowbuffering IDK maybe wrong choice of words but definitely have experienced some lagging to where I was like WTF this is a brand new damn laptop I also live outside of the local city my WIFI is bootycon meaning ABSOLUTE TRASHHHHHH so I am just hoping its because of that I bought this laptop instead of the Macbook for 2 main reasons the 1TB for roughly 700 I was spoiled to the touch screen concept my otherprevious laptop is a lenovo 2in1 ideapad thinkpad IDK but its a small laptop with google chrome I needed the upgrade bc my exams are required to be proctored online and google chrome blocks the Guardian browser which is what they use to proctor Overall Im hoping I dont regret this buy Any one know how long I have to be able to return for a full refund at bestbuy Also if you come across any great pros about this laptop Im here for it this thing is apparently capable of alot so I want to reap all of its benefits",
+        "Heyy im back i didnt get the ryzen one but i got the intel one its a solid computer it can handle games school work its not heavy or light its okayy pretty good for school I didnt find myself using the folding too much other than for movies Got any questions I can prob answer them",
+        "The battery is pretty good depends on what you have it doing obviously but if you are doing homework most of the time youll be good The fans dont get loud There is different performance settings when I play games i usually set it high and its not really loud but you could hear it Its good tbh Keyboard is fine screen is good good computer for a uni student although i recommend you get a mouse just cuz the pad isnt bad i just Dont really like pads a lot"
+      ],
+      "negative": [
+        "need laptop thatll last me for all of college more possibly hi everyone my dad is offering to buy me a new laptop budget 860 before taxes and although id like to consider myself a computer nerd everywhere I go I see mixed reviews on every laptop possible Im looking for a laptop with a solid battery life thatll last me for about 9 hours on battery although Ill be keeping it plugged in at the dorm 16gb ram 512gb storage and good cpugraphics for multitasking and light gaming Roblox light steam games video editing photoshop Minecraft etc Im leaning more towards a 2in1 as well to have it as a tablet too but Im not sure if thats the biggest priority Any advicesuggestions Ill link some here that Im looking at Im leaning more towards the Lenovo Yoga 7 2in1 14 AMD Yoga 7 2in1 14 AMD Yoga 7 2in1 16 AMD IdeaPad 5i 2in1 16 Intel Cosmic Blue Dell 14 Plus Laptop",
+        "Looking for a student laptop HP ENVY 360 Galaxy Book 9 Yoga 7 Hello It seems every laptop I research is great until one random repair YouTuber points out a big flaw and all of a sudden that 800 price tag doesnt look so reasonable Im stuck between the HP Envy x360 Samsung Galaxy Book 9 and Lenovo Yoga 7 I want a 2in1 laptop with a physical camera cover A decent 8 GB of RAM and maybe a 512 GB SSD are preferred Most issues I see are the HP Envys hinges and difficulty to repair the Galaxy has no cover and looser hinges and the Lenovos power button Does anyone have experience using any of these long term as a student who doesnt really play demanding games Do you struggle with the issues I mentioned Or does anyone have a recommendation around or below 800 Im planning to wait until Black Friday and make a shortlist of good laptops and get whichever ends up cheapest",
+        "not really intel gpus are pretty bad and an I5 isnt great if anything the price is far to high"
+      ]
+    },
+    "Students": {
+      "positive": [
+        "Just bought this model Lenovo Yoga 7 2in1 when I went in dead set on getting a MacBook I felt like this was more bang for my buck they also include Xbox gaming on here which I am a gamergirl so thats a plus Although upon initial startup its seeming like this laptop is kinda slowbuffering IDK maybe wrong choice of words but definitely have experienced some lagging to where I was like WTF this is a brand new damn laptop I also live outside of the local city my WIFI is bootycon meaning ABSOLUTE TRASHHHHHH so I am just hoping its because of that I bought this laptop instead of the Macbook for 2 main reasons the 1TB for roughly 700 I was spoiled to the touch screen concept my otherprevious laptop is a lenovo 2in1 ideapad thinkpad IDK but its a small laptop with google chrome I needed the upgrade bc my exams are required to be proctored online and google chrome blocks the Guardian browser which is what they use to proctor Overall Im hoping I dont regret this buy Any one know how long I have to be able to return for a full refund at bestbuy Also if you come across any great pros about this laptop Im here for it this thing is apparently capable of alot so I want to reap all of its benefits",
+        "hello Thinking of buying it what do u think of it now I personally also need it for school Thanks in advance",
+        "Heyy im back i didnt get the ryzen one but i got the intel one its a solid computer it can handle games school work its not heavy or light its okayy pretty good for school I didnt find myself using the folding too much other than for movies Got any questions I can prob answer them"
+      ],
+      "negative": [
+        "I personally dont mind the color accuracy I personally dont edit photos or videos its just my work laptop hell I dont even watch YouTube on it So what are my notes Glass fingerprint magnet reflective makes colors more vibrant Screen too dim for outdoor use perfect for classwork conditions but not great outside",
+        "need laptop thatll last me for all of college more possibly hi everyone my dad is offering to buy me a new laptop budget 860 before taxes and although id like to consider myself a computer nerd everywhere I go I see mixed reviews on every laptop possible Im looking for a laptop with a solid battery life thatll last me for about 9 hours on battery although Ill be keeping it plugged in at the dorm 16gb ram 512gb storage and good cpugraphics for multitasking and light gaming Roblox light steam games video editing photoshop Minecraft etc Im leaning more towards a 2in1 as well to have it as a tablet too but Im not sure if thats the biggest priority Any advicesuggestions Ill link some here that Im looking at Im leaning more towards the Lenovo Yoga 7 2in1 14 AMD Yoga 7 2in1 14 AMD Yoga 7 2in1 16 AMD IdeaPad 5i 2in1 16 Intel Cosmic Blue Dell 14 Plus Laptop",
+        "Looking for a student laptop HP ENVY 360 Galaxy Book 9 Yoga 7 Hello It seems every laptop I research is great until one random repair YouTuber points out a big flaw and all of a sudden that 800 price tag doesnt look so reasonable Im stuck between the HP Envy x360 Samsung Galaxy Book 9 and Lenovo Yoga 7 I want a 2in1 laptop with a physical camera cover A decent 8 GB of RAM and maybe a 512 GB SSD are preferred Most issues I see are the HP Envys hinges and difficulty to repair the Galaxy has no cover and looser hinges and the Lenovos power button Does anyone have experience using any of these long term as a student who doesnt really play demanding games Do you struggle with the issues I mentioned Or does anyone have a recommendation around or below 800 Im planning to wait until Black Friday and make a shortlist of good laptops and get whichever ends up cheapest"
+      ]
+    },
+    "Content Creators": {
+      "positive": [
+        "Intel Lunar Lake Laptops 2025 Intels Lunar Lake processors benefits source Integrated RAM on package for increased bandwidth and efficiency Enhanced energy efficiency and battery life up to 24 hours video playback Improved thermal management for cooler and quieter laptops Post in progress feel free to add more models and links to specs in the comments Updated 2812025 specs correction 13 Lunar Lake Laptops Dell XPS 13 9350 12 kg IPS FHD 120Hz matte review IPS QHD 120Hz matte OLED 3k 60Hz matte touch Dell Pro 13 Plus 12 kg IPS FHD 60hz 6bit matte IPS FHD 60Hz 6bit matte touch IPS FHD 60Hz 8bit matte Dell Pro 13 Plus 2in1 12 kg IPS FHD 60Hz matte 6bit touch stylus Dell Pro 13 Premium 11 kg IPS QHD 60Hz touch IPS FHD 60Hz matte MSI Summit 13 AI Evo 2in1 A2VM 135 kg IPS FHD 60Hz glossy touch stylus 14 Lunar Lake Laptops Acer Swift 14 AI 13 kg IPS FHD 60Hz matte touch OLED 28K 60Hz glossy Acer TravelMate p6 14 AI Asus ExpertBook P5 14 12 kg IPS QHD 144Hz matte review Asus Vivobook S 14 S5406SA 13 kg OLED FHD 60Hz glossy review Asus Vivobook 14 Flip TP3407SA 157 kg OLED FHD 60Hz glossy touch stylus Asus Zenbook S 14 UX5406 12 kg OLED 28K 120Hz glossy touch review Dell Pro 14 Premium 114 kg IPS FHD 60Hz matte Dell Pro 14 Plus 14 kg IPS FHD 60Hz matte IPS FHD 60Hz matte touch IPS QHD 90Hz matte Dell Pro 14 Plus 2in1 14 kg IPS FHD 60Hz matte touch stylus HP OmniBook Ultra Flip 14 2in1 FH0047NR 134kg OLED 28K 120Hz glossy touch stylus review HP EliteBook Ultra G1i 14 11 kg OLED 28K 120Hz matte preview OLED 28K 120Hz matte touch HP EliteBook X G1i 14 12 kg specs IPS FHD Hz 400nits matte IPS FHD Hz 800nits matte IPS FHD Hz 500nits matte touch IPS FHD Hz 800nits matte touch IPS 25K Hz 400nits matte 100AdobeRGB HP Elitebook X G1i Flip 14 2in1 14 kg specs IPS FHD Hz 400nits glossy touch stylus IPS FHD Hz 400nits matte touch stylus IPS FHD Hz 800nits glossy touch stylus IPS FHD Hz 800nits matte touch stylus IPS 25K 120Hz 400nits matte touch 100AdobeRGB stylus Lenovo ThinkPad X1 Gen 10 2in1 Aura Edition 13 kg IPS FHD Hz 500nits touch stylus IPS FHD Hz 500nits touch stylus eprivacy OLED 28K 120Hz 500nits touch stylus Lenovo ThinkPad X1 Carbon Gen 13 Aura Edition 1 kg OLED 28K 120Hz 400nits matte PWM240Hz review Lenovo ThinkPad X9 14 Aura Edition 12 kg OLED FHD 60Hz 400nits matte OLED 28K 120Hz 500nits matte touch Lenovo Yoga Slim 7i Aura Edition 125 kg OLED 28K 120Hz 1100nits glossy 99AdobeRGB Lenovo Yoga 9i 2in1 Aura Edition 13 kg OLED 28K 120Hz 1100nits glossy touch stylus MSI Prestige 14 Ai Evo C2VMG 17 kg IPS 28K Hz OLED 28K 120Hz 15 Lunar Lake Laptops Lenovo Yoga Slim 7 Gen 9 Aura Edition 153 15ILL9 15 kg IPS 28K 120Hz 500nits glossy touch OLED 28K 120Hz 500nits glossy Lenovo ThinkPad X9 15 Aura Edition 145 kg OLED 28K 120Hz 1100nits OLED 28K 120Hz 1100nits touch 16 Lunar Lake Laptops Acer Swift 16 AI 15kg OLED 28K 120Hz glossy Asus Vivobook 16 Flip OLED Dell Pro 16 Plus IPS FHD 60Hz IPS FHD 60Hz touch IPS QHD 120Hz LG Gram 16 Pro 16Z90TS 12 kg IPS 25K 144Hz 400nits matte MSI Prestige 16 EVO B2VM 15 kg IPS 25K OLED 38K Samsung Galaxy Book5 Pro 360 2in1 17 kg OLED 28K matte touch stylus Sources The complete list of Intel Lunar Lake laptops Core Ultra 9 288V Ultra 7 258V Ultra 7 256V",
+        "Thanks for the info and review link I ordered a cheap version for 880 Eur and will have a good look at it and test if the screen and performance is good for photo editing using lightroom",
+        "I tested two p5 models a 226v and 258v Price Performance The Price difference was 880 to 1300 Eur The technical difference is 16 to 32 gb 512gb to 1tb and a bit more cpu gpu power which according to benchmarks results in only 714 performance increase Screen wobbling Some reviewers complained about the screen wobbling and the mouse pad clicking The screen is a non issue in standard settings like using the laptop on a desk or when sitting in a room However when typing while resting it on the lap a screen wobble is noticable and gets more intense when hitting the same key several times for example the delete key Mousepad The glas mousepad is decent and very large with some special swipe on the side functions loudness brightness etc by a asus tool Quality variations The first model had a unproblematic mouspad The 2nd showed the follwing issue When resting a finger on a the lower left or right clickable part of the pad and just raising the finger again the pad bounces up a tiny bit This is enough to produce an audible damp sound which I find irritating Keyboard The keyboard sounds a bit loud compared to thinkpad for example It has not much damping The press depth is decent and overall the typing feels reassuring and comfortable The big keys which are not flat but slightly convex help with finger center alignment I noticed not much flex only when forcefully pressing on the keys for me nothing to complain about when typing on the keyb Minor problems The small up and down keys are somehow easier to misstype and the delete button is not on the very edge Screen The screen is quite good with 144Mhz with a measured contrast ratio of 11800 after calibration with sufficient deep blacks screen report before calibration screen report after calibration In both laptops when looking at a black screen in a dim environment I noticed a several points of backlight bleeding at the bottom screen Speakers The sound quality is decent and included mid levels and some bass An wow the volume can be turned up to a very high level Noise The only point that was initially a minus was the fan which even in balanced energy and silent fan mode has a tendency to spin up and down when the CPU got anything to do and the sharp spin up is very audible I tried a lot of Fan Control tools and the Asus Fan Control V5 allows to set the fan to a constant 2000rpm This becomes barely audible as background noise and could easily be the default for working with power supply in balanced mode I still have to test the normal fan behaviour in energy saver mode Using the Asus Fan Control dll one could also develop a plugin to work with the much more customizable Fan Control open source software Fingerprints Fingerprints are a non issue since the overall body is silver Overall As described the lower priced model can be a good priceperformance buy for people needing an enduring office laptop for overall media consumption However when looking for a machine for media editingcreation I would reccommend the 32gb version At that price point there are offers for similar performance products from manufacturers with higher quality standards"
+      ],
+      "negative": [
+        "I personally dont mind the color accuracy I personally dont edit photos or videos its just my work laptop hell I dont even watch YouTube on it So what are my notes Glass fingerprint magnet reflective makes colors more vibrant Screen too dim for outdoor use perfect for classwork conditions but not great outside",
+        "need laptop thatll last me for all of college more possibly hi everyone my dad is offering to buy me a new laptop budget 860 before taxes and although id like to consider myself a computer nerd everywhere I go I see mixed reviews on every laptop possible Im looking for a laptop with a solid battery life thatll last me for about 9 hours on battery although Ill be keeping it plugged in at the dorm 16gb ram 512gb storage and good cpugraphics for multitasking and light gaming Roblox light steam games video editing photoshop Minecraft etc Im leaning more towards a 2in1 as well to have it as a tablet too but Im not sure if thats the biggest priority Any advicesuggestions Ill link some here that Im looking at Im leaning more towards the Lenovo Yoga 7 2in1 14 AMD Yoga 7 2in1 14 AMD Yoga 7 2in1 16 AMD IdeaPad 5i 2in1 16 Intel Cosmic Blue Dell 14 Plus Laptop",
+        "Hi OP I read a few other reddit posts regarding poor battery life on this particular screen option 28K compared to alot of the youtube reviews which seems to be based on the 1200 screen option When you say all day do you mean 7 hours Are you leaving your screen on 120Hz or reducing it to 60Hz"
+      ]
+    },
+    "Casual Users": {
+      "positive": [
+        "Heyy im back i didnt get the ryzen one but i got the intel one its a solid computer it can handle games school work its not heavy or light its okayy pretty good for school I didnt find myself using the folding too much other than for movies Got any questions I can prob answer them",
+        "High performance long lasting laptop requirement Budget 2500 Hello all Im looking for a Windows laptop which will do me a number of years As longevity is important I believe performance is an important criteria My current setup is an 8th gen Intel i5 Asus laptop 8256 and a M4 Mac Mini 24512 on the desk I want to replace both of these items with a single Windows laptop and Ill sell the Mac I find Windows is more natural to me so Im going that route The laptop will be 80 on the desk open and the screen being used in addition to my on desk monitors Although itll be on the desk I dont want something that weighs a ton and is practically not portable Also quieter fans always helps My work is quite varied from Affinity photo VS CodingCursor Docker VMs MS Office 2030 browser tabs open etc Apart from the additional RAM needed for VMsDocker etc I probably dont need a very high performing processor but since my last laptop gave me 6 years and the one before that was a 2012 MacBook Air I expect longevity While I love the form factor of 16 I cant stand the numpad on these laptops but I guess its something Ill have to live with Budget in or around 2500 but Id very happily not spend that much Current machines Im looking at Lenovo Legion 5i 2024 i914900HX 16GB RAM SODIMM so I can add more 1TB SSD 16 240Hz screen RTX 4070 2000 Lenovo IdeaPad Pro 5 2025 Ultra 9 285H 32GB RAM 512 SSD 16 120Hz 28k screen 1400 Lenovo Yoga Pro 7i Aura Edition 2025 Ultra 9 285H 32GB RAM 512 SSD 14 120Hz 3k screen 1700 Asus ProArt P16 2024 AI 370 HX 32GB RAM 1TB SSD 16 4K 60Hz screen RTX 4070 2700 Asus Zenbook S16 2024 AI 370 HX 32GB RAM 1TB SSD 16 3K 120Hz screen 1700 Lenovo ThinkPad P14s Gen 5 2024 Ultra 9 185 vPro 16GB RAM SODIMM so I can add more No OS 1TB SSD 3K 120Hz screen 2200 Asus Zenbook Duo 2025 Ultra 9 285H 32GB RAM 2TB SSD 2 x 14 120Hz 3k screens 2500 Im finding it very difficult to see past the value proposition of the Lenovo IdeaPad Pro 5 2025 right now considering its half the price of the ProArt P16 for practically the same my real world performanceusage Any reviews for the IdeaPad I can find are quite positive Second is the Yoga and Im half thinking to just buy it and be done I also realise that its very early for many laptops to be available with the 200 series Ultra chips but Im probably not interested in waiting for this or waiting for that Ill probably buy in the next 2 weeks I know the Yoga 9i is available in June but I suspect that would be outside my price range Total budget in local currency and country of purchase Please do not use USD unless purchasing in the US 2500 euro Are you open to refurbsused Yes How would you prioritize form factor ultrabook 2in1 etc build quality performance and battery life Id say 80 desk based Looking for something to last 5 years How important is weight and thinness to you Not overly important Do you have a preferred screen size If indifferent put NA 1416 with preference for 16 Are you doing any CADvideo editingphoto editinggaming List which programsgames you desire to run Mostly web development so not heavy If youre gaming do you have certain games you want to play At what settings and FPS do you want NA Any specific requirements such as good keyboard reliable build quality touchscreen fingerprint reader optical drive or good input devices keyboardtouchpad No requirement for a touch screen Would like a very good screen to look at Leave any finishing thoughts here that you may feel are necessary and beneficial to the discussion Longevity is important Do not want a Mac already have a Mac Mini that Im moving away from I dont need a dedicated GPU With the 200 series of Intel chips out Im not overly interested in 100 series Not overly excited by 14th gen Intel either due to issues That said I have included some options",
+        "Also unlike the ProArt you dont need to pay for a 4070 you said you wouldnt be using much The 1610 screen is also good for web development with its bit of extra height P1s are also pretty much the top of the Thinkpad scale being workstation laptops and thus very solid P1 gen 7 is also 17mm thick and 2kg so pretty portable"
+      ],
+      "negative": [
+        "I personally dont mind the color accuracy I personally dont edit photos or videos its just my work laptop hell I dont even watch YouTube on it So what are my notes Glass fingerprint magnet reflective makes colors more vibrant Screen too dim for outdoor use perfect for classwork conditions but not great outside",
+        "Potentially stupid question Im comparing different Lenovo Yoga 7s on their website and nowhere does it say which generation is which How do you guys know this information Theres so many reviews out there",
+        "Hi OP I read a few other reddit posts regarding poor battery life on this particular screen option 28K compared to alot of the youtube reviews which seems to be based on the 1200 screen option When you say all day do you mean 7 hours Are you leaving your screen on 120Hz or reducing it to 60Hz"
+      ]
+    },
+    "Programmers / Engineers": {
+      "positive": [
+        "I tested two p5 models a 226v and 258v Price Performance The Price difference was 880 to 1300 Eur The technical difference is 16 to 32 gb 512gb to 1tb and a bit more cpu gpu power which according to benchmarks results in only 714 performance increase Screen wobbling Some reviewers complained about the screen wobbling and the mouse pad clicking The screen is a non issue in standard settings like using the laptop on a desk or when sitting in a room However when typing while resting it on the lap a screen wobble is noticable and gets more intense when hitting the same key several times for example the delete key Mousepad The glas mousepad is decent and very large with some special swipe on the side functions loudness brightness etc by a asus tool Quality variations The first model had a unproblematic mouspad The 2nd showed the follwing issue When resting a finger on a the lower left or right clickable part of the pad and just raising the finger again the pad bounces up a tiny bit This is enough to produce an audible damp sound which I find irritating Keyboard The keyboard sounds a bit loud compared to thinkpad for example It has not much damping The press depth is decent and overall the typing feels reassuring and comfortable The big keys which are not flat but slightly convex help with finger center alignment I noticed not much flex only when forcefully pressing on the keys for me nothing to complain about when typing on the keyb Minor problems The small up and down keys are somehow easier to misstype and the delete button is not on the very edge Screen The screen is quite good with 144Mhz with a measured contrast ratio of 11800 after calibration with sufficient deep blacks screen report before calibration screen report after calibration In both laptops when looking at a black screen in a dim environment I noticed a several points of backlight bleeding at the bottom screen Speakers The sound quality is decent and included mid levels and some bass An wow the volume can be turned up to a very high level Noise The only point that was initially a minus was the fan which even in balanced energy and silent fan mode has a tendency to spin up and down when the CPU got anything to do and the sharp spin up is very audible I tried a lot of Fan Control tools and the Asus Fan Control V5 allows to set the fan to a constant 2000rpm This becomes barely audible as background noise and could easily be the default for working with power supply in balanced mode I still have to test the normal fan behaviour in energy saver mode Using the Asus Fan Control dll one could also develop a plugin to work with the much more customizable Fan Control open source software Fingerprints Fingerprints are a non issue since the overall body is silver Overall As described the lower priced model can be a good priceperformance buy for people needing an enduring office laptop for overall media consumption However when looking for a machine for media editingcreation I would reccommend the 32gb version At that price point there are offers for similar performance products from manufacturers with higher quality standards",
+        "Yes I have a question Does the Asus ExpertBook P5 notebook support WakeOnLan in the BIOS I ask because the notebook does not have an RJ45 Ethernet port but Asus provides an accessory 90XB05WNMCA010 which is a USB dongle that also has a physical Ethernet connection and is declared to support WakeOnLan WOL I imagine that by connecting it at least to the USBA port on the left side which supplies power to external devices even when the PC is off it should be able to turn on the computer Although such a feature may seem futile for a notebook since I will keep it as a second home PC when not travelling it can be very convenient to manage it at home from the main PC with TeamViewer or similar software I have already done it for my new GMKtec miniPC which I use as a multimedia PC connected to a TV and it is very convenient Thank you",
+        "High performance long lasting laptop requirement Budget 2500 Hello all Im looking for a Windows laptop which will do me a number of years As longevity is important I believe performance is an important criteria My current setup is an 8th gen Intel i5 Asus laptop 8256 and a M4 Mac Mini 24512 on the desk I want to replace both of these items with a single Windows laptop and Ill sell the Mac I find Windows is more natural to me so Im going that route The laptop will be 80 on the desk open and the screen being used in addition to my on desk monitors Although itll be on the desk I dont want something that weighs a ton and is practically not portable Also quieter fans always helps My work is quite varied from Affinity photo VS CodingCursor Docker VMs MS Office 2030 browser tabs open etc Apart from the additional RAM needed for VMsDocker etc I probably dont need a very high performing processor but since my last laptop gave me 6 years and the one before that was a 2012 MacBook Air I expect longevity While I love the form factor of 16 I cant stand the numpad on these laptops but I guess its something Ill have to live with Budget in or around 2500 but Id very happily not spend that much Current machines Im looking at Lenovo Legion 5i 2024 i914900HX 16GB RAM SODIMM so I can add more 1TB SSD 16 240Hz screen RTX 4070 2000 Lenovo IdeaPad Pro 5 2025 Ultra 9 285H 32GB RAM 512 SSD 16 120Hz 28k screen 1400 Lenovo Yoga Pro 7i Aura Edition 2025 Ultra 9 285H 32GB RAM 512 SSD 14 120Hz 3k screen 1700 Asus ProArt P16 2024 AI 370 HX 32GB RAM 1TB SSD 16 4K 60Hz screen RTX 4070 2700 Asus Zenbook S16 2024 AI 370 HX 32GB RAM 1TB SSD 16 3K 120Hz screen 1700 Lenovo ThinkPad P14s Gen 5 2024 Ultra 9 185 vPro 16GB RAM SODIMM so I can add more No OS 1TB SSD 3K 120Hz screen 2200 Asus Zenbook Duo 2025 Ultra 9 285H 32GB RAM 2TB SSD 2 x 14 120Hz 3k screens 2500 Im finding it very difficult to see past the value proposition of the Lenovo IdeaPad Pro 5 2025 right now considering its half the price of the ProArt P16 for practically the same my real world performanceusage Any reviews for the IdeaPad I can find are quite positive Second is the Yoga and Im half thinking to just buy it and be done I also realise that its very early for many laptops to be available with the 200 series Ultra chips but Im probably not interested in waiting for this or waiting for that Ill probably buy in the next 2 weeks I know the Yoga 9i is available in June but I suspect that would be outside my price range Total budget in local currency and country of purchase Please do not use USD unless purchasing in the US 2500 euro Are you open to refurbsused Yes How would you prioritize form factor ultrabook 2in1 etc build quality performance and battery life Id say 80 desk based Looking for something to last 5 years How important is weight and thinness to you Not overly important Do you have a preferred screen size If indifferent put NA 1416 with preference for 16 Are you doing any CADvideo editingphoto editinggaming List which programsgames you desire to run Mostly web development so not heavy If youre gaming do you have certain games you want to play At what settings and FPS do you want NA Any specific requirements such as good keyboard reliable build quality touchscreen fingerprint reader optical drive or good input devices keyboardtouchpad No requirement for a touch screen Would like a very good screen to look at Leave any finishing thoughts here that you may feel are necessary and beneficial to the discussion Longevity is important Do not want a Mac already have a Mac Mini that Im moving away from I dont need a dedicated GPU With the 200 series of Intel chips out Im not overly interested in 100 series Not overly excited by 14th gen Intel either due to issues That said I have included some options"
+      ],
+      "negative": [
+        "Its not patented Samsung uses Corning DX Its basically brands cheaping out by not going for Corning DX Corning also has DX This tech has been available for YEARS",
+        "I would personally go with the ThinkPad or Yoga depending on if you want the 2in1 But I hate the Yoga keyboard so you have to try it yourself Lenovo is unbeatable in Linux compatibility and since you will be coding there will be a point when you want to dual boot Linux",
+        "im sorry but this cannot be a real recommendation theyre giving models which cost around 800 and youre suggesting one that costs 2700 there is no way they will be using 98gb of memory as a engineering student id be surprised if they used struggled with 32gb and 3 to 4tb of storage is also crazy theyre a student"
+      ]
+    }
+  }
+}

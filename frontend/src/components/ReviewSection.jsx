@@ -5,19 +5,15 @@ import "./ReviewSection.css";
 function ReviewSection({ model }) {
   const [reviewAnalysis, setReviewAnalysis] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [retryCount, setRetryCount] = useState(0);  // optional, limit retries if desired
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     if (!model) return;
 
     const formattedModelName = model.replace(/ /g, "_");
     const fetchUrl = `http://localhost:5000/api/reviews/reddit/analysis/${formattedModelName}`;
-    // const fetchUrl = `/api/reviews/reddit/analysis/${formattedModelName}`;
-    console.log("Fetching review analysis for:", formattedModelName);
-    console.log("API Endpoint:", fetchUrl);
 
-    
-    let isMounted = true; // to avoid state updates if unmounted
+    let isMounted = true;
 
     const fetchData = () => {
       fetch(fetchUrl)
@@ -32,7 +28,6 @@ function ReviewSection({ model }) {
         })
         .then(data => {
           if (isMounted) {
-            console.log("Review data received:", data);
             setReviewAnalysis(data);
             setLoading(false);
           }
@@ -40,7 +35,6 @@ function ReviewSection({ model }) {
         .catch(err => {
           console.error("Fetch error or file not ready:", err);
           if (isMounted) {
-            // Retry after delay (e.g., 3 seconds)
             setTimeout(() => {
               setRetryCount(prev => prev + 1);
             }, 3000);
@@ -48,30 +42,38 @@ function ReviewSection({ model }) {
         });
     };
 
+    setLoading(true);   // set loading true before fetch
     fetchData();
 
     return () => {
-      isMounted = false;  // cleanup on unmount
+      isMounted = false;
     };
-  }, [model, retryCount]);  // retryCount triggers re-fetch
+  }, [model, retryCount]);
 
-  if (loading) return <p>Loading review data...</p>;
-  if (!reviewAnalysis) return <p>Failed to load review data.</p>;
-
-  const sentimentData = Object.entries(reviewAnalysis.sentiment_by_user).map(([user, stats]) => ({
-    user,
-    positive: stats.positive,
-    neutral: stats.neutral,
-    negative: stats.negative,
-  }));
+  const sentimentData = reviewAnalysis
+    ? Object.entries(reviewAnalysis.sentiment_by_user).map(([user, stats]) => ({
+        user,
+        positive: stats.positive,
+        neutral: stats.neutral,
+        negative: stats.negative,
+      }))
+    : [];
 
   return (
     <div className="reviews-section">
       <h2>User Reviews & Sentiments</h2>
       <h3>What users on Reddit say:</h3>
       <div className="reviews-section-subhead">
-        <SentimentChart data={sentimentData} />
-        {/* Add more visualizations/components here */}
+        {loading ? (
+          <div className="review-loader-container">
+            <div className="review-loader"></div>
+            
+          </div>
+        ) : reviewAnalysis ? (
+          <SentimentChart data={sentimentData} />
+        ) : (
+          <p>Failed to load review data.</p>
+        )}
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ from Laptop_Bot import run_query, answers_to_query, QUESTIONNAIRE, ask_questionn
 from functools import wraps 
 from flask import send_file, abort
 from reviews.analysis import process_models
+import threading
 
 
 # ----------------------------------------------------------------------
@@ -126,7 +127,9 @@ def query():
 
         print("🖥️ Model names:", model_names)
         
-        process_models(model_names)
+        # process_models(model_names)
+        threading.Thread(target=process_models, args=(model_names,), daemon=True).start()
+
 
     # Return the full bot response to the frontend (it contains the summary/messages)
     return jsonify(resp_json)
