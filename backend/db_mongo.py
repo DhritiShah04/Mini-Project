@@ -3,6 +3,7 @@ from bson.objectid import ObjectId
 from datetime import datetime
 import os
 from dotenv import load_dotenv
+import numpy as np
 from passlib.context import CryptContext
 # from Laptop_Bot import fetch_laptop_details
 
@@ -66,18 +67,11 @@ def store_bot_response(request_id_str, bot_result):
         {"$set": {"bot_result": bot_result, "status": "processed"}}
     )
 
-# 🛑 MODIFIED: Added user_id to the function signature
+# MODIFIED: Added user_id to the function signature
 def store_laptop_recommendations(request_id, items, query_str, user_id=None):
     from Laptop_Bot import fetch_laptop_details  # local import avoids circular dependency
 
-    BASE_URL = "http://127.0.0.1:5000/static/1"
-    default_images = [
-        f"{BASE_URL}/main.jpeg",
-        f"{BASE_URL}/side_view.jpeg",
-        f"{BASE_URL}/top_view.jpeg",
-        f"{BASE_URL}/close_up.jpeg",
-        f"{BASE_URL}/table_view.jpeg"
-    ]
+    
 
     new_models = []
     item_map = {}
@@ -93,8 +87,10 @@ def store_laptop_recommendations(request_id, items, query_str, user_id=None):
 
         item_map[model] = doc
         existing = laptops_collection.find_one({"model": model})
+        print(f"Checking model in DB: {model} - Found: {bool(existing)}")
         if not existing:
             new_models.append({"model": model})
+            print(f"Marked for detail fetch: {model}")
 
     # Step 2: Fetch details for new models (batch request)
     fetched_details = []
@@ -102,6 +98,7 @@ def store_laptop_recommendations(request_id, items, query_str, user_id=None):
         print(f"\nFetching details for {len(new_models)} new models...")
         try:
             fetched_details = fetch_laptop_details(new_models, return_json=True)
+            # print(f"Fetched details for {fetched_details} models.")
             if not isinstance(fetched_details, list):
                 print("⚠️ fetch_laptop_details did not return a list — wrapping result manually.")
                 fetched_details = [fetched_details]
@@ -116,15 +113,29 @@ def store_laptop_recommendations(request_id, items, query_str, user_id=None):
         model_name = detail.get("model")
         if model_name:
             fetched_map[model_name] = detail
+            print(f"Mapped fetched details for model: {detail}")
 
     # Step 4: Merge fetched specs and upsert into DB
     added, updated = 0, 0
 
     for model, doc in item_map.items():
         existing = laptops_collection.find_one({"model": model})
+        print(f"\nProcessing model: {model}")
+        print(f"Existing in DB: {bool(existing)}")
+
+        folder_name = np.random.randint(1,10)
+        BASE_URL = f"http://127.0.0.1:5000/static/{folder_name}"
+        default_images = [
+            f"{BASE_URL}/main.jpeg",
+            f"{BASE_URL}/side_view.jpeg",
+            f"{BASE_URL}/top_view.jpeg",
+            f"{BASE_URL}/close_up.jpeg",
+            f"{BASE_URL}/table_view.jpeg"
+        ]
 
         if not existing:
             extra = fetched_map.get(model)
+            print(f"Storing new laptop model: {bool(extra)}")
             if extra:
                 doc.update(extra)
                 print(f"✅ Added detailed specs for: {model}")
@@ -134,8 +145,11 @@ def store_laptop_recommendations(request_id, items, query_str, user_id=None):
             doc["images"] = default_images
             added += 1
         else:
-            doc["images"] = existing.get("images", default_images)
+            # if(extra):
+            #     doc.update(extra)
+            #     print(f"✅ Merged detailed specs for existing model: {model}")
             updated += 1
+            doc["images"] = existing.get("images", default_images)
 
         doc["request_id"] = request_id
 
@@ -283,46 +297,68 @@ def update_user_wishlist (user_id, model, action, query_str):
         print(f"Error updating wishlist: {e}")
         return False, str(e)
     
-def get_wishlisted_laptops(user_id) :
-# ... (Content remains the same) ...
-    try: 
+from bson import ObjectId
+# Assuming 'users_collection' and 'laptops_collection' are available globally
+
+def get_wishlisted_laptops(user_id):
+    """
+    Fetches a user's wishlisted laptops, merging the product specs from
+    laptops_collection with the form_input context from users_collection.
+    """
+    try:
         user_oid = ObjectId(user_id)
+        
+        # 1. Fetch user document, only retrieving the 'wishlist' field
         user_doc = users_collection.find_one(
             {"_id": user_oid},
-            {"wishlist":1},
+            {"wishlist": 1},
         )
 
-        if not user_doc or "wishlist" not in user_doc:
+        if not user_doc or not user_doc.get("wishlist"):
             return []
 
-        wishlist_items = user_doc.get('wishlist', [])
-
-        wishlist_models = [
-            item.get('model') 
+        wishlist_items = user_doc["wishlist"]
+        
+        # 2. Map models to their specific form_input context
+        # This creates a map: {'model_name': {'cpu_brand': 'Intel', ...}}
+        model_to_context_map = {
+            item['model']: item.get('form_input', {}) 
             for item in wishlist_items 
-            if isinstance(item, dict) and item.get('model')
-        ]
+            if isinstance(item, dict) and 'model' in item
+        }
         
-        # Get the full laptop documents
-        wishlist_laptops = list(laptops_collection.find({
-            "model": {"$in": wishlist_models}
-        }))
+        model_list = list(model_to_context_map.keys())
+
+        if not model_list:
+            return []
+            
+        # 3. Fetch full laptop documents for these models
+        # Use $in for efficient look-up of all models
+        laptop_cursor = laptops_collection.find({"model": {"$in": model_list}})
+        laptops_data = list(laptop_cursor)
         
-        # Merge form_input data back into the laptop objects
-        form_input_map = {item['model']: item['form_input'] for item in wishlist_items if 'model' in item}
+        merged_laptops = []
+        
+        # 4. Merge product details with the user's form_input context
+        for laptop in laptops_data:
+            model = laptop.get("model")
+            context = model_to_context_map.get(model)
+            
+            if context is not None:
+                # Attach the form_input from the user's history
+                laptop["form_input"] = context
+                
+                # Convert ObjectId to string for JSON serialization
+                if "_id" in laptop:
+                    laptop["_id"] = str(laptop["_id"])
+                    
+                merged_laptops.append(laptop)
+                
+        return merged_laptops
 
-        for laptop in wishlist_laptops:
-            if '_id' in laptop:
-                laptop['_id'] = str(laptop['_id'])
-            # Add the associated form_input data
-            if laptop.get('model') in form_input_map:
-                laptop['form_input'] = form_input_map[laptop['model']]
-
-
-        return wishlist_laptops
-    
     except Exception as e:
-        print(f"Error fetching wishlist: {e}")
+        # Log the error for debugging (e.g., failed ObjectId conversion)
+        print(f"An error occurred: {e}") 
         return []
 
 

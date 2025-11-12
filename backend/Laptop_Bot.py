@@ -3,7 +3,7 @@ import re
 import json
 from dotenv import load_dotenv
 import google.generativeai as genai
-from tabulate import tabulate
+# from tabulate import tabulate
 from questionnaire import QUESTIONNAIRE, ask_questionnaire
 
 dotenv_path = os.path.join(os.path.dirname(__file__), "keys.env")
@@ -24,9 +24,9 @@ if not API_KEY_SECOND:
     raise ValueError("API_KEY_SECOND not found in keys.env")
 
 # No separate client; we'll reconfigure before using it.
-details_model_name = "gemini-2.5-flash-lite"
+# details_model_name = "gemini-2.5-flash-lite"
 # details_model_name = "gemini-2.5-flash"
-# details_model_name = "gemini-flash-latest"
+details_model_name = "gemini-flash-latest"
 
 
 # ------------------ PROMPTS ------------------
@@ -46,11 +46,11 @@ Schema:
 }
 
 Compulsory Rules:
-- Keep the search limited to lenovo laptops only and as for model, give me the series name only.
+- Keep the search limited to lenovo laptops only and as for model, include lenovo in the model name with the series name.
 - If budget is mentioned, filter accordingly assuming that India is the location.
-- "model": give the exact laptop model name
-- If unsure about a spec or price, give us the predicted value for the model (donot include lenovo in model name).
+- "model": give the exact laptop model name.
 - List top 5 relevant laptops.
+- If unsure about a spec or price, give us the predicted value for the model.
 - Model name strictly should be the first to be mentioned.
 - In **price_inr**, give approximate price in INR, strictly.
 - In "why", explain clearly and simply 'why this laptop fits the user's need', be descriptive, use non-technical terms, and highlight features that matter for them.
@@ -82,7 +82,7 @@ For each model, return detailed specs in JSON format with this schema:
 
 Rules & Guidelines:
 
-1. **"Model"** -> Include the complete laptop model or series name (donot include lenovo in the name)(e.g., "IdeaPad Slim 5", "ThinkBook 14 Gen 2").
+1. **"Model"** -> Include the complete laptop model or series name (do include lenovo in the name)(e.g., "IdeaPad Slim 5", "ThinkBook 14 Gen 2").
 
 2. **"CPU"**, **"RAM"**, **"Storage"**, **"GPU"**, **"Display"**, and **"Battery"** -> Clearly describe each of the key technical specifications for the laptop. Avoid generic answers - specify the actual configuration wherever possible (e.g., "Intel Core i5 13th Gen" instead of just "Intel processor").
 
@@ -139,6 +139,9 @@ def run_query(q: str, return_json=False):
     except Exception:
         return {"error": "Failed to parse model output", "raw": raw}
     
+    print("\nLaptop Recommendations:")
+    print(json.dumps(data, indent=2))
+
     if return_json:
         return data
     
@@ -155,7 +158,7 @@ def fetch_laptop_details(items, q: str="", return_json=False):
         print("No laptop models found to fetch details for.")
         return
     
-    print("\nFetching detailed specifications for each model...\n")
+    # print("\nFetching detailed specifications for each model...\n")
     # query = DETAILS_PROMPT + "\nModels:\n" + "\n".join(models) + "\nJSON:"
     query = (
         f"{DETAILS_PROMPT}\n"
@@ -175,6 +178,9 @@ def fetch_laptop_details(items, q: str="", return_json=False):
         print("Error parsing details response.\nRaw output:\n", raw)
         return
     
+    # print("\nDetailed Laptop Specifications:")
+    # print(json.dumps(details_data, indent=2))
+
     if return_json:
         return details_data
     

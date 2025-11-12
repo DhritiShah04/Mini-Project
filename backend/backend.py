@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, Response
 from flask_cors import CORS
 from datetime import datetime, timedelta
 import jwt
@@ -35,12 +35,32 @@ from db_mongo import (
 # --- Configuration ---
 app = Flask(__name__, static_folder='static')
 CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type", "Authorization"]}})
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # --- Utility Functions and Decorators ---
 
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    return send_from_directory(app.static_folder, filename)
+# @app.after_request
+# def add_no_cache_headers(response: Response) -> Response:
+#     """
+#     Adds headers to the response to explicitly tell the client (browser)
+#     to never cache the content, forcing a fresh download every time.
+#     This prevents 304 Not Modified responses.
+#     """
+    
+#     # Standard header to prevent caching in modern browsers
+#     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    
+#     # Header for compatibility with HTTP/1.0
+#     response.headers["Pragma"] = "no-cache"
+    
+#     # Header to set an expired date (also for older systems)
+#     response.headers["Expires"] = "0"
+    
+#     # Optional: If you want to set an explicit expiration date in the past
+#     # now = datetime.datetime.now()
+#     # response.headers["Expires"] = now.strftime("%a, %d %b %Y %H:%M:%S GMT")
+    
+#     return response
 
 def auth_required(f):
     @wraps(f)
@@ -148,7 +168,7 @@ def query():
         print("🖥️ Model names:", model_names)
         
         # process_models(model_names)
-        threading.Thread(target=process_models, args=(model_names,), daemon=True).start()
+        # threading.Thread(target=process_models, args=(model_names,), daemon=True).start()
 
         
     return jsonify(resp_json)
