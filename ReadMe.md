@@ -1,3 +1,4 @@
+## Instructions to run:
 #### Create a venv and activate it as:
 - `python3 -m venv venv`
 - `source venv/bin/activate`

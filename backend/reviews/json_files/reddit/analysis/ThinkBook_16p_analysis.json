@@ -1,0 +1,168 @@
+{
+  "sentiment_by_user": {
+    "Gamers": {
+      "positive": 75,
+      "neutral": 4,
+      "negative": 10,
+      "total_reviews": 89,
+      "sentiment_score": 0.73,
+      "avg_compound": 0.574
+    },
+    "Students": {
+      "positive": 35,
+      "neutral": 2,
+      "negative": 3,
+      "total_reviews": 40,
+      "sentiment_score": 0.8,
+      "avg_compound": 0.621
+    },
+    "Content Creators": {
+      "positive": 46,
+      "neutral": 2,
+      "negative": 6,
+      "total_reviews": 54,
+      "sentiment_score": 0.741,
+      "avg_compound": 0.638
+    },
+    "Casual Users": {
+      "positive": 51,
+      "neutral": 1,
+      "negative": 4,
+      "total_reviews": 56,
+      "sentiment_score": 0.839,
+      "avg_compound": 0.668
+    },
+    "Programmers / Engineers": {
+      "positive": 43,
+      "neutral": 1,
+      "negative": 5,
+      "total_reviews": 49,
+      "sentiment_score": 0.776,
+      "avg_compound": 0.676
+    }
+  },
+  "keywords_by_user": {
+    "Gamers": [
+      "cheap gaming laptop",
+      "bluetooth 53 hdmi",
+      "gaming laptops best",
+      "p1403cvas60939ws light laptop",
+      "lifesupported crappy laptop",
+      "latency macbook air",
+      "macbook amazing chips",
+      "snapdragonpowered laptops multicore",
+      "512gb dell pro",
+      "firstgen chromebook bass"
+    ],
+    "Students": [
+      "macbook education discount",
+      "match macbook pro",
+      "2018 macbook pro",
+      "macbook pro 16inch",
+      "macbook pro need",
+      "productivityfocused emails google",
+      "binging netflix series",
+      "macbook air overkill",
+      "macbook keys require",
+      "macbook pro horrible"
+    ],
+    "Content Creators": [
+      "2020 macbook pro",
+      "snapdragon elite laptops",
+      "2018 macbook pro",
+      "quality 2020 macbook",
+      "firstgen chromebook bass",
+      "match macbook pro",
+      "macbook pro new",
+      "comparing 2020 macbook",
+      "coming 2020 macbook",
+      "max macbook pro"
+    ],
+    "Casual Users": [
+      "productivityfocused emails google",
+      "macbook air overkill",
+      "youtube videos macbook",
+      "macbook met untimely",
+      "macbook pro briefly",
+      "firstgen chromebook bass",
+      "friend bought macbook",
+      "macbook pro tap",
+      "14 macbook pro",
+      "laptop people reddit"
+    ],
+    "Programmers / Engineers": [
+      "macbook education discount",
+      "gives premium macbook",
+      "2018 macbook pro",
+      "premium macbook vibes",
+      "2020 macbook pro",
+      "quality 2020 macbook",
+      "productivityfocused emails google",
+      "firstgen chromebook bass",
+      "buying new laptop",
+      "match macbook pro"
+    ]
+  },
+  "example_snippets_by_user": {
+    "Gamers": {
+      "positive": [
+        "Hey so here are my thoughts on my laptop I also do not know anything about its gaming capabilities as i have only played Forza horizon 4 on it and its an absolute breeze but I believe the 5070 will hold up So my main use case is on Ansys mechanical and Optislang so I dont find delays of any sort and also when using the GPU acceleration my simulations run pretty quickly as compared to my previous laptop which had a i51240p with no graphics card and the difference is astronomical especially all CAD tasks are smooth as butter with that said I do feel that the battery like could be improved as on a single charge it only lasts about 45 hours and prolly 6 hours of light usage and also the magic bay i have not used it but i feel it is not really required The build quality is top notch The keyboard is also good but not thinkpad p1 level And display is actually pretty good Also there is little to no thermal throttling so far and the fans dont even spin at light use cases Anyways my verdict is that its a really good laptop go for it if your budget allows you to It costed almost 1900",
+        "Can a User of Lenovo ThinkBook 16 G6 please give a honest review of this laptop And if the price of good Lenovo ThinkBook 16 G6 AMD 43806 USD Model 21KK008FAK CPU AMD Ryzen 5 7430U 6C12T up to 43GHz GPU Integrated AMD Radeon Graphics Display 16 WUXGA 1920x1200 IPS 300 nits antiglare RAM 16GB DDR4 Upgradeable Storage 512GB PCIe 40 NVMe SSD Upgradeable Ports 2x USBA 2x USBC incl USB4 HDMI 21 Ethernet SD reader audio jack Battery 45Wh USBC 65W charger Other Backlit keyboard fingerprint reader WiFi 6E 17kg",
+        "Hows the Ryzen 5 under heavier game loads I know people prefer the Ryzen 7 or 9 but the 5 seems to be getting popular again"
+      ],
+      "negative": [
+        "Asus Vivobook 16x Oled vs Lenovo Thinkbook 16P which one should I get Im torn between these 2 My purposes are mainly for school stuff coding video editing movies and gaming I play every kind of games from oldschool to modern AAA Asus Vivobook 16x Oled 1550 total Oled screen 4k 16 Ryzen 7 5800H RTX 3050 Ti 16gb Ram cannot upgrade 1TB SSD 1 more slot Touchpad is placed in the center only 1 USB C port and cannot be used to charge Heat exhaust below the lid blows at the screen Lenovo Thinkbook 16P G2 1300 total IPS 2k 16 screen Ryzen 5 5600H RTX 3060 16gb Ram upgradeable 512gb SSD 1 more slot RTX 3060 2 USB C ports can be charged Can open lid 180 degrees No HDMI Heat exhaust in the back",
+        "The low RPM noise isnt too bad its just the fact its there at all that irks me Its completely unnecessary to have such an aggressive fan curve with a Lunar lake chip inside but I wouldnt say its a dealbreaker The eye strain comes from the GPU not the glossy display surface Same strain when docked Seems to be recent intel GPUs from what Ive read causing issues for those sensitive to dither or whatever rendering technique it is that causes the pain",
+        "Its really subjective Do you have any issues with other modern devices In laptops I find Intel Xe iGPUs to be bad for eye strain Nvidia perfectly fine AMD tolerable but not ideal"
+      ]
+    },
+    "Students": {
+      "positive": [
+        "Best review on this model out there Those youtube reviewers should take notes I returned mine as well for similar reasons Here are my observations 1 Fans are very aggressive and run even if you open two chrome tabs and watch a youtube video This applies even in battery saver mode Fans are not quiet either 2 This is one of the first laptops that actually stays cool in lap and at worst gets warm but never hot to touch So that single sided PCB and cooling is working Battery life is easily 11 hours for Wifi youtube streaming 3 There is a blue spinning wheel next to mouse cursor that appears 75 of the time you are using laptop I dont know if it is Lenovos AI Core learning usage patterns or some other softwarefirmware bug but it makes you feel there is a malware or background windows updates at all times And whenever there is something loading like a tabvideo you wonder if it is because of this or just the low power LNL chip 4 IPS Screen has 100 perfect colors but the overly reflective screen makes the blacks look brown and induces a glow at all times Slightest change of angle and you get cloudy appearance in any dark part of the videoscene you are watching For comparison I have an X1 extreme from several years back and it has a matte IPS which has better blacks than this Aura Also have an OLED laptop so a little spoiled when it comes to contrastblacks 5 Build quality is good not as good as XPS or Thinkpad but very acceptable The only Flex you get is towards the back on the bottom cover Someone above mentioned the backlight gap being too big on function keys and I agree Speakers are really good too but make sure Dolby Atmos is enabled for the best sound 6 Most tasks are snappy and you get quick responses when you open a file explorer window or a Chrome tab However if you have multiple windows open for streaming video I noticed that it is unable to keep streams active in all windows You have to refresh the windowtab to reinitiate a stream I am on 300Mbps connection and each stream is only 3Mbps max I did not have this issue on my Proart but that uses a Mediatek WLAN card but both are Wifi 7 7 I have read several people had trackpadtouchpad becoming unresponsive issue after a few mins of idling but I didnt have this issue I did do a clean Win11 install and was surprised that the trackpad or touchscreen did not work throughout the install I had to install the drivers for these to work which was a bit of a surprise Another surprise was that the Blue spinning wheel issue came back on a fresh Windows install that had all Windows updates and drivers Not a fan of this spinning wheel and think it must be some Lenovo AI core thing in the background as there is a chip with this name inside the laptop 8 Full size 2280 M2 single sided SSD barely fits in the laptop and even though I could close the bottom cover I wouldnt recommend doing so as the 2242 SSD screw holder sits halfway and is very very close to the SSD surface and may even be touching slightly Also you DO feel very small bulge on the bottom cover after doing so Probably thats why Lenovo didnt ship it with a 2280 I would rather get a TLC 2230 and extender So yes very good slimlight laptop overall 153 screen size is perfect too though I hope these spinning wheel fan noise trackpad issues are all software related and get a quick fix from Lenovo But I returned mine and using the Proart P16 now instead",
+        "re the touch pad i usually use a wireless mouse so not worried about that Good report im seriously looking at one now using a HP Specter 360 its been good for 7 years but falling apart now This Lenevo is getting good reviews",
+        "It could match a MacBook Pro though and still be a horrible laptop For example unless its one of the newest MacBook pros you might be used to an incredibly glossy screen that leads to a busted user experience if there are windows or uncontrolled lights nearby My M1 Max MacBook Pro was also incredibly laggy for things like window snapping and some other things where I couldnt get rid of the animation and you just have to wait for part of a second from time to time before you can do things Pretty amazing that it compares to a multithousand dollar laptop but also multithousand dollar laptops these days can be pretty disgusting or at least that has been my experience with the M1 Max and some Windows laptops from Dell Asus and Framework being laggy with windows 11 Maybe its just a software problem though and I shouldnt be comparing wildly inefficient operating systems like Mac OS and Windows 11 to things like debloated Windows 10 or Linux on a 12yearold Thinkpad originally rated for 24 hours of battery life"
+      ],
+      "negative": [
+        "Asus Vivobook 16x Oled vs Lenovo Thinkbook 16P which one should I get Im torn between these 2 My purposes are mainly for school stuff coding video editing movies and gaming I play every kind of games from oldschool to modern AAA Asus Vivobook 16x Oled 1550 total Oled screen 4k 16 Ryzen 7 5800H RTX 3050 Ti 16gb Ram cannot upgrade 1TB SSD 1 more slot Touchpad is placed in the center only 1 USB C port and cannot be used to charge Heat exhaust below the lid blows at the screen Lenovo Thinkbook 16P G2 1300 total IPS 2k 16 screen Ryzen 5 5600H RTX 3060 16gb Ram upgradeable 512gb SSD 1 more slot RTX 3060 2 USB C ports can be charged Can open lid 180 degrees No HDMI Heat exhaust in the back",
+        "Yes Im happy with the surface laptop Its not perfect but I dont have any major regrets I didnt consider the elitebook X g1a because it didnt have a haptic track pad and it has the split rightleft arrow keys with the page updown buttons which I despise Its an abomination Im using 150 scaling at full resolution and thats perfect for me No complaints there The coil whine is still present when plugged in but I dont really notice it anymore most of the time as Im usually very focused when Im working or have headphones on Im also on battery most of the time I think I noticed it for the first time in months just the other day So not bad I havent actually ever used the surface connect charger Its still wrapped up in the box I carry a single USBC charger and cable with me for all my devices and dont feel like carrying another It certainly would have been nice to have a USBc port on the right side of the laptop for this reason and its caused me an issue twice now but Ive learned to live with it The battery life is Okay I really dont know how reviewers are getting the insane battery life theyre reporting For my Macbook which I had used in an identical manner I was getting 50 or so more battery life out of it Thats really the only thing thats making me miss Apple For my overall work style their battery life is just superior",
+        "Im looking at lots of posts and Im shocked at the budgets yall have Damn 2k I wish I had that kind of change My friend bought an Macbook Air last year with M4 chip she spent around 1500 Shes a casual user and not even in College anymore I told her to get the M1 Macbook Air but she said she wanted something future proof I think the M4 Macbook Air is overkill for a casual Fetching emails watching Youtube videos and surfing the web has never been processor intensive this wont be changing in 5 years My M1 processor will work just as well for these things in 5 years as they are now Not to mention in 3 years Ill be able to purchase that Macbook Air with M4 processor for 650 on eBay and Ill be all caught up I think anyone spending 2k on a laptop today for college is just crazy Its total overkill At this point youre simply spending for the sake of future proofing because theres no way you actually need all that power now You could spend a fraction of that on a Asus TUF with RTX 4050 can get around 650 used and that laptop really is future proof"
+      ]
+    },
+    "Content Creators": {
+      "positive": [
+        "I think its the same chip but different drivers The studio ones are more optimized for multimedia apps like photoshop cad etc Mobile is more gaming oriented",
+        "Thinkbook 16p gen 4 vs legion slim 7 Amd Im coming from a 2020 MacBook Pro 13 with gen 10 i5 and Im gonna need a windows machine for university last two years in mechanical engineering Ive been flawlessly using boot camp since now but I dont think its gonna be able to keep up with the other programs we are gonna use The choice came down to these two mainly because of the design portability and powerprice ratio Ive also been thinking about using a desktop remotely through my Mac but I dont need that much power nor having to leave it on every time With actual sales they both sell for 1600 The main differences and concerns between these two are the following bigger trackpad on the thinkbook and Im a big trackpad user the battery is bigger on the legion 99 vs 80 the thinkbook gets the i9 13900H or the i7 13700H for roughly the same price but maybe the i9 is overkill and drains too much power On the other hand the ryzen 7 on the legion appears to be much more powerful efficient while on battery I was also concerned about the number of p cores on the intel vs the amd which instead has no e cores apparently the silent mode on the legion allows better performances is it because of different cooling system the thinkbook has ir so works with face unlock on the thinkbook configurator it doesnt allow me to have both 32 gb of ram and the 32k monitor Fortunately both the ram are upgradable the legion has a soldered one so I can buy the 88 version and switch them in the future if I need the WQXGA display has better nits on the legion than the thinkbook 500 vs 400 Id like to know if the 32k monitor is any better than the WQXGA 2560 x 1600 and if its battery killer too because is available in both They both have the 4060 8gb that is more than enough for what I need but should allow some gaming and 3d modeling and rendering room If anyone has any advice or maybe can suggest another laptop with similar design Id be really happy",
+        "Lenovo Slim 7i Aura Edition review Too many flaws Recently received my new Lenovo Slim 7i Aura Edition and have been putting it through its paces I ordered a custom 258V 1tb spec from Lenovo Shipping was fast packaging is about as barebones as it gets with the charger just flailing around in there but it arrived in one piece so yay I guess Some context Currently use an X1 Carbon G6 because every new laptop I buy is generally flawed or has issues prompting me to keep my trusty ThinkPad Recent attempts at upgrading are as follows Surface laptop 4 Pretty good but had issues with WiFi and Bluetooth constantly dropping and random restarts Sold it after a bit Lenovo Slim 7 pro X Great machine but had two major issues System would occasionally lock up when the 3050 was enabled in the bios disabling it fixed the lockups Also there seemed to be an issue with nvram causing the laptop to fail to boot numerous times Lenovo Slim pro 7 Excellent machine literally zero issues Truly a unicorn The build quality was terrible and thus I returned it Decent aluminum enclosure but cheap plastic interior with plastic hinges Honestly wish I kept it after this Surface Laptop 7 Excellent laptop ARM64 turned out to be a larger issue for me than I thought Sold it and stuck with X86 A few pretty minor issues but otherwise the best windows laptop available right now imo Lets get into the Aura Build quality Its alright Typical thin relatively cheap aluminum exterior with an internal frame to keep everything together Luckily the frame is made of magnesium alloy this time instead of plastic like the slim pro 7 Durability concerns are no more Port cutouts are somewhat sharp and you can see inside the laptop from the cutouts Some ports are slightly misaligned but everything fits Certainly not as premium as a surface or a mac but itll do Hinge feels fine trackpad is installed firm with no rattle I hate the YOGA text on the palmrest Its clearly shiny plastic inserts stuck into a cutout and not very well mind you with the text slightly misaligned It just looks a bit cheap Overall its well built enough for most people to be happy but its nowhere near some of its competitors Display Mostly very good Very bright very colorful great pixel density 120hz good touch implementation and completely free of defects Its not all great though I generally prefer IPS panels but the contrast on this one doesnt cut it All IPS panels have IPS glow but this one has the worst case of glow Ive ever seen Its even noticeable looking at it straight on making the panel look almost TN at times This paired with the relatively poor AR coating create a sub bar display for darker content Its not terrible but quite noticeably worse than any typical IPS Note there is likely a display lottery here so youre mileage may vary Trackpad keyboard The touchpad is unfortunately not haptic but its a very good traditional unit Smooth surface with a tactile and satisfying click Feels responsive when its working more on that later gestures work great at least as good as they can in W11 Keyboard is excellent ThinkPad level Wonderful tactility and travel The keys also have a soft touch finish to them which feels great Backlighting is uniform and consistent if not a little too bright on its dimmest setting Speakers Completely blown away by these Most windows machines have pretty bad speakers in my experience but these are excellent Definitely a bit bass heavy but no distortion at normal volume levels They sound full and mostly clear could do with a bit more midrange Head and shoulders above any windows machine Ive ever used period Performance noise A little disappointed in the noise output No complaints with performance Lunar Lake delivers on what I expected but the fans are just too noticeable for my taste Dont get me wrong huge improvement from my mini jet engine X1C G6 with 8650u when docked but its not nearly as quiet as I was hoping for When docked to my desktop setup via Thunderbolt at 4k 120hz the fans are frequently noticeable especially with heavy multitasking Even unplugged opening a few chrome tabs or an application or two will get the fans to spin up The system is not hot or even warm really its just overly aggressive fan tuning by Lenovo it seems Miscellaneous software WiFi seems to work flawlessly thus far No dropping of connections connects upon waking etc Bluetooth on the other hand is a little flaky Occasionally I will hear Bluetooth artifacts and glitches upon moving apart from the laptop Windows came with some bloat including McAfee but all was easy to get rid of Windows hello has been mostly reliable minus when the system fails to activate the camera and I have to resort to a passcode I had a lot of trouble getting reliable video output from this thing with my external monitor being the only and primary display New display drivers and fiddling around with color settings in Intel control panel seemingly at random allowed me to get reliable 4k 120hz YCbCr 444 No specific setting did the trick it seems to be a bit broken at the moment Adding on to the state of Intel software every time I reboot this thing Intel graphics control panel decides it wants to set custom colors for me that dramatically darken the display prompting me to go in and reset all color settings Tried different drivers among other things to no avail Very strange issue Phantom touches Frequently the touchscreen will activate phantom touches in the bottom right corner possibly because my primary interaction with the screen is with the quick settings for brightness control This seems to be especially frequent upon waking from sleep often making the laptop unusable for up to a minute Sometimes quick settings or hidden icons tray will pop up randomly as Im working Extremely annoying The dealbreakers I dont know about you but I prefer my touchpad to work properly I mean that cant be too much to ask right Well either Lenovo has implemented some sort of braindead power saving feature or there is some sort of driver hardware issue After a period of inactivity like say 13 minutes the trackpad will frequently enter a sleep state and not respond to inputs until it has had a second or two to wake up Sometimes it takes up to around 10 seconds to wake up which is extremely annoying Ive tried a few fixes for this including disabling the touch screen to avoid phantom touches but the issue persists Never experienced anything like this Leads me to believe there may be something wrong with my touchpad hardware Even if it is a hardware issue Id honestly rather not give Lenovos QC lottery another shot Besides we already have issues with the touchscreen windows hello and flaky Intel software while the Slim Pro 7 I tried was literally flawless Lenovo can make a good computer but this isnt one of them at least mine isnt Conclusion I really wanted this to be good It has massive potential to be the best X86 Windows machine with an LCD But the buggy touchpad alone is a dealbreaker not to mention the other quirks Regardless Im not keen on trying a replacement Will update the post if I manage to fix the trackpad or touchscreen before returning it Edit I clean installed Windows 11 today in hopes of fixing the trackpad issues Only bare essential drivers installed The system feels much faster now and no random spinning blue wheel by the cursor but the trackpad issue persists Looks like its going back Edit 2 For those PWM or dithering sensitive this section is for you It seems the Aura causes pretty bad eye strain when used for over 20 to 30 minutes at time for me The feeling is very similar to any modern MacBook pressure in sinuses headache etc Its likely temporal dithering as the IPS panel is PWM free It affects external monitors too which points to the iGPU being the issue 8 bit color depth from the default 10 in Intel control panel does not help I tried using Ditherig software to disable dithering and while it does have an effect on dithering color banding the strain remains"
+      ],
+      "negative": [
+        "Inspiron 16 Plus 7620 or Thinkbook 16p Gen2 So I already have the 7620 here but because of a minor coil whine Im thinking about returning it Price for the Thinkbook and the Inspiron are about the same Unfortunately 16p Gen3 is not available in Germany yet Inspiron ca 1900 incl 3y premium warranty I7 12700h 32 GB RAM 3060 60W 1 TB SSD 16p ca 2000 incl premium warranty 5900HX 32 GB RAM 3060 1 TB SSD Because the 12700h is supposed to be much faster then the 5900HX I initialy went for it What are your thoughts Im using it for CAD incl rendering Lightroom and Photoshop Add question Is it worth waiting for the 16p Gen3 I expect it to be a lot more expensive then both models",
+        "Asus Vivobook 16x Oled vs Lenovo Thinkbook 16P which one should I get Im torn between these 2 My purposes are mainly for school stuff coding video editing movies and gaming I play every kind of games from oldschool to modern AAA Asus Vivobook 16x Oled 1550 total Oled screen 4k 16 Ryzen 7 5800H RTX 3050 Ti 16gb Ram cannot upgrade 1TB SSD 1 more slot Touchpad is placed in the center only 1 USB C port and cannot be used to charge Heat exhaust below the lid blows at the screen Lenovo Thinkbook 16P G2 1300 total IPS 2k 16 screen Ryzen 5 5600H RTX 3060 16gb Ram upgradeable 512gb SSD 1 more slot RTX 3060 2 USB C ports can be charged Can open lid 180 degrees No HDMI Heat exhaust in the back",
+        "The low RPM noise isnt too bad its just the fact its there at all that irks me Its completely unnecessary to have such an aggressive fan curve with a Lunar lake chip inside but I wouldnt say its a dealbreaker The eye strain comes from the GPU not the glossy display surface Same strain when docked Seems to be recent intel GPUs from what Ive read causing issues for those sensitive to dither or whatever rendering technique it is that causes the pain"
+      ]
+    },
+    "Casual Users": {
+      "positive": [
+        "Cannot say something to this configuration but we had around 15 intel and amd based g6s in my company Great devices except for one thing around half of the devices had problems with the integrated webcam Some of them in the first months some of them after several months The case was that that the system was loosing the physical connection to the webcam module again and again",
+        "Nice I was just checking that one out on the Lenovo website Sweet machine",
+        "Did you purchase it Through their website or got it From a retailer Met4Zer0 I detect haikus And sometimes successfully Learn32more32about32me Opt out of replies haikusbot opt out Delete my comment haikusbot delete"
+      ],
+      "negative": [
+        "Asus Vivobook 16x Oled vs Lenovo Thinkbook 16P which one should I get Im torn between these 2 My purposes are mainly for school stuff coding video editing movies and gaming I play every kind of games from oldschool to modern AAA Asus Vivobook 16x Oled 1550 total Oled screen 4k 16 Ryzen 7 5800H RTX 3050 Ti 16gb Ram cannot upgrade 1TB SSD 1 more slot Touchpad is placed in the center only 1 USB C port and cannot be used to charge Heat exhaust below the lid blows at the screen Lenovo Thinkbook 16P G2 1300 total IPS 2k 16 screen Ryzen 5 5600H RTX 3060 16gb Ram upgradeable 512gb SSD 1 more slot RTX 3060 2 USB C ports can be charged Can open lid 180 degrees No HDMI Heat exhaust in the back",
+        "I have had this laptop for a week I have updated everything that needed updating Windows and all relevant drivers Everything is fine except for the WiFi which is very slow I usually connect it to my phones hotspot an S23 Ultra and when I tested it with Ookla Speedtest the download speed never exceeded 180 kbs 018 Mbs while the upload speed reached up to 4 Mbs Its been so bad that I couldnt download files from OneDrive nor have I been able to install Quick Share due to the slow speeds I have downloaded and installed the latest drivers from the Lenovo website and followed various troubleshooting steps including disabling IPv6 resetting the WiFi driver restarting etc The connection was so poor that I couldnt even complete the online Lenovo hardware selfdiagnosis What can I do I bought this from BestBuy in the US but Im currently not in the United States While returning it is not impossible it would be very difficult and I would prefer to resolve the issue without having to return it",
+        "My bluetooth is awful I can pair all devices but they will NOT stay connected My earbuds connected and I was able to use them for about 1 minute or so but I could only get the Right side to receive sound Theres something very very broken about the bluetooth on this machine It has been out since 2024 and it is shocking that it is still not fixed The internet is full of people with the same bluetooth issue"
+      ]
+    },
+    "Programmers / Engineers": {
+      "positive": [
+        "As an engineering student Lenovo ThinkBook 16P G5 is a good option Hi Im looking to buy laptop for some apps like Catia Solidworks AutoCAD etc Im thinking Lenovo ThinkBook 16P G5 i914900HX 32 GB 1 TB SSD RTX4060 will be good option for me I will use this laptop to play games but not like cyberpunk RDR Im open to other options too Also i forgot mention that im looking for a laptop that material has to be highquality So i do not want plastic or plastic based materials",
+        "Thinkbook 16p gen 4 vs legion slim 7 Amd Im coming from a 2020 MacBook Pro 13 with gen 10 i5 and Im gonna need a windows machine for university last two years in mechanical engineering Ive been flawlessly using boot camp since now but I dont think its gonna be able to keep up with the other programs we are gonna use The choice came down to these two mainly because of the design portability and powerprice ratio Ive also been thinking about using a desktop remotely through my Mac but I dont need that much power nor having to leave it on every time With actual sales they both sell for 1600 The main differences and concerns between these two are the following bigger trackpad on the thinkbook and Im a big trackpad user the battery is bigger on the legion 99 vs 80 the thinkbook gets the i9 13900H or the i7 13700H for roughly the same price but maybe the i9 is overkill and drains too much power On the other hand the ryzen 7 on the legion appears to be much more powerful efficient while on battery I was also concerned about the number of p cores on the intel vs the amd which instead has no e cores apparently the silent mode on the legion allows better performances is it because of different cooling system the thinkbook has ir so works with face unlock on the thinkbook configurator it doesnt allow me to have both 32 gb of ram and the 32k monitor Fortunately both the ram are upgradable the legion has a soldered one so I can buy the 88 version and switch them in the future if I need the WQXGA display has better nits on the legion than the thinkbook 500 vs 400 Id like to know if the 32k monitor is any better than the WQXGA 2560 x 1600 and if its battery killer too because is available in both They both have the 4060 8gb that is more than enough for what I need but should allow some gaming and 3d modeling and rendering room If anyone has any advice or maybe can suggest another laptop with similar design Id be really happy",
+        "What do you think of the Samsung galaxy book Flex 2 Its a 16G RAM 256 SSD i7 under 800 Im looking for a budget friendly laptop for developing apps and programming Reviews"
+      ],
+      "negative": [
+        "Asus Vivobook 16x Oled vs Lenovo Thinkbook 16P which one should I get Im torn between these 2 My purposes are mainly for school stuff coding video editing movies and gaming I play every kind of games from oldschool to modern AAA Asus Vivobook 16x Oled 1550 total Oled screen 4k 16 Ryzen 7 5800H RTX 3050 Ti 16gb Ram cannot upgrade 1TB SSD 1 more slot Touchpad is placed in the center only 1 USB C port and cannot be used to charge Heat exhaust below the lid blows at the screen Lenovo Thinkbook 16P G2 1300 total IPS 2k 16 screen Ryzen 5 5600H RTX 3060 16gb Ram upgradeable 512gb SSD 1 more slot RTX 3060 2 USB C ports can be charged Can open lid 180 degrees No HDMI Heat exhaust in the back",
+        "It has been over 5 months now is anyone able to provide an update Are these issues still a problem or have software updates fixed the problems",
+        "I am going to buy this laptop soon Is there display glare problem a deal breaker Some people mentioned glossy displays leading to poor battery life because you have to crank up brightness to max to combat glare I am a software developer i opened many tabs run heavy tools like docker visual studio and local database servers"
+      ]
+    }
+  }
+}

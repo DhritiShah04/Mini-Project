@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import "./ProductInfo.css"
 import ImageCarousel from "./ImageCarousel.jsx"
+import ReviewSection from './ReviewSection.jsx';
 
 // import './ProductInfo.css';
 
@@ -146,7 +147,14 @@ function ProductInfo({ user, laptops }) {
                   </div>
               </div>
             </div>
+
+            <ReviewSection model={item.model} />
+
           </div>
+          {/* <div className="prod-specs">
+          </div> */}
+
+          
         </div>
       ):(
         <div id="not-signed-in">

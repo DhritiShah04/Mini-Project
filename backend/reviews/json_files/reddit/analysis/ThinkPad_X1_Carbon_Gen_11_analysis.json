@@ -1,0 +1,162 @@
+{
+  "sentiment_by_user": {
+    "Gamers": {
+      "positive": 10,
+      "neutral": 0,
+      "negative": 2,
+      "total_reviews": 12,
+      "sentiment_score": 0.667,
+      "avg_compound": 0.531
+    },
+    "Students": {
+      "positive": 18,
+      "neutral": 0,
+      "negative": 2,
+      "total_reviews": 20,
+      "sentiment_score": 0.8,
+      "avg_compound": 0.632
+    },
+    "Content Creators": {
+      "positive": 17,
+      "neutral": 2,
+      "negative": 2,
+      "total_reviews": 21,
+      "sentiment_score": 0.714,
+      "avg_compound": 0.621
+    },
+    "Casual Users": {
+      "positive": 12,
+      "neutral": 0,
+      "negative": 4,
+      "total_reviews": 16,
+      "sentiment_score": 0.5,
+      "avg_compound": 0.475
+    },
+    "Programmers / Engineers": {
+      "positive": 16,
+      "neutral": 0,
+      "negative": 1,
+      "total_reviews": 17,
+      "sentiment_score": 0.882,
+      "avg_compound": 0.705
+    }
+  },
+  "keywords_by_user": {
+    "Gamers": [
+      "2018 macbook pro",
+      "2in1 macbook pro",
+      "2in1 2018 macbook",
+      "macbook pro price",
+      "macbook pro",
+      "2018 macbook",
+      "business netflix streaming",
+      "7200 2in1 macbook",
+      "hp laptop 17tcn400",
+      "16gb ram ultrasmooth"
+    ],
+    "Students": [
+      "best budget laptop",
+      "new 32gb ram",
+      "3000 new 32gb",
+      "consumer laptops best",
+      "16gb ram ultrasmooth",
+      "i51035g4 256gb intel",
+      "256gb intel iris",
+      "tempting 32gb ram",
+      "moving m1 macbook",
+      "mac apps colleges"
+    ],
+    "Content Creators": [
+      "macbook pro m4",
+      "2025 lenovo laptops",
+      "february macbook pro",
+      "macbook pro",
+      "best specs laptops",
+      "samsung 990 pro",
+      "vpro processor 32gb",
+      "bluetooth 51 1080p",
+      "ces 2025 laptops",
+      "business netflix streaming"
+    ],
+    "Casual Users": [
+      "2018 macbook pro",
+      "2in1 macbook pro",
+      "2in1 2018 macbook",
+      "macbook pro price",
+      "2025 lenovo laptops",
+      "macbook pro",
+      "best specs laptops",
+      "2018 macbook",
+      "ces 2025 laptops",
+      "business netflix streaming"
+    ],
+    "Programmers / Engineers": [
+      "better macbook keyboards",
+      "keyboardtrackpad macbooks prefer",
+      "best specs laptops",
+      "macbook pro yoga",
+      "specs laptops best",
+      "definitely better macbook",
+      "macbooks prefer thinkpad",
+      "laptops best spec",
+      "macbook keyboards worth",
+      "better macbook"
+    ]
+  },
+  "example_snippets_by_user": {
+    "Gamers": {
+      "positive": [
+        "Is this worth 300 I want to do stocks watch sports and movies do work Speed Style Security This is the laptop that feels like a feather but works like a beast Selling my Lenovo ThinkPad X1 Carbon Gen 7 Type 20QD fully upgraded to 1TB NVMe SSD and 16GB DDR4 RAM perfect for business coding creative projects or streaming Features a sleek 14 FHD display legendary ThinkPad keyboard rapid charge and rugged carbonfiber build Allday battery and Windows 11 Pro installed Condition Excellent no major scratches battery holds great charge Includes Genuine Lenovo charger Super lightweight ready to go 1TB SSD massive storage for all your files 16GB RAM ultrasmooth multitasking WiFi webcam fingerprint reader USBC Why settle for bulky or slow Upgrade to ThinkPad reliability Price 290CashPickup Preferred DM if interested first come first served",
+        "Help deciding between these Lenovo ThinkPad and Dell Inspiron laptops any insight appreciated I need to make a decision on a new laptop and could use help deciding Im down to the ones listed in the below table though if you think I should consider a different one let me know I dont use this for anything particularly intensive or specific eg no gaming programming CAD etc this is just an allaround laptop I would say my main criteria is reliabilitybuild quality I tend to keep laptops a long time eg 810 years so I want this to last a long time That said I would appreciate a nice screen I do use it for some photovideo editing and would like decent battery life though it spends most of its time plugged in Here is my current thinking on these I would appreciate anyones inputthoughts personal experience etc Lenovo vs Dell I like Lenovo a lot I have one for my work computer and I love the keyboard Im leaning that way but per the below I am trying to figure out why I wouldnt get the Dell Yoga 9i I love this and this was going to be my choice particularly love the design and screen but Im concerned about i only 16 GB of RAM I could bump it up but thats 500600 more and ii lots of reviews say the realworld battery life is very poor X1 Carbon Gen 11 I know this is a prior gen but the new one is too expensive Main concern with this one is the lower resolution screen obviously has an older processor but again shouldnt make a huge difference in what I use it for ThinkPad T14 This is obviously more expensive and has the same drawback of lower quality screen but its on the list because i it seems to be basically a tank that would last a long time and could be easily repaired if need be and ii it comes with a 3year warranty Dell Inspiron The background here is I went to Micro Center to try out the Lenovos and saw the stats on this one and Im basically trying to figure out what the catch is with this It generally has the same or better specs than all the others for quite a bit cheaper What is the catch or drawback with this one My one concern other than the fact that I must be missing something is that it has a lower brightness of 300 nits which I feel could be an annoyance when using it in a bright room for example I hope to buy this in the next day or so so thanks for all the help",
+        "Replacement for Lenovo X1 Carbon Gen 10 USA budget 2000 ish LAPTOP QUESTIONNAIRE Total budget in local currency and country of purchase Please do not use USD unless purchasing in the US Maximum 2500 USD ideally more like 1800 or less Are you open to refurbsused Yes but new preferred How would you prioritize form factor ultrabook 2in1 etc build quality performance and battery life Performance and build quality most important battery life least important How important is weight and thinness to you Doesnt need to be ultra light but Ill be bike commuting and traveling with it so smallerlighter is a plus Do you have a preferred screen size If indifferent put NA 1314 inches Are you doing any CADvideo editingphoto editinggaming List which programsgames you desire to run AutoCAD Solidworks maybe Blender If youre gaming do you have certain games you want to play At what settings and FPS do you want Not planning to do much gaming Any specific requirements such as good keyboard reliable build quality touchscreen fingerprint reader optical drive or good input devices keyboardtouchpad Not super picky good screen is a plus but I dont need or really want a touch screen Leave any finishing thoughts here that you may feel are necessary and beneficial to the discussion I have a 2022 Lenovo X1 Carbon Gen 10 that fits my needs really well but has become increasingly unreliable 3 trips to the repair shop in the past 2 months after unexpectedly failing to boot up and some less catastrophic but still annoying things like the wifi and Bluetooth not working 99 of the time Ill see if replacing the motherboard helps but Im considering getting a different laptop Im tempted by a new X1 Carbon but I dont want a repeat of my experience with this one I need something relatively portable but capable of running CAD programs and data analysis Is there evidence that the new X1 Carbons are better than previous years or can anyone provide suggestions for an alternative Thanks"
+      ],
+      "negative": [
+        "I found a 135 w Lenovo original AC for 18 from a reputable seller I also have one lying around from my workplace use Lenovo which I can test with The seller around returns within 30 days if theres any issue Use case is for my wife as her primary computer she uses Wix for design and dropshipping business Netflix streaming discord streaming Adobe Photoshop and video editing as well",
+        "I actually have a P14s Gen 4 AMD and a Zbook Firefly 14 G10A Comparing them the Zbook is smaller and lighter Its 2 SODIMMs so can have the ram upgraded while the P14s G4A is fully soldered If youre looking at G4 Intel then if its iGP only it has up to 16GB is soldered and there is a single SODIMM available for expansion If its the dGPU version then all the ram is soldered If youre doing memory hungry tasks this can make a difference the Intel P14S will max at 48GB iGP or 64GB dGPU while the Firefly can go 96GB I also like the displays available on the Firelfly 14 better Both have several WUXGA options the P14s has a 22K thats a great display ideal resolution for 14 IMO but isnt very bright and the 28K OLED that I hated utterly ugly text and absolutely HORRIBLE battery life The Firefly after the WUXGAs has the option of the 25KWQXGA 500nit screen Better IMO in every way to the 28K OLED Can use it at native resolution without scaling for 14 not as pleasant as the 22K but still just barely usable brighter text if scaled fractionally doesnt look horrible"
+      ]
+    },
+    "Students": {
+      "positive": [
+        "Is this worth 300 I want to do stocks watch sports and movies do work Speed Style Security This is the laptop that feels like a feather but works like a beast Selling my Lenovo ThinkPad X1 Carbon Gen 7 Type 20QD fully upgraded to 1TB NVMe SSD and 16GB DDR4 RAM perfect for business coding creative projects or streaming Features a sleek 14 FHD display legendary ThinkPad keyboard rapid charge and rugged carbonfiber build Allday battery and Windows 11 Pro installed Condition Excellent no major scratches battery holds great charge Includes Genuine Lenovo charger Super lightweight ready to go 1TB SSD massive storage for all your files 16GB RAM ultrasmooth multitasking WiFi webcam fingerprint reader USBC Why settle for bulky or slow Upgrade to ThinkPad reliability Price 290CashPickup Preferred DM if interested first come first served",
+        "I wouldnt recommend an E model Look for a T14 maybe a gen 2 or 3 Theyre around 3 or 400 The T series are business class laptops that are meant to be more durable than consumer laptops The best part is they are usually from an office environment that are lightly used for the most part",
+        "Best budget laptop for college I am currently in the process of transferring from community college to a university in my area and in need of a laptop I dont wanna drop 1000 on a new one so Ive been reading other forums and reviews on best used refurbished and the Lenovo think pads are the most common answer I have little to no knowledge of what specs I need to look out for but here are key details that can help view my needs 1 I am majoring in business marketing with a minor in Econ 2 400500 usd is my budget 3 So far the laptop Ive been most interested in is the Lenovo ThinkPad X1 Carbon Gen 8 i710610U 180GHz 16GB256GB Win 11 Pro Thoughts"
+      ],
+      "negative": [
+        "Different brands do laptops different at different tiers within the same brand Like bottom tier HP is worse than bottom tier Dell but both are equivalent at business class tier The inspiron is the lowest dell tier while yoga and thinkpads are higher tiers for Lenovo so I would disqualify the dell here Thinkpad x1 carbon yoga in build quality"
+      ]
+    },
+    "Content Creators": {
+      "positive": [
+        "Is this worth 300 I want to do stocks watch sports and movies do work Speed Style Security This is the laptop that feels like a feather but works like a beast Selling my Lenovo ThinkPad X1 Carbon Gen 7 Type 20QD fully upgraded to 1TB NVMe SSD and 16GB DDR4 RAM perfect for business coding creative projects or streaming Features a sleek 14 FHD display legendary ThinkPad keyboard rapid charge and rugged carbonfiber build Allday battery and Windows 11 Pro installed Condition Excellent no major scratches battery holds great charge Includes Genuine Lenovo charger Super lightweight ready to go 1TB SSD massive storage for all your files 16GB RAM ultrasmooth multitasking WiFi webcam fingerprint reader USBC Why settle for bulky or slow Upgrade to ThinkPad reliability Price 290CashPickup Preferred DM if interested first come first served",
+        "Help deciding between these Lenovo ThinkPad and Dell Inspiron laptops any insight appreciated I need to make a decision on a new laptop and could use help deciding Im down to the ones listed in the below table though if you think I should consider a different one let me know I dont use this for anything particularly intensive or specific eg no gaming programming CAD etc this is just an allaround laptop I would say my main criteria is reliabilitybuild quality I tend to keep laptops a long time eg 810 years so I want this to last a long time That said I would appreciate a nice screen I do use it for some photovideo editing and would like decent battery life though it spends most of its time plugged in Here is my current thinking on these I would appreciate anyones inputthoughts personal experience etc Lenovo vs Dell I like Lenovo a lot I have one for my work computer and I love the keyboard Im leaning that way but per the below I am trying to figure out why I wouldnt get the Dell Yoga 9i I love this and this was going to be my choice particularly love the design and screen but Im concerned about i only 16 GB of RAM I could bump it up but thats 500600 more and ii lots of reviews say the realworld battery life is very poor X1 Carbon Gen 11 I know this is a prior gen but the new one is too expensive Main concern with this one is the lower resolution screen obviously has an older processor but again shouldnt make a huge difference in what I use it for ThinkPad T14 This is obviously more expensive and has the same drawback of lower quality screen but its on the list because i it seems to be basically a tank that would last a long time and could be easily repaired if need be and ii it comes with a 3year warranty Dell Inspiron The background here is I went to Micro Center to try out the Lenovos and saw the stats on this one and Im basically trying to figure out what the catch is with this It generally has the same or better specs than all the others for quite a bit cheaper What is the catch or drawback with this one My one concern other than the fact that I must be missing something is that it has a lower brightness of 300 nits which I feel could be an annoyance when using it in a bright room for example I hope to buy this in the next day or so so thanks for all the help",
+        "It will be used for general web searching with a million tabs and photoshopping pictures with adobe not videos or rendering Being able to charge over USBC would be a borderline requirement as well My gut says I wont come close to utilizing the preformance of the Artbook offers over lunar lake laptops with Arc 140v to an extent that it would justify drawbacks like the battery life and heat What is expected with the 2025 version How do the screens and color accuracy compare between the thinkbook and ProArt S"
+      ],
+      "negative": [
+        "I found a 135 w Lenovo original AC for 18 from a reputable seller I also have one lying around from my workplace use Lenovo which I can test with The seller around returns within 30 days if theres any issue Use case is for my wife as her primary computer she uses Wix for design and dropshipping business Netflix streaming discord streaming Adobe Photoshop and video editing as well",
+        "So wanted to circle back again I just got a brand new X1 Carbon Gen 12 identical spec to my previous one The tech claimed that the behavior of my previous machine was not acceptable Guess what this is just as noisy and all over the place with its fan speed control whether or not used in Performance or Balanced mode I refuse to use the computer in Efficiency mode because even a YouTube video will lag in that mode on an external display Also if I would want a weak computer I would not be buying Lenovos flagship"
+      ]
+    },
+    "Casual Users": {
+      "positive": [
+        "Is this worth 300 I want to do stocks watch sports and movies do work Speed Style Security This is the laptop that feels like a feather but works like a beast Selling my Lenovo ThinkPad X1 Carbon Gen 7 Type 20QD fully upgraded to 1TB NVMe SSD and 16GB DDR4 RAM perfect for business coding creative projects or streaming Features a sleek 14 FHD display legendary ThinkPad keyboard rapid charge and rugged carbonfiber build Allday battery and Windows 11 Pro installed Condition Excellent no major scratches battery holds great charge Includes Genuine Lenovo charger Super lightweight ready to go 1TB SSD massive storage for all your files 16GB RAM ultrasmooth multitasking WiFi webcam fingerprint reader USBC Why settle for bulky or slow Upgrade to ThinkPad reliability Price 290CashPickup Preferred DM if interested first come first served",
+        "So a replacement AC is about additional 30 give or take Id just make sure its from one of those reputable sellers with an icon The thing is youre going to need to buy the AC charger then hope it works And if it doesnt youll need to return everything back Side note I went with the T series just because they are less power hunger smaller and longer battery life My use case is only for school and light browsing Whats your use case btw",
+        "It will be used for general web searching with a million tabs and photoshopping pictures with adobe not videos or rendering Being able to charge over USBC would be a borderline requirement as well My gut says I wont come close to utilizing the preformance of the Artbook offers over lunar lake laptops with Arc 140v to an extent that it would justify drawbacks like the battery life and heat What is expected with the 2025 version How do the screens and color accuracy compare between the thinkbook and ProArt S"
+      ],
+      "negative": [
+        "I found a 135 w Lenovo original AC for 18 from a reputable seller I also have one lying around from my workplace use Lenovo which I can test with The seller around returns within 30 days if theres any issue Use case is for my wife as her primary computer she uses Wix for design and dropshipping business Netflix streaming discord streaming Adobe Photoshop and video editing as well",
+        "x1 carbon gen 9 screen flickering bought this machine yesterday and upgraded to windows 11 The screen starting stutteringglitching multiple times a minute I upgraded to the latest drivers off lenovo then Intels website The issue did not resolve I have tried turning panel self refresh off as well didnt work I updated the bios everything nothing works Any ideas just bought this machine yesterday and Im quite disappointed and anxious",
+        "So wanted to circle back again I just got a brand new X1 Carbon Gen 12 identical spec to my previous one The tech claimed that the behavior of my previous machine was not acceptable Guess what this is just as noisy and all over the place with its fan speed control whether or not used in Performance or Balanced mode I refuse to use the computer in Efficiency mode because even a YouTube video will lag in that mode on an external display Also if I would want a weak computer I would not be buying Lenovos flagship"
+      ]
+    },
+    "Programmers / Engineers": {
+      "positive": [
+        "Lenovo ThinkPad X1 Carbon Gen 11 But which configuration Hi all I will start to work as a bioinformatician and therefore Im in the need of a new notebook I think the Lenovo ThinkPad X1 Carbon Gen 11 is the perfect match for me due to many positive reviews its longevity the keyboard and its light weight Of course its also a highend business laptop However Im a little bit overwhelmed by the amount of different configurations I can choose from It should be powerful enough for my work but I dont want to overkill on some parts For now Im thinking about getting it with 32GB RAM due to large datasets ML future proofing and a 256 GB SSD Will upgrade it in the future and save some money now However I have no clue which CPU I should get I can choose between i71355U i51335U i51345U i71365U and the i71370P From what Ive heard is the U version a low power version that will be better for battery life and heat But I dont know if it will too weak Can anybody help me out I would be grateful for any kind of advice Best",
+        "I have an all purpose machine with a Ryzen 7 5700u It still is really fast for excel type calculationsIf you were a big building architect who does 3d modeling the fastest chip is necessary I assume the data formulas you run dont need the fastest chip on the planet I would probably go with an i5 new u version",
+        "Is this worth 300 I want to do stocks watch sports and movies do work Speed Style Security This is the laptop that feels like a feather but works like a beast Selling my Lenovo ThinkPad X1 Carbon Gen 7 Type 20QD fully upgraded to 1TB NVMe SSD and 16GB DDR4 RAM perfect for business coding creative projects or streaming Features a sleek 14 FHD display legendary ThinkPad keyboard rapid charge and rugged carbonfiber build Allday battery and Windows 11 Pro installed Condition Excellent no major scratches battery holds great charge Includes Genuine Lenovo charger Super lightweight ready to go 1TB SSD massive storage for all your files 16GB RAM ultrasmooth multitasking WiFi webcam fingerprint reader USBC Why settle for bulky or slow Upgrade to ThinkPad reliability Price 290CashPickup Preferred DM if interested first come first served"
+      ],
+      "negative": [
+        "Depends on your use case PX13 is an absolute beast you cannot find a better performing convertible period However only get the 4060 if it is on sale as 2025 version likely will come out soon The battery life is not super good though and because it is a beast unfortunately USBC PD cannot fully power it Thinkpad is better if you use Linux And I would personally argue nothing beats the keyboardtrackpad Even MacBooks I find myself prefer the Thinkpad two button style trackpad compared to my MacBook Pro Yoga I personally hate the keyboard so not really It feels horrendous I would rather use iPad keyboard than that shit I have used all 3 just not the Aura edition and 9i exactly but should be similar experience"
+      ]
+    }
+  }
+}

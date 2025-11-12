@@ -5,6 +5,10 @@ import jwt
 import os
 from Laptop_Bot import run_query, answers_to_query, QUESTIONNAIRE, ask_questionnaire, fetch_laptop_details
 from functools import wraps 
+from flask import send_file, abort
+from reviews.analysis import process_models
+import threading
+
 import threading # Ensure threading is imported if the plan is to use it
 
 # ----------------------------------------------------------------------
@@ -213,5 +217,21 @@ def login():
     else:
         return jsonify({"message": "Invalid username or password"}), 401 
     
+@app.route('/api/reviews/reddit/analysis/<modelname>', methods=['GET'])
+def get_reddit_review_analysis(modelname):
+    base_dir = os.path.join(os.path.dirname(__file__), "reviews", "json_files", "reddit", "analysis")
+    safe_modelname = modelname.replace(" ", "_")
+    filename = f"{safe_modelname}_analysis.json"
+    file_path = os.path.join(base_dir, filename)
+    # http://localhost:5000/api/reviews/reddit/analysis/Yoga_Slim_7_Pro
+    print(f"Serving review file: {file_path}")   # <-- Debug line
+
+    if not os.path.isfile(file_path) or not file_path.startswith(base_dir):
+        print("File not found")                    # <-- Debug line
+        return abort(404, description=f"Review analysis for model {modelname} not found.")
+
+    return send_file(file_path, mimetype='application/json')
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
