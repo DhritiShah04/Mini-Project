@@ -143,6 +143,13 @@ def query():
             query_str, 
             user_id=user_id  # <--- CRITICAL FIX: Passing user_id here
         ) 
+        model_names = [item.get("model") for item in resp_json["items"] if "model" in item]
+
+        print("🖥️ Model names:", model_names)
+        
+        # process_models(model_names)
+        threading.Thread(target=process_models, args=(model_names,), daemon=True).start()
+
         
     return jsonify(resp_json)
 
