@@ -34,32 +34,32 @@ function ProductCard({initialWishlist, user, item, onWishlistUpdate }) {
     }
 
     const action = isWishlisted ? "remove" : "add";
-    const endpoint = `${API_BASE_URL}/wishlist/${action}`;
+    // 🛑 FIX 1: Retrieve the query_str associated with this specific recommendation.
+    // This is passed to the backend when adding a new item.
+    // Use optional chaining for safety.
+    const queryStrForAdd = item.form_input?.query_str || "Custom Search"; 
 
+    // 🛑 FIX 2: Replace the direct axios call with the prop function from App.js
     try {
-      const token = localStorage.getItem('token');
-      console.log("Token sent:", token);
+        // The onWishlistUpdate function handles the API call, headers, and token.
+        // It requires: (model, action, query_str)
+        
+        await onWishlistUpdate(
+            item.model, 
+            action, 
+            // Only pass queryStrForAdd if we are adding the item
+            action === 'add' ? queryStrForAdd : null
+        );
 
-      const res = await axios.post(endpoint, {
-        model: item.model
-      },{
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if(res.status === 200 || res.status === 201)
-      {
-        if (onWishlistUpdate) {
-          onWishlistUpdate(item.model, action);
-        }
-        setIsWishlisted(!isWishlisted)
-      }
+        // If the update was successful (handled inside App.js's prop function)
+        // We only toggle the state if the prop function succeeds.
+        setIsWishlisted(prev => !prev);
+        
     }
-
     catch(error) {
+      // The error handling is now largely done in App.js, but we log here too
       console.error("Wishlist operation failed:", error);
-      alert("Failed to update wishlist. Please try again.");
+      // Optional: alert("Failed to update wishlist. Please try again.");
     }
   }
 

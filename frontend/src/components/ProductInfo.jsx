@@ -18,6 +18,9 @@ const DETAIL_KEYS = [
     "price_inr",
     "why",
     "images",
+    "form_input",
+    "Why_in",
+    "what_it_says"
 ];
 
 function ProductInfo({ user, laptops }) {
@@ -57,7 +60,7 @@ function ProductInfo({ user, laptops }) {
               <div className="prod-gen-deets">
                 <h2>{item.model} <br /> {item.price_inr} </h2> 
                 <hr />
-                <p>{item.why}</p>
+                <p>{item.Why_in}</p>
               </div>
             </div>
 
@@ -110,39 +113,17 @@ function ProductInfo({ user, laptops }) {
                     <h3>What you need</h3>
                     <div className="specs-wrapper">
                       <div className="specs">
-                        <div>
+                        {/* <div>
                           <strong>Need to add from db, this is dummy</strong>
-                        </div>
+                        </div> */}
                         <table className="prod-spec-table">
                           <tbody>
-                            <tr>
-                              <td><strong>Model</strong></td>
-                              <td>{item.model}</td>
-                            </tr>
-                            <tr>
-                              <td><strong>CPU</strong></td>
-                              <td>{item.cpu}</td>
-                            </tr>
-                            <tr>
-                              <td><strong>RAM</strong></td>
-                              <td>{item.ram}</td>
-                            </tr>
-                            <tr>
-                              <td><strong>Storage</strong></td>
-                              <td>{item.storage}</td>
-                            </tr>
-                            <tr>
-                              <td><strong>GPU</strong></td>
-                              <td>{item.gpu}</td>
-                            </tr>
-                            <tr>
-                              <td><strong>Display</strong></td>
-                              <td>{item.display}</td>
-                            </tr>
-                            <tr>
-                              <td><strong>Battery</strong></td>
-                              <td>{item.battery}</td>
-                            </tr>
+                            {Object.entries(item.form_input || {}).map(([key, value]) => (
+                              <tr key={key}>
+                                <td><strong>{key.charAt(0).toUpperCase() + key.slice(1)}</strong></td>
+                                <td>{value}</td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>
@@ -152,7 +133,16 @@ function ProductInfo({ user, laptops }) {
                 <div className="wo_jargon_specs"></div>
                   <h3>What it means</h3>
                   <div className="specs">
-                    blah
+                    <table className="prod-spec-table">
+                      <tbody>
+                        {Object.entries(item.what_it_says || {}).map(([key, value]) => (
+                          <tr key={key}>
+                            <td><strong>{key.charAt(0).toUpperCase() + key.slice(1)}</strong></td>
+                            <td>{value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
               </div>
             </div>

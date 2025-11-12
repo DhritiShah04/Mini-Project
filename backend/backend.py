@@ -5,11 +5,11 @@ import jwt
 import os
 from Laptop_Bot import run_query, answers_to_query, QUESTIONNAIRE, ask_questionnaire, fetch_laptop_details
 from functools import wraps 
+import threading # Ensure threading is imported if the plan is to use it
 
 # ----------------------------------------------------------------------
 # NEW: JWT Configuration
 # ----------------------------------------------------------------------
-# Get a secure secret key from environment variables
 SECRET_KEY = os.getenv("SECRET_KEY", "your_fallback_super_secret_key")
 if SECRET_KEY == "your_fallback_super_secret_key":
     print("WARNING: Using fallback SECRET_KEY. Set a secure one in keys.env!")
@@ -18,18 +18,21 @@ if SECRET_KEY == "your_fallback_super_secret_key":
 from db_mongo import (
     store_initial_request, 
     store_bot_response, 
-    get_latest_laptop_recommendations, # <-- NEW IMPORT
+    # REMOVED: get_latest_laptop_recommendations is gone
+    get_merged_recommendations_for_user, # <-- NEW IMPORT for authenticated retrieval
     create_user, 
     get_user_by_username, 
     verify_password,
     update_user_wishlist,
-    get_wishlisted_laptops
+    get_wishlisted_laptops,
+    store_laptop_recommendations # Also ensure this is available for the non-threaded /query
 )
 
-# app = Flask(__name__)
+# --- Configuration ---
 app = Flask(__name__, static_folder='static')
-
 CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type", "Authorization"]}})
+
+# --- Utility Functions and Decorators ---
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
@@ -58,28 +61,32 @@ def auth_required(f):
         return f(*args, **kwargs)
     return decorated 
 
-@app.route("/wishlist/<action>", methods=["POST"])
+# --- Wishlist Endpoints (No changes needed here as they were already correct) ---
+
+@app.route("/wishlist/<model>", methods=["POST", "DELETE"])
 @auth_required
-def toggle_wishlist(action):
+def toggle_wishlist(model):
     user_id = request.user_id
-    data = request.json
-    model = data.get('model')
+    data = request.json or {}
 
     if not model:
         return jsonify({"message": "Missing laptop model identifier"}), 400
         
-    if action not in ['add', 'remove']:
-        return jsonify({"message": "Invalid wishlist action specified"}), 400
+    action = 'add' if request.method == 'POST' else 'remove'
+    query_str = data.get('query_str')
 
-    success, message = update_user_wishlist(user_id, model, action)
+    if action == 'add' and not query_str:
+        return jsonify({"message": "Missing query_str in payload for adding to wishlist"}), 400
+
+    success, message = update_user_wishlist(user_id, model, action, query_str=query_str)
     
     if success:
         return jsonify({"message": f"Laptop {model} {action}ed to wishlist."}), 200
     else:
         return jsonify({"message": f"Failed to update wishlist: {message}"}), 400
     
-@app.route("/wishlist/<action>", methods=["OPTIONS"])
-def wishlist_options_handler(action):
+@app.route("/wishlist/<model>", methods=["OPTIONS"])
+def wishlist_options_handler_model(model):
     return '', 200
     
 @app.route("/wishlist", methods=["GET"])
@@ -89,13 +96,15 @@ def get_user_wishlist():
     
     wishlist_laptops = get_wishlisted_laptops(user_id)
     
-    # Return the full list of laptop objects
     return jsonify(wishlist_laptops), 200
+
+# --- Search Endpoint ---
 
 @app.route("/query", methods=["POST"])
 def query():
     data = request.json
     user_ip = request.remote_addr
+    
     if "answers" in data:
         query_str = answers_to_query(data["answers"])
         keyword = query_str
@@ -105,41 +114,65 @@ def query():
     else:
         return jsonify({"error": "No query provided"}), 400
 
-    # Store initial request and get request_id
     request_id = store_initial_request(user_ip, keyword)
-
-    # Get bot result (This produces the 5 recommendations in resp_json["items"])
     resp_json = run_query(query_str, return_json=True)
-
-    # Store bot response
     store_bot_response(request_id, str(resp_json))
 
-    # Store each laptop as a separate document (used by the new /laptops route)
+    # Store each laptop as a separate document
     if "items" in resp_json:
-        from db_mongo import store_laptop_recommendations
-        # This stores the 5 items recommended by the bot, associated with request_id
-        store_laptop_recommendations(request_id, resp_json["items"])
+        # 1. Extract user_id from the Authorization header if present
+        user_id = None 
+        auth_header = request.headers.get("Authorization")
+        if auth_header and auth_header.startswith("Bearer "):
+             try:
+                 token = auth_header.split(" ")[1]
+                 token_data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+                 user_id = token_data.get("user_id")
+             except Exception as e:
+                 print(f"Error decoding JWT in /query: {e}")
+                 pass
 
-    # Return the full bot response to the frontend (it contains the summary/messages)
+        # 2. Pass the extracted user_id to the store function
+        store_laptop_recommendations(
+            request_id, 
+            resp_json["items"], 
+            query_str, 
+            user_id=user_id  # <--- CRITICAL FIX: Passing user_id here
+        ) 
+        
     return jsonify(resp_json)
 
+# --- Laptop Retrieval Endpoint ---
 
 @app.route("/laptops", methods=["GET"])
 def get_laptops():
-    # Use the new function to retrieve ONLY the 5 recommended laptops
-    laptops = get_latest_laptop_recommendations()
+    # 1. Check for Authorization header and attempt to decode user_id
+    auth_header = request.headers.get('Authorization')
+    user_id = None
+    if auth_header and auth_header.startswith('Bearer '):
+        token = auth_header.split(' ')[1]
+        try:
+            token_data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+            user_id = token_data.get('user_id')
+        except Exception:
+            # Token is expired/invalid, treat as anonymous
+            pass
+
+    if user_id:
+        # 2. Authenticated user: use the personalized, merged function
+        laptops = get_merged_recommendations_for_user(user_id)
+    else:
+        # 3. Anonymous user: return an empty list (as the old global function is gone)
+        laptops = []
     
     if not laptops:
-        return jsonify({"message": "No recent recommendations available."}), 200
+        return jsonify({"message": "No recent recommendations available. Please log in or run a search."}), 200
 
-    # Convert ObjectId to string for JSON serialization
-    # Assuming 'l' is the full laptop document from the DB
-    for l in laptops:
-        if "_id" in l:
-            l["_id"] = str(l["_id"])
-            
-    # This now returns only the 5 recommended laptops to the frontend
-    return jsonify(laptops)
+    # The get_merged_recommendations_for_user already converts ObjectId to string, 
+    # so no need for the loop here.
+    return jsonify(laptops), 200
+
+# --- Auth Endpoints ---
 
 @app.route("/signup", methods=["POST"])
 def signup():
@@ -153,10 +186,8 @@ def signup():
     success, message = create_user(username, password)
     
     if success:
-        # Success: User created
         return jsonify({"message": "User created successfully"}), 201
     else:
-        # Failure: Username already exists
         return jsonify({"message": message}), 409
 
 @app.route("/login", methods=["POST"])
@@ -168,22 +199,19 @@ def login():
     user = get_user_by_username(username)
 
     if user and verify_password(password, user["password"]):
-        # Successful login, generate JWT
         token_payload = {
             "user_id": str(user["_id"]),
             "username": user["username"],
-            # Token expiration time (e.g., 24 hours)
             "exp": datetime.utcnow() + timedelta(hours=24) 
         }
         token = jwt.encode(token_payload, SECRET_KEY, algorithm="HS256")
         
-        # Return the token to the client
         return jsonify({
             "token": token, 
             "message": "Login successful"
         }), 200
     else:
-        return jsonify({"message": "Invalid username or password"}), 401 # 401 Unauthorized
-
+        return jsonify({"message": "Invalid username or password"}), 401 
+    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

@@ -3,18 +3,20 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import './navbar.css'
 
 export default function Navbar({user, onLogOut}) {
-
   const menuRef = useRef(null);
-
   const location = useLocation();
 
   // State to manage the visibility of the dropdown menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // Function to toggle the menu open/closed
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev);
   };
+
+  // Toggle dropdown inside menu
+  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
   // useEffect to handle outside clicks
   useEffect(() => {
@@ -24,6 +26,7 @@ export default function Navbar({user, onLogOut}) {
     function handleClickOutside(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsMenuOpen(false);
+        setIsDropdownOpen(false);
       }
     }
     
@@ -34,7 +37,14 @@ export default function Navbar({user, onLogOut}) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuRef]); // Dependency array ensures the effect runs only once
+  }, []); // Dependency array ensures the effect runs only once
+
+  // Close menu when navigation (URL/path) changes (includes "Back" clicks)
+  // useEffect(() => {
+  //   setIsMenuOpen(false);
+  //   setIsDropdownOpen(false);
+  // }, [location.pathname]);
+
 
   return (
     <div>
@@ -43,12 +53,18 @@ export default function Navbar({user, onLogOut}) {
             <Link id="nav-link" to="/">
               <h1>Smart Select: Tech Chosen Right</h1>
             </Link>
+            {/* ☰ Toggle for mobile */}
+            <div
+              className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
+              onClick={toggleMenu}>
+              ☰
+            </div>
           </div>
-            <div className="comps-nav">
+            <div className={`comps-nav ${isMenuOpen ? 'active' : ''}`} ref={menuRef}>
                 {user ? 
                 (
                   <>
-                    <div className="register-nav" onClick={toggleMenu}>
+                    <div className="register-nav" onClick={toggleDropdown}>
                       Hello, {user.username}!
                     </div>
                     {/* <div className="register-nav" onClick={onLogOut} style={{cursor: 'pointer'}}>
@@ -59,6 +75,7 @@ export default function Navbar({user, onLogOut}) {
                       Redo
                     </div>
                     </Link> */}
+                    
                       <Link to="/wishlist" id="nav-link">
                       <div className="wishlist-nav">
                         <i class="fa-solid fa-heart"></i>
@@ -66,22 +83,30 @@ export default function Navbar({user, onLogOut}) {
                     </Link>
 
                     {/* 3. The Dropdown/Popup menu, conditionally rendered */}
-                    {isMenuOpen && (
+                    {isDropdownOpen && (
                       <div className="user-dropdown-menu" ref={menuRef}>
-                          <Link to="/questionnaire" className="menu-item, nav-link, menu-item" onClick={toggleMenu}>
+                          <Link to="/questionnaire" className="menu-item, nav-link, menu-item" onClick={() => {
+                    toggleDropdown();
+                    toggleMenu();
+                  }}>
                               Go to Quiz
                           </Link>
-                          <Link to="/wishlist" className="menu-item, nav-link, menu-item" onClick={toggleMenu}>
+                          <Link to="/wishlist" className="menu-item, nav-link, menu-item" onClick={() => {
+                    toggleDropdown();
+                    toggleMenu();
+                  }}>
                               Wish List
                           </Link>
                           <div className="menu-item, logout-item " onClick={() => {
                               onLogOut();
-                              toggleMenu(); // Close the menu after logging out
+                              toggleMenu();
+                              toggleDropdown();
                           }}>
                               Logout
                           </div>
                       </div>
                     )}
+                    
                   </>
                 ):  location.pathname === "/auth" ? (
                   <div className="register-nav not-logged-in">
@@ -94,6 +119,7 @@ export default function Navbar({user, onLogOut}) {
                 )}
               </div>
             </div>
+            {isMenuOpen && <div className="menu-overlay" onClick={() => setIsMenuOpen(false)}></div>}
         </div>
   )
 }

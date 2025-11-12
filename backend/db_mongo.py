@@ -8,13 +8,9 @@ from passlib.context import CryptContext
 
 load_dotenv()
 
-# FIX: Get the URI from environment. Do NOT use the localhost default.
 MONGO_URI = os.getenv("MONGO_URI")
-
-# FIX: Ensure DB_NAME is also read from .env if you set it there.
 DB_NAME = os.getenv("DB_NAME", "keyword_processor_db")
 
-# Safety check (Highly Recommended)
 if not MONGO_URI:
     raise Exception("MONGO_URI not set. Check your .env file and ensure dotenv is installed.")
 
@@ -22,7 +18,7 @@ if not MONGO_URI:
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 requests_collection = db["requests"]
-laptops_collection = db["laptops"] # This collection stores the laptops associated with requests
+laptops_collection = db["laptops"]
 users_collection = db["users"]
 
 pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto") 
@@ -41,7 +37,9 @@ def create_user(username, password):
     user_data = {
         "username": username,
         "password": hashed_pass,
-        "created_at": datetime.now()
+        "created_at": datetime.now(),
+        "recommended": [], # Initialize recommended list
+        "wishlist": []     # Initialize wishlist list
     }
     result = users_collection.insert_one(user_data)
     return True, str(result.inserted_id)
@@ -59,7 +57,6 @@ def store_initial_request(ip, keyword):
         "status": "pending"
     }
     result = requests_collection.insert_one(request_data)
-    # MongoDB uses ObjectId for _id, convert it to string for easy use
     return str(result.inserted_id) 
 
 def store_bot_response(request_id_str, bot_result):
@@ -69,145 +66,8 @@ def store_bot_response(request_id_str, bot_result):
         {"$set": {"bot_result": bot_result, "status": "processed"}}
     )
 
-# def get_analytics_for_frontend(keyword):
-    
-#     # 1. Total Count
-#     total_requests = requests_collection.count_documents({})
-    
-#     # 2. Count for the specific keyword
-#     keyword_count = requests_collection.count_documents({"keyword": keyword})
-    
-#     # 3. Simple aggregation for average result length (more complex in a real app)
-#     # Using a simple Python loop for simplicity, but map-reduce/aggregation pipeline is better
-#     all_results = requests_collection.find({"bot_result": {"$ne": None}}, {"bot_result": 1})
-    
-#     total_len = sum(len(doc.get("bot_result", "")) for doc in all_results)
-#     avg_length = total_len / total_requests if total_requests else 0
-    
-#     return {
-#         "total_requests": total_requests,
-#         "keyword_specific_count": keyword_count,
-#         "average_result_length": round(avg_length, 2),
-#         "database_type": "MongoDB" # Context for frontend
-#     }
-
-# def store_laptop_recommendations(request_id, items):
-#     """Upserts each recommended laptop by model name and tags it with the request_id."""
-#     for item in items:
-#         doc = item.copy()
-#         doc["request_id"] = request_id  # Link to the original request
-        
-#         # Use upsert: update if model exists, else insert, and ensure it always
-#         # updates the request_id to the most recent one.
-#         laptops_collection.update_one(
-#             {"model": doc["model"]},
-#             {"$set": doc},
-#             upsert=True
-#         )
-
-# def store_laptop_recommendations(request_id, items):
-
-#     # folder_id = random.randint(1, 10)
-#     # BASE_URL = f"http://127.0.0.1:5000/static/{folder_id}"
-
-#     BASE_URL = "http://127.0.0.1:5000/static/1"
-#     default_images = [
-#         f"{BASE_URL}/main.jpeg",
-#         f"{BASE_URL}/side_view.jpeg",
-#         f"{BASE_URL}/top_view.jpeg",
-#         f"{BASE_URL}/close_up.jpeg",
-#         f"{BASE_URL}/table_view.jpeg"
-#     ]
-
-#     for item in items:
-#         doc = item.copy()
-#         doc["request_id"] = request_id
-
-#         # If this laptop doesn't already have images, attach defaults
-#         existing = laptops_collection.find_one({"model": doc["model"]}, {"images": 1})
-#         if not existing or "images" not in existing:
-#             doc["images"] = default_images
-
-#         laptops_collection.update_one(
-#             {"model": doc["model"]},
-#             {"$set": doc},
-#             upsert=True
-#         )
-
-# def store_laptop_recommendations(request_id, items):
-#     from Laptop_Bot import fetch_laptop_details  # Local import to avoid circular dependency
-
-#     BASE_URL = "http://127.0.0.1:5000/static/1"
-#     default_images = [
-#         f"{BASE_URL}/main.jpeg",
-#         f"{BASE_URL}/side_view.jpeg",
-#         f"{BASE_URL}/top_view.jpeg",
-#         f"{BASE_URL}/close_up.jpeg",
-#         f"{BASE_URL}/table_view.jpeg"
-#     ]
-
-#     new_models = []  # To store all models not in DB
-#     item_map = {}    # To map model name → original item
-
-#     # Step 1: Identify which models are new
-#     for item in items:
-#         doc = item.copy()
-#         model = doc.get("model")
-
-#         if not model:
-#             print("Skipping item without model key")
-#             continue
-
-#         item_map[model] = doc  # Keep a reference for later
-#         existing = laptops_collection.find_one({"model": model})
-
-#         if not existing:
-#             new_models.append({"model": model})
-
-#     # Step 2: Fetch details for all new models (batch)
-#     fetched_details = []
-#     if new_models:
-#         print(f"Fetching details for {len(new_models)} new models...")
-#         try:
-#             fetched_details = fetch_laptop_details(new_models)
-#         except Exception as e:
-#             print(f"Error fetching new laptop details: {e}")
-#     else:
-#         print("No new models to fetch.")
-
-#     # Step 3: Build a lookup from fetched results
-#     fetched_map = {}
-#     if fetched_details:
-#         for detail in fetched_details:
-#             model_name = detail.get("model")
-#             if model_name:
-#                 fetched_map[model_name] = detail
-
-#     # Step 4: Merge everything and upsert into DB
-#     for model, doc in item_map.items():
-#         existing = laptops_collection.find_one({"model": model})
-#         if not existing:
-#             # Merge fetched details if available
-#             if model in fetched_map:
-#                 doc.update(fetched_map[model])
-#             else:
-#                 print(f"No extra details found for {model}")
-
-#             doc["images"] = default_images
-#         else:
-#             doc["images"] = existing.get("images", default_images)
-
-#         doc["request_id"] = request_id
-
-#         laptops_collection.update_one(
-#             {"model": model},
-#             {"$set": doc},
-#             upsert=True
-#         )
-
-#     print("Laptop recommendations stored/updated successfully.")
-
-def store_laptop_recommendations(request_id, items):
+# 🛑 MODIFIED: Added user_id to the function signature
+def store_laptop_recommendations(request_id, items, query_str, user_id=None):
     from Laptop_Bot import fetch_laptop_details  # local import avoids circular dependency
 
     BASE_URL = "http://127.0.0.1:5000/static/1"
@@ -288,66 +148,143 @@ def store_laptop_recommendations(request_id, items):
     print(f"\nLaptop recommendations stored/updated successfully.")
     print(f"📦 Added: {added}, 🔁 Updated: {updated}\n")
 
+    # Step 5: Link User to Recommendations (in users_collection)
+    try:
+        from bson import ObjectId
 
-# --------------------------------------------------------------------------
-# FIX: NEW REQUIRED FUNCTION TO SUPPORT THE /laptops GET ROUTE
-# --------------------------------------------------------------------------
-def get_latest_laptop_recommendations():
+        form_input = parse_query_str(query_str)
+        
+        if user_id:
+            user_oid = ObjectId(user_id) 
+            recommended_list = [
+                {"model": model, "form_input": form_input}
+                for model in item_map.keys()
+            ]
+
+            users_collection.update_one(
+                {"_id": user_oid},
+                # Pushing all 5 items to preserve the order and context of this specific request
+                {"$push": {"recommended": {"$each": recommended_list}}},
+                upsert=True
+            )
+            print(f"✅ Stored {len(recommended_list)} recommendations for user {user_id} with context.")
+        else:
+            print("Skipping user recommendation linkage (user not logged in).")
+
+    except Exception as e:
+        print(f"⚠️ Failed to update user recommendations history: {e}")
+
+# 🛑 NEW FUNCTION: Performs the required merge for the /laptops route
+def get_merged_recommendations_for_user(user_id):
     """
-    Retrieves the 5 laptop documents associated with the most recent 
-    processed request ID. This ensures the frontend only sees the 
-    laptops recommended by the bot.
+    Fetches the 5 most recent recommendations for a user, merges the product
+    specs from laptops_collection with the query context from users_collection.
     """
-    
-    # 1. Find the ID of the most recent PROCESSED request
-    latest_request_doc = requests_collection.find_one(
-        {"status": "processed"},
-        sort=[('timestamp', -1)] # Find the document with the latest timestamp
-    )
-    
-    if not latest_request_doc:
+    from bson import ObjectId
+    try:
+        user_oid = ObjectId(user_id)
+        
+        # 1. Fetch user document, only retrieving the last 5 recommended entries
+        user_doc = users_collection.find_one(
+            {"_id": user_oid}, 
+            {"recommended": {"$slice": -5}, "_id": 0} 
+        )
+        
+        if not user_doc or not user_doc.get("recommended"):
+            return []
+
+        recent_history = user_doc["recommended"]
+        
+        # 2. Map models to their specific form_input context
+        model_to_context_map = {
+            item['model']: item.get('form_input', {}) 
+            for item in recent_history if 'model' in item
+        }
+        model_list = list(model_to_context_map.keys())
+
+        if not model_list:
+            return []
+            
+        # 3. Fetch full laptop documents for these models
+        laptop_cursor = laptops_collection.find({"model": {"$in": model_list}})
+        laptops_data = list(laptop_cursor)
+        
+        merged_laptops = []
+        
+        # 4. Merge product details with the user's form_input context
+        for laptop in laptops_data:
+            model = laptop.get("model")
+            context = model_to_context_map.get(model)
+            
+            if context is not None:
+                # 🛑 Attach the form_input from the user's history
+                laptop["form_input"] = context
+                
+                # Convert ObjectId to string for JSON serialization
+                if "_id" in laptop:
+                    laptop["_id"] = str(laptop["_id"])
+                    
+                merged_laptops.append(laptop)
+                
+        return merged_laptops
+
+    except Exception as e:
+        print(f"Error fetching merged recommendations for user {user_id}: {e}")
         return []
 
-    latest_request_id = str(latest_request_doc["_id"])
-    
-    # 2. Retrieve all laptop documents matching that request ID
-    # Since the bot limits results to 5 and store_laptop_recommendations updates 
-    # the request_id, we look for laptops tagged with the latest request_id.
-    
-    # NOTE: Since multiple requests can share the same laptop model, we limit 
-    # the find operation to 5, assuming the bot always recommends 5.
-    recommended_laptops = list(laptops_collection.find(
-        {"request_id": latest_request_id}
-    ).limit(5))
-    
-    return recommended_laptops
+# 🛑 REMOVED: get_latest_laptop_recommendations is no longer needed
 
-def update_user_wishlist (user_id, model, action):
+def parse_query_str(query_str):
+    """
+    Converts a query string like 'key1: val1 ; key2: val2' into a dictionary.
+    """
+    # ... (content remains the same) ...
+    parsed_dict = {}
+    if not query_str:
+        return parsed_dict
+        
+    pairs = query_str.split(' ; ')
+    
+    for pair in pairs:
+        if ': ' in pair:
+            key, value = pair.split(': ', 1)
+            parsed_dict[key.strip()] = value.strip()
+        else:
+            parsed_dict['custom_query'] = pair.strip()
+            
+    return parsed_dict
+
+def update_user_wishlist (user_id, model, action, query_str):
+# ... (Content remains the same) ...
     try:
         user_oid = ObjectId(user_id)
 
         if(action == 'add') :
+            form_input = parse_query_str(query_str) 
+            
             users_collection.update_one(
-                {"_id": user_oid},
-                {"$addToSet": {"wishlist":model}},
+                {"_id": user_oid, "wishlist.model": {"$ne": model}},
+                {"$push": {"wishlist": {"model": model, "form_input": form_input}}},
+                upsert=True
             )
-            return True, "Item in wishlist" 
+            return True, "Item added to wishlist." 
             
         elif action == "remove" :
             update_res = users_collection.update_one(
                 {"_id": user_oid},
-                {"$pull": {"wishlist": model}},
+                {"$pull": {"wishlist": {"model": model}}}, 
             )
-            return update_res.modified_count > 0, "Wishlist updated"
+            return update_res.modified_count > 0, "Wishlist updated."
             
         else :
-            return False, "Invalid Action"
+            return False, "Invalid Action."
     
     except Exception as e:
         print(f"Error updating wishlist: {e}")
         return False, str(e)
     
 def get_wishlisted_laptops(user_id) :
+# ... (Content remains the same) ...
     try: 
         user_oid = ObjectId(user_id)
         user_doc = users_collection.find_one(
@@ -358,19 +295,35 @@ def get_wishlisted_laptops(user_id) :
         if not user_doc or "wishlist" not in user_doc:
             return []
 
-        wishlist_models = user_doc.get('wishlist', [])
+        wishlist_items = user_doc.get('wishlist', [])
+
+        wishlist_models = [
+            item.get('model') 
+            for item in wishlist_items 
+            if isinstance(item, dict) and item.get('model')
+        ]
+        
+        # Get the full laptop documents
         wishlist_laptops = list(laptops_collection.find({
             "model": {"$in": wishlist_models}
         }))
+        
+        # Merge form_input data back into the laptop objects
+        form_input_map = {item['model']: item['form_input'] for item in wishlist_items if 'model' in item}
 
         for laptop in wishlist_laptops:
             if '_id' in laptop:
                 laptop['_id'] = str(laptop['_id'])
+            # Add the associated form_input data
+            if laptop.get('model') in form_input_map:
+                laptop['form_input'] = form_input_map[laptop['model']]
+
 
         return wishlist_laptops
     
     except Exception as e:
         print(f"Error fetching wishlist: {e}")
         return []
+
 
 print("MongoDB connection initialized.")

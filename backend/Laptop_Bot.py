@@ -30,12 +30,12 @@ details_model_name = "gemini-2.5-flash-lite"
 
 
 # ------------------ PROMPTS ------------------
-PROMPT = """You are a Laptop Recommendation Assistant.
-DONOT give the response in table format, but in list format.
-Return ONLY valid JSON (no prose, no markdown fences). Schema:
+PROMPT = """You are a Laptop Recommendation Expert.
+You will be provided with user requirements and your job is to recommend the best laptop models based on the user's needs.
+Return ONLY valid JSON (no prose, no markdown fences).
+Schema:
 {
   "query": string,
-  "currency": "INR",
   "items": [
     {
         "model": string,
@@ -48,11 +48,12 @@ Return ONLY valid JSON (no prose, no markdown fences). Schema:
 Compulsory Rules:
 - Keep the search limited to lenovo laptops only and as for model, give me the series name only.
 - If budget is mentioned, filter accordingly assuming that India is the location.
+- "model": give the exact laptop model name
 - If unsure about a spec or price, give us the predicted value for the model (donot include lenovo in model name).
 - List top 5 relevant laptops.
 - Model name strictly should be the first to be mentioned.
-- In "price_inr", give approximate price in INR.
-- In "why", briefly explain why this laptop matches the query in the simplest terms.
+- In **price_inr**, give approximate price in INR, strictly.
+- In "why", explain clearly and simply 'why this laptop fits the user's need', be descriptive, use non-technical terms, and highlight features that matter for them.
 - In "why", the range of the words should be between 20 to 25 words.
 """
 
@@ -67,10 +68,47 @@ For each model, return detailed specs in JSON format with this schema:
   "gpu": string,
   "display": string,
   "battery": string,
+  "Why_in": string,
+  "what_it_says": {
+        "CPU_in": string,
+        "RAM_in": string,
+        "Storage_in": string,
+        "GPU_in": string,
+        "Display_in": string,
+        "Battery_in": string,
+        "Overall_in": string
+  }
 }
 
-Compulsory Rules:
-- If unsure about a spec or price, give us the predicted value for the model.
+Rules & Guidelines:
+
+1. **"Model"** -> Include the complete laptop model or series name (donot include lenovo in the name)(e.g., "IdeaPad Slim 5", "ThinkBook 14 Gen 2").
+
+2. **"CPU"**, **"RAM"**, **"Storage"**, **"GPU"**, **"Display"**, and **"Battery"** -> Clearly describe each of the key technical specifications for the laptop. Avoid generic answers - specify the actual configuration wherever possible (e.g., "Intel Core i5 13th Gen" instead of just "Intel processor").
+
+3. **"What it Says"** -> Provide a breakdown of what each key specification means in simple, non-technical language for easy understanding:
+   - Explain the *technical meaning* of each feature (CPU, GPU, RAM, etc.) and what it implies in real-world performance.
+   - For every feature, analyze the listed details and explain:
+     # What the **average** specification for that feature typically is in similar laptops.  
+     # How this laptop's configuration compares to that average.  
+     # Whether it is **good**, **average**, or **best suited** for the user's purpose and budget.  
+   - If a better option exists that may exceed the user's price range, mention it clearly, for example:  
+     "Upgrading to 16GB RAM would improve multitasking but may push the price above your range (₹65,000 - ₹70,000)."
+   - Keep each feature's explanation clear and practical - focus on what it means for everyday use (speed, multitasking, gaming, portability, etc.).
+   - Conclude the section with an **overall performance rating** in plain words such as "excellent", "good", "average", or "below average".  
+     Example: "Overall performance: good."
+
+4. **"Why"** -> Write a detailed, easy-to-understand explanation (minimum 200 words) describing:
+   - Why this laptop is suitable or unsuitable for specific types of users (students, programmers, professionals, gamers, etc.).
+   - Highlight both **strengths** (e.g., great battery life, strong CPU performance, portability) and **weaknesses** (e.g., limited storage, not ideal for gaming, shorter battery life).
+   - Use clear, simple, conversational language - avoid heavy technical jargon.
+   - Example:  
+     "This laptop is a good option for students and professionals who want smooth multitasking and strong battery life. It's not ideal for gaming or graphics-heavy work since it relies on integrated graphics. Its compact design and fast SSD make it reliable for daily tasks."
+
+**Compulsory Rules:**
+- Every field must be filled. If an exact detail is unavailable, use a **best-predicted value** or **realistic approximation**.
+- Do **not** leave any field blank under any circumstance.
+- Output **only valid JSON** - no additional explanations, commentary, or markdown formatting.
 """
 
 # ------------------ UTILS ------------------
@@ -95,6 +133,7 @@ def run_query(q: str, return_json=False):
     resp = model.generate_content(build_prompt(q))
     raw = resp.text or ""
     js = extract_json(raw).strip()
+
     try:
         data = json.loads(js)
     except Exception:
@@ -102,21 +141,27 @@ def run_query(q: str, return_json=False):
     
     if return_json:
         return data
+    
     print("\nLaptop Recommendations:")
     print(json.dumps(data, indent=2))
 
-    # items = data.get("items", [])
-    # if items:
-    #     fetch_laptop_details(items)
+    items = data.get("items", [])
+    if items:
+        fetch_laptop_details(items, q)
 
-def fetch_laptop_details(items, return_json=False):
+def fetch_laptop_details(items, q: str="", return_json=False):
     models = [it.get("model") for it in items if it.get("model")]
     if not models:
         print("No laptop models found to fetch details for.")
         return
     
     print("\nFetching detailed specifications for each model...\n")
-    query = DETAILS_PROMPT + "\nModels:\n" + "\n".join(models) + "\nJSON:"
+    # query = DETAILS_PROMPT + "\nModels:\n" + "\n".join(models) + "\nJSON:"
+    query = (
+        f"{DETAILS_PROMPT}\n"
+        f"User Query:\n{q}\n\n"
+        f"Models:\n" + "\n".join(models) + "\n\nJSON:"
+    )
     
     genai.configure(api_key=API_KEY_SECOND)
     details_model = genai.GenerativeModel(details_model_name)
