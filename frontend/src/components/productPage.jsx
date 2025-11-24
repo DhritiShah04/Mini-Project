@@ -1,107 +1,114 @@
 import React, { useRef, useEffect } from 'react';
-import './productPage.css' 
+import './productPage.css';
 import ProductCard from './productCard';
 import { Link } from 'react-router-dom';
 
-// The MyPage component is empty and can be removed or ignored for this functionality.
-// const MyPage = () => {
-//   // ... (Scrolling logic was incorrectly placed here)
-// }
+function ProductCards({
+  user,
+  laptops,
+  query,
+  setQuery,
+  onUpdateQuery,
+  onReset,
+  wishlist,
+  onWishlistUpdate
+}) {
 
-
-// Accept laptops data, plus state and handlers for the query bar
-function ProductCards({user, laptops, query, setQuery, onUpdateQuery, onReset, wishlist, onWishlistUpdate }) {
-  // 1. CORRECT LOCATION: Declare the ref inside the component that uses it
   const targetDivRef = useRef(null);
 
-  // 2. CORRECT LOCATION: Define the scroll logic here
+  // Auto-scroll once component mounts
   useEffect(() => {
-    // Check if the ref has been attached to the element
     if (targetDivRef.current) {
-      // Use scrollIntoView with block: 'center' to center it vertically
       targetDivRef.current.scrollIntoView({
-        behavior: 'smooth', // Optional: 'instant' or 'smooth'
-        block: 'center',    // Centers it vertically in the viewport
-        inline: 'nearest'   // Minimizes horizontal scrolling
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
       });
     }
-    // The dependency array is empty so it runs only once after the component mounts
   }, []);
 
-
-  if (!laptops || laptops.length === 0) {
+  // 🚨 WAIT UNTIL LAPTOPS IS READY → show loader instead of breaking
+  if (!Array.isArray(laptops)) {
     return (
-      // ... (No laptops found JSX)
-      <div className='product-cards-container'>
-        <div id="topbar" className="query-section">
-          <p>No laptops found based on current criteria. Try refining your search:</p>
-          <input id='refine-input-topbar'
-            type="text"
-            placeholder="Type something like 'increase budget' or 'gaming laptop'"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button onClick={onUpdateQuery}>
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <button className="reset-btn" onClick={onReset}>Start Over</button>
-        </div>
+      <div className="loading">
+        <div className="loader"></div>
       </div>
     );
   }
 
-  return (
-    <>
-      {user ? (
-        <div className='product-cards-container'>
-          {/* Refinement Bar at the top */}
-          <div id="topbar" className="query-section">
-            <input id='topbar-ip'
-              type="text"
-              placeholder="Refine your query..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button id='search' onClick={onUpdateQuery}>
-              <i  class="fa-solid fa-magnifying-glass"></i>
-            </button> 
-          </div>
+  // 🟡 If laptops loaded but empty → show refine box
+  if (laptops.length === 0) {
+    return (
+      <div id="not-signed-in">
+        <h2 id='heading-not-signed-in'>
+          Oh Noo... <br />No laptops found on your criteria
+        </h2>
 
-          {/* 3.USAGE: The ref is attached here and now works! */}
-          <div class="main-cont" ref={targetDivRef} >
-            <div id="prod">
-              {laptops.map((item, idx) => (
-                <ProductCard user={user} 
-                  key={item._id || idx} 
-                  item={item}
-                  initialWishlist={wishlist.some(w => w.model === item.model)}
-                  onWishlistUpdate={onWishlistUpdate}
-                />
-              ))}
-            </div>
-            <div id="go-to-compare">
-              <Link to="/compareLaptops"> 
-                <button>
-                  Compare
-                </button>
-              </Link>
-            </div>
-          </div>
+        <Link id='not-signed-in-link' to={'/questionnaire'}>
+          <button className='not-signed-in-btn'>Back to Quiz</button>
+        </Link>
+      </div>
+    );
+  }
+
+  // 🔴 If user not logged in
+  if (!user) {
+    return (
+      <div id="not-signed-in">
+        <h2 id='heading-not-signed-in'>
+          Just a secccc.... <br />You haven't logged in yet
+        </h2>
+
+        <Link id='not-signed-in-link' to={'/auth'}>
+          <button className='not-signed-in-btn'>Log In</button>
+        </Link>
+      </div>
+    );
+  }
+
+  // 🟢 Main UI — only runs when laptops is READY & user is LOGGED IN
+  return (
+    <div className='product-cards-container'>
+
+      {/* Top search/refine bar */}
+      <div id="topbar" className="query-section">
+        <input id='topbar-ip'
+          type="text"
+          placeholder="Refine your query..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+
+        <button id='search' onClick={onUpdateQuery}>
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      {console.log("LAPTOPS = ", laptops)}
+
+      <div className="main-cont" ref={targetDivRef}>
+
+        <div id="prod">
+          {laptops.map((item, idx) => (
+            <ProductCard
+              user={user}
+              key={item._id || idx}
+              item={item}
+              initialWishlist={wishlist.some(w => w.model === item.model)}
+              onWishlistUpdate={onWishlistUpdate}
+            />
+          ))}
         </div>
-      ):(
-        <div id="not-signed-in">
-          <h2 id='heading-not-signed-in'>Just a secccc.... <br />You haven't logged in yet
-          </h2>
-        
-          <Link id='not-signed-in-link' to={'/auth'}>
-              <button className='not-signed-in-btn'>
-                  Log In
-              </button>
+
+        <div id="go-to-compare">
+          <Link to="/compareLaptops">
+            <button>Compare</button>
           </Link>
         </div>
-      )}
-    </>
-  )
+
+      </div>
+    </div>
+  );
 }
 
 export default ProductCards;

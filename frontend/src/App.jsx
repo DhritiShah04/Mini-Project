@@ -247,7 +247,6 @@ function App() {
   }
 };
 
-// ... existing code
 
   // const handleUpdateQuery = async () => {
   //   if (!query) return;
