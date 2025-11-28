@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './login_signup.css'
 
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://mini-project-zhpn.onrender.com";
 
 function Signup({user}) {
   const navigate = useNavigate();

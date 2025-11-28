@@ -18,7 +18,7 @@ const DISPLAY_KEYS = [
     "images",
 ];
 
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://mini-project-zhpn.onrender.com";
 
 function ProductCard({initialWishlist, user, item, onWishlistUpdate }) {
   const [isWishlisted, setIsWishlisted] = useState(initialWishlist || false)
