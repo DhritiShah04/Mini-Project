@@ -1,4 +1,0 @@
-npm install recharts
-
-
-so I have files at backend/reviews/json_files/reddit/analysis and similarly backend/reviews/json_files/youtube/analysis and within that the structure is well followed. now tell me how to a

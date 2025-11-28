@@ -8,7 +8,7 @@ from functools import wraps
 from flask import send_file, abort
 from reviews.analysis import process_models
 import threading
-
+PROCESSING_TASKS = set()
 import threading # Ensure threading is imported if the plan is to use it
 
 # ----------------------------------------------------------------------
@@ -168,7 +168,7 @@ def query():
         print("🖥️ Model names:", model_names)
         
         # process_models(model_names)
-        # threading.Thread(target=process_models, args=(model_names,), daemon=True).start()
+        threading.Thread(target=process_models, args=(model_names,), daemon=True).start()
 
         
     return jsonify(resp_json)
@@ -244,21 +244,51 @@ def login():
     else:
         return jsonify({"message": "Invalid username or password"}), 401 
     
-@app.route('/api/reviews/reddit/analysis/<modelname>', methods=['GET'])
-def get_reddit_review_analysis(modelname):
-    base_dir = os.path.join(os.path.dirname(__file__), "reviews", "json_files", "reddit", "analysis")
+@app.route('/api/reviews/analysis/<modelname>', methods=['GET'])
+def get_review_analysis(modelname):
+    # 1. Setup Paths
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "reviews", "json_files", "unified_analysis"))
     safe_modelname = modelname.replace(" ", "_")
-    filename = f"{safe_modelname}_analysis.json"
+    filename = f"{safe_modelname}_unified.json"
     file_path = os.path.join(base_dir, filename)
-    # http://localhost:5000/api/reviews/reddit/analysis/Yoga_Slim_7_Pro
-    print(f"Serving review file: {file_path}")   # <-- Debug line
 
-    if not os.path.isfile(file_path) or not file_path.startswith(base_dir):
-        print("File not found")                    # <-- Debug line
-        return abort(404, description=f"Review analysis for model {modelname} not found.")
+    # 2. Security Check
+    if not os.path.commonpath([base_dir, os.path.abspath(file_path)]) == base_dir:
+        return abort(403, description="Access forbidden: Invalid file path.")
 
-    return send_file(file_path, mimetype='application/json')
+    # 3. Check if file exists
+    if os.path.isfile(file_path):
+        print(f"✅ Serving analysis for: {modelname}")
+        return send_file(file_path, mimetype='application/json')
 
+    # 4. FILE NOT FOUND - TRIGGER ON-DEMAND PROCESSING
+    print(f"⚠️ Analysis not found for: {modelname}")
+
+    if modelname in PROCESSING_TASKS:
+        print(f"⏳ Analysis is already running for {modelname}. Client should retry...")
+    else:
+        print(f"🚀 Triggering background analysis for {modelname}...")
+        
+        # Add to tracking set
+        PROCESSING_TASKS.add(modelname)
+
+        # Define a wrapper to run analysis and clean up the set afterwards
+        def run_and_cleanup(name):
+            try:
+                # Run the actual heavy lifting
+                process_models([name]) 
+            except Exception as e:
+                print(f"❌ Error during on-demand analysis for {name}: {e}")
+            finally:
+                # Remove from tracking set so it can be retried if needed later
+                if name in PROCESSING_TASKS:
+                    PROCESSING_TASKS.remove(name)
+
+        # Start the thread
+        threading.Thread(target=run_and_cleanup, args=(modelname,), daemon=True).start()
+
+    # Return 404 so your React Frontend "catch" block triggers the retry/polling logic
+    return abort(404, description="Analysis processing started. Please retry shortly.")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

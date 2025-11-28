@@ -13,7 +13,7 @@ import os
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 # Ensure cache folder for all model reviews exists
-cache_dir = os.path.join(BASE_DIR, "reviews", "json_files", "youtube", "raw_reviews")
+cache_dir = os.path.join(BASE_DIR, "reviews", "json_files", "youtube_raw_reviews")
 
 os.makedirs(cache_dir, exist_ok=True)
 
