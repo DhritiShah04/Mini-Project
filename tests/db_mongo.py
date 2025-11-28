@@ -70,7 +70,7 @@ def store_bot_response(request_id_str, bot_result):
 # MODIFIED: Added user_id to the function signature
 def store_laptop_recommendations(request_id, items, query_str, user_id=None):
     from Laptop_Bot import fetch_laptop_details  # local import avoids circular dependency
-
+    # ['6929e58cab0f9dc5f99263d8', [{'model': 'Lenovo Legion Slim 5', 'price_inr': '₹1,35,000', 'why': 'Offers great gaming power with a strong processor and graphics card, making it ideal for your demanding tasks and entertainment.'}, {'model': 'Lenovo Yoga Slim 7 Pro', 'price_inr': '₹1,30,000', 'why': 'This laptop delivers a premium experience with its stunning display and smooth performance, perfect for both work and media consumption.'}, {'model': 'Lenovo ThinkBook 16p Gen 3', 'price_inr': '₹1,40,000', 'why': 'Built for professionals, it boasts powerful specs for seamless multitasking and a vibrant screen for an enjoyable viewing experience.'}, {'model': 'Lenovo IdeaPad Pro 5', 'price_inr': '₹1,32,000', 'why': 'Its balance of performance and display quality makes it excellent for everyday use, creative work, and watching movies with clarity.'}, {'model': 'Lenovo Legion 5 Pro', 'price_inr': '₹1,38,000', 'why': 'This powerful machine excels in gaming and video editing, offering a top-notch visual experience for all your high-demand needs.'}], 'use_case: For everyday tasks (browsing, movies, office work) ; budget: Above ₹1,30,000 (Premium laptops) ; processor: Medium – for smooth multitasking (Intel i5 / Ryzen 5) ; ram: 16GB (Best for multitasking and coding) ; gpu: Yes, for gaming, video editing, or graphics-heavy work ; screen_size: Standard (15–16 inches, balanced size) ; battery: Average battery is fine (5–7 hours) ; weight: Doesn’t matter to me ; priorities: Fast performance, Good display quality, Long battery life, Lightweight and portable', '68fa16f36eecfbbfabf1e043']
     
 
     new_models = []
@@ -190,6 +190,10 @@ def store_laptop_recommendations(request_id, items, query_str, user_id=None):
 
 # 🛑 NEW FUNCTION: Performs the required merge for the /laptops route
 def get_merged_recommendations_for_user(user_id):
+    """
+    Fetches the 5 most recent recommendations for a user, merges the product
+    specs from laptops_collection with the query context from users_collection.
+    """
     from bson import ObjectId
     try:
         user_oid = ObjectId(user_id)
@@ -241,6 +245,8 @@ def get_merged_recommendations_for_user(user_id):
     except Exception as e:
         print(f"Error fetching merged recommendations for user {user_id}: {e}")
         return []
+
+# 🛑 REMOVED: get_latest_laptop_recommendations is no longer needed
 
 def parse_query_str(query_str):
     """
