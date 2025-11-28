@@ -218,14 +218,11 @@ def analyze_platform_stats_wrapper(raw_data):
         stats[src] = analyze_sentiment_stats(reviews, sia)
     return stats
 
-# --- 9. PROCESSOR (Uses Mock Scraper) ---
 
 async def process_model(model_name):
     print(f"🔹 Processing model: {model_name}")
     start_model = time.time()
 
-    # NOTE: Cache check removed so we ALWAYS re-process (good for load testing CPU)
-    # If you want cache, add the load_unified_cache check back here.
 
     # 1. FETCH (Using Mock)
     raw_data = {}
