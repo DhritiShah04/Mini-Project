@@ -19,6 +19,7 @@ function Signup({user}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form Submitted!");
     setError('');
     setMessage('');
     setLoading(true);
@@ -34,15 +35,10 @@ function Signup({user}) {
       return;
     }
 
-    const phoneRegex = /^\d{10}$/; // simple 10-digit validation
-    if (!phoneRegex.test(phone)) {
-      setError("Please enter a valid 10-digit phone number.");
-      return;
-    }
-
     setLoading(true);
 
     try {
+       console.log("Form Submitted!");
       const response = await axios.post(`${API_BASE_URL}/signup`, {
         username,
         password,

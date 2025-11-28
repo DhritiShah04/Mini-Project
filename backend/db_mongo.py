@@ -71,8 +71,6 @@ def store_bot_response(request_id_str, bot_result):
 def store_laptop_recommendations(request_id, items, query_str, user_id=None):
     from Laptop_Bot import fetch_laptop_details  # local import avoids circular dependency
 
-    
-
     new_models = []
     item_map = {}
 
@@ -190,10 +188,6 @@ def store_laptop_recommendations(request_id, items, query_str, user_id=None):
 
 # 🛑 NEW FUNCTION: Performs the required merge for the /laptops route
 def get_merged_recommendations_for_user(user_id):
-    """
-    Fetches the 5 most recent recommendations for a user, merges the product
-    specs from laptops_collection with the query context from users_collection.
-    """
     from bson import ObjectId
     try:
         user_oid = ObjectId(user_id)
@@ -245,8 +239,6 @@ def get_merged_recommendations_for_user(user_id):
     except Exception as e:
         print(f"Error fetching merged recommendations for user {user_id}: {e}")
         return []
-
-# 🛑 REMOVED: get_latest_laptop_recommendations is no longer needed
 
 def parse_query_str(query_str):
     """
